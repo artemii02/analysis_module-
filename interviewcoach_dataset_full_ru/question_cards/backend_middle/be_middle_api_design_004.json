@@ -1,0 +1,48 @@
+{
+  "question_id": "be_middle_api_design_004",
+  "question_text": "Какие проблемы возникают, если ошибки API не стандартизированы?",
+  "specialization": "backend",
+  "grade": "middle",
+  "topic": "api_design",
+  "topic_name": "Дизайн API и идемпотентность",
+  "rubric": {
+    "criteria": [
+      "correctness",
+      "completeness",
+      "clarity",
+      "practicality",
+      "terminology"
+    ],
+    "weights": {
+      "correctness": 0.35,
+      "completeness": 0.25,
+      "clarity": 0.15,
+      "practicality": 0.15,
+      "terminology": 0.1
+    }
+  },
+  "keypoints": [
+    "Идемпотентный запрос при повторе приводит к тому же конечному состоянию",
+    "Для долгих операций нужен асинхронный контракт со статусом задачи или job id",
+    "Ломающие изменения API без версии нарушают интеграции клиентов",
+    "Стандартизированный error contract упрощает клиентскую обработку и наблюдаемость",
+    "Надёжный API-дизайн должен учитывать retries, timeouts и backward compatibility"
+  ],
+  "canonical_mistakes": [
+    "Путает идемпотентность с кэшированием или скоростью",
+    "Предлагает для долгой операции только долгое удержание HTTP-соединения",
+    "Недооценивает важность versioning и error schema"
+  ],
+  "recommendation_hints": [
+    "Повторить идемпотентность и retries",
+    "Посмотреть job-based API для long-running operations",
+    "Разобрать versioning и error contracts"
+  ],
+  "source_refs": [
+    "habr_backend_java_1",
+    "habr_backend_java_2",
+    "habr_backend_guide"
+  ],
+  "source_type": "open_source_paraphrased_topic_bank",
+  "language": "ru"
+}

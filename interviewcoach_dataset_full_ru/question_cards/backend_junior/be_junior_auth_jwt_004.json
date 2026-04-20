@@ -1,0 +1,48 @@
+{
+  "question_id": "be_junior_auth_jwt_004",
+  "question_text": "Какие риски есть у хранения токена на клиенте и какие бывают альтернативы?",
+  "specialization": "backend",
+  "grade": "junior",
+  "topic": "auth_jwt",
+  "topic_name": "Аутентификация и JWT",
+  "rubric": {
+    "criteria": [
+      "correctness",
+      "completeness",
+      "clarity",
+      "practicality",
+      "terminology"
+    ],
+    "weights": {
+      "correctness": 0.35,
+      "completeness": 0.25,
+      "clarity": 0.15,
+      "practicality": 0.15,
+      "terminology": 0.1
+    }
+  },
+  "keypoints": [
+    "Аутентификация отвечает на вопрос кто пользователь, авторизация — что ему разрешено",
+    "JWT обычно состоит из header, payload и signature",
+    "Пароль нужно хранить в виде hash, а не в открытом виде; полезен salt",
+    "Токен нужно защищать от XSS/утечки; HttpOnly cookie и localStorage имеют разные риски",
+    "Безопасность схемы зависит не только от места хранения токена, но и от всего auth flow"
+  ],
+  "canonical_mistakes": [
+    "Смешивает аутентификацию и авторизацию",
+    "Считает, что JWT по умолчанию шифрует всё содержимое",
+    "Не знает, почему открытое хранение паролей опасно"
+  ],
+  "recommendation_hints": [
+    "Повторить authentication vs authorization",
+    "Разобрать устройство JWT",
+    "Освежить password hashing и риски XSS/CSRF"
+  ],
+  "source_refs": [
+    "habr_backend_php_junior",
+    "habr_backend_java_1",
+    "ru_so_java_interview"
+  ],
+  "source_type": "open_source_paraphrased_topic_bank",
+  "language": "ru"
+}

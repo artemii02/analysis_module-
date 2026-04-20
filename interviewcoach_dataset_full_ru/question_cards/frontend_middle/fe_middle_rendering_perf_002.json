@@ -1,0 +1,48 @@
+{
+  "question_id": "fe_middle_rendering_perf_002",
+  "question_text": "Когда memoization в React полезна, а когда только усложняет код?",
+  "specialization": "frontend",
+  "grade": "middle",
+  "topic": "rendering_perf",
+  "topic_name": "Рендеринг и производительность",
+  "rubric": {
+    "criteria": [
+      "correctness",
+      "completeness",
+      "clarity",
+      "practicality",
+      "terminology"
+    ],
+    "weights": {
+      "correctness": 0.35,
+      "completeness": 0.25,
+      "clarity": 0.15,
+      "practicality": 0.15,
+      "terminology": 0.1
+    }
+  },
+  "keypoints": [
+    "Не каждый ререндер критичен, но на больших деревьях или тяжёлых вычислениях он может быть дорогим",
+    "Memoization полезна, когда реально сокращает дорогие вычисления или rerender cost",
+    "Code splitting уменьшает initial bundle и ускоряет первую загрузку",
+    "Производительность нужно подтверждать метриками и профилированием",
+    "Оптимизация без измерений может сделать код сложнее без реальной пользы"
+  ],
+  "canonical_mistakes": [
+    "Считает любой ререндер ошибкой",
+    "Использует memoization везде без причины",
+    "Пытается оптимизировать без профилирования и данных"
+  ],
+  "recommendation_hints": [
+    "Повторить основы React performance",
+    "Разобрать memo/useMemo/useCallback на практических кейсах",
+    "Посмотреть bundle size и профилирование"
+  ],
+  "source_refs": [
+    "habr_frontend_js_1",
+    "habr_frontend_questions",
+    "so_frontend_interview"
+  ],
+  "source_type": "open_source_paraphrased_topic_bank",
+  "language": "ru"
+}

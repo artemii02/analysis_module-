@@ -1,102 +1,165 @@
-﻿# Модуль анализа ответов на интервью
+﻿# Модуль анализа ответов пользователя
 
-Это отдельный сервис на FastAPI для анализа ответов пользователя на технические вопросы интервью.
+Автономный модуль для анализа ответов кандидата после технического интервью. Модуль принимает вопросы и ответы пользователя, сопоставляет их с рубриками и локальной базой знаний, формирует оценку по критериям и возвращает итоговый JSON-отчёт. Работает через консоль и через REST API с OpenAPI-описанием.
 
-Что делает модуль:
-- принимает список вопросов и ответов по одной сессии;
-- оценивает каждый ответ локальной LLM через Ollama;
-- строит итоговый JSON-отчёт по сессии;
-- сохраняет задания и отчёты в PostgreSQL;
-- отдаёт question bank и OpenAPI-контракт для интеграции с backend.
+## Состав модуля
 
-Текущая демонстрационная сборка работает как отдельный модуль общего проекта и подходит для записи демонстрации контрольной точки.
+- Банк вопросов: 120 карточек на русском языке.
+- Профили: Backend, Frontend, DevOps.
+- Грейды: Junior, Middle.
+- Размеченный датасет: 600 записей, split `train/eval/test` = 360/120/120.
+- Локальная базовая модель: `Qwen/Qwen2.5-3B-Instruct`.
+- Дообученный адаптер: LoRA/QLoRA `training/artifacts/qwen2.5-3b-interview-full-ru-qlora-v1`.
+- Runtime-провайдеры: `mock`, `ollama`, `hf`.
+- Хранилище задач API: in-memory или PostgreSQL.
+- Ограничения API: до 20 вопросов в одной сессии, до 4000 символов в одном ответе.
 
-## Технологии
+## Режимы работы
 
-- FastAPI
-- PostgreSQL
-- Docker / Docker Compose
-- Ollama
-- локальная модель `qwen2.5:3b`
+`hf` — основной рабочий режим модуля. Базовая модель Qwen 2.5 3B и LoRA-адаптер загружаются локально через Transformers/PEFT. Этот режим используется для демонстрации итогового модуля и проверки качества модели.
 
-## Быстрый запуск
+`mock` — быстрый режим без загрузки LLM. Используется для проверки консольных команд, API, структуры JSON и общей работоспособности пайплайна.
 
-1. Установить Docker Desktop.
-2. Открыть корень проекта.
-3. Запустить `start.bat`.
-4. Дождаться поднятия контейнеров и первой загрузки модели `qwen2.5:3b`.
-5. Открыть `http://127.0.0.1:8000/demo`.
+`ollama` — Docker-режим для запуска API вместе с PostgreSQL и Ollama. Он использует модель `qwen2.5:3b` из Ollama и не подключает LoRA-адаптер из `training/artifacts`.
 
-Для остановки использовать `stop.bat`.
+## Установка для локального HF/LoRA запуска
 
-## Что доступно после запуска
+```powershell
+python -m venv .venv
+.\.venv\Scripts\activate
+pip install -e ".[dev,training,qlora]"
+pip install --force-reinstall torch --index-url https://download.pytorch.org/whl/cu128
+pip install fsspec==2025.3.0
+```
 
-- Demo UI: `http://127.0.0.1:8000/demo`
+Проверить CUDA:
+
+```powershell
+.\.venv\Scripts\python.exe -c "import torch; print(torch.__version__); print(torch.cuda.is_available()); print(torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'no cuda')"
+```
+
+При первом запуске `hf` модель скачивается в кеш Hugging Face. Последующие запуски используют локальный кеш.
+
+## Быстрый запуск консоли
+
+Показать вопросы:
+
+```powershell
+.\console.bat questions --specialization backend --grade junior --limit 10
+```
+
+Быстро сформировать отчёт без загрузки LLM:
+
+```powershell
+.\console.bat sample --quality good --specialization backend --grade junior --limit 10 --llm mock --output training\reports\mock_report.json
+```
+
+Сформировать отчёт на готовом ответе из датасета через дообученную локальную модель:
+
+```powershell
+.\console.bat sample --quality good --specialization backend --grade junior --limit 1 --llm hf --output training\reports\hf_3b_lora_sample_report.json
+```
+
+Пройти интервью вручную в консоли:
+
+```powershell
+.\console.bat run --specialization backend --grade junior --limit 10 --llm hf --output training\reports\manual_hf_report.json
+```
+
+## Как строится оценка
+
+1. Модуль получает `question_id`, текст вопроса и ответ пользователя.
+2. По `question_id`, профилю и грейду загружаются карточка вопроса, рубрика, ключевые пункты ответа и фрагмент локальной базы знаний.
+3. Если ответ является заглушкой или слишком коротким текстом (`хз`, `не знаю`, пустой ответ и похожие случаи), LLM не вызывается: модуль возвращает низкую детерминированную оценку.
+4. Для содержательного ответа `hf` или `ollama` провайдер формирует JSON с оценками по критериям `correctness`, `completeness`, `clarity`, `practicality`, `terminology`.
+5. Балл за вопрос считается как взвешенное среднее критериев по рубрике вопроса.
+6. Итоговый балл сессии считается как среднее значение баллов по всем вопросам.
+7. В отчёт добавляются сильные стороны, проблемы, покрытые и пропущенные ключевые пункты, рекомендации и версии модели/рубрик/базы знаний.
+
+## Проверка качества
+
+Запустить оценку на части eval-датасета:
+
+```powershell
+.\console.bat evaluate --limit 5 --llm hf --output training\reports\hf_3b_lora_eval_predictions.jsonl
+```
+
+Посчитать метрики по сохранённым предсказаниям:
+
+```powershell
+.\.venv\Scripts\python.exe training\scripts\evaluate_predictions.py --input training\reports\hf_3b_lora_eval_predictions.jsonl --output training\reports\hf_3b_lora_quality_metrics.json
+```
+
+Основные метрики:
+
+- `MAE` — средняя абсолютная ошибка в баллах.
+- `RMSE` — среднеквадратичная ошибка, сильнее штрафует крупные промахи.
+- `bias` — среднее смещение прогноза: положительное значение означает завышение оценок, отрицательное — занижение.
+- `within_10` — доля ответов, где модель ошиблась не более чем на 10 баллов.
+- `within_15` — доля ответов, где модель ошиблась не более чем на 15 баллов.
+
+Метрики дополнительно считаются по quality band, профилям и темам.
+
+## REST API и OpenAPI
+
+Запуск API в локальном HF/LoRA режиме:
+
+```powershell
+.\start_hf_api.bat
+```
+
+Запуск API в Docker/Ollama режиме:
+
+```powershell
+.\start.bat
+```
+
+Docker-режим поднимает три сервиса: `analysis-module`, `postgres`, `ollama`.
+
+После запуска доступны:
+
 - Swagger UI: `http://127.0.0.1:8000/docs`
 - OpenAPI JSON: `http://127.0.0.1:8000/openapi.json`
 - Health: `http://127.0.0.1:8000/assessment/v1/health`
+- Метрики: `http://127.0.0.1:8000/assessment/v1/metrics`
+- Demo UI: `http://127.0.0.1:8000/demo`
 
-## Как проверить модуль вручную
+Остановка Docker-режима:
 
-1. Открыть `/demo`.
-2. Выбрать набор вопросов.
-3. Вписать ответы вручную в текстовые поля.
-4. Нажать `Сгенерировать отчёт`.
-5. Проверить, что на странице появились:
-   - общий балл;
-   - оценки по критериям;
-   - разбор по каждому вопросу;
-   - рекомендации;
-   - итоговый JSON-ответ.
+```powershell
+.\stop.bat
+```
 
-Для демонстрации доступен набор `Backend Junior: 10 вопросов`.
-
-## Интеграция с backend
-
-Основной сценарий интеграции:
-1. backend получает или формирует список вопросов текущей сессии;
-2. backend отправляет JSON в `POST /assessment/v1/report`;
-3. модуль возвращает готовый JSON-отчёт;
-4. backend сохраняет отчёт у себя или показывает его в основном приложении.
-
-Для защищённых endpoint нужно передавать заголовок:
+Получить список вопросов:
 
 ```http
+GET /assessment/v1/questions?specialization=backend&grade=junior&limit=10
 X-API-Key: demo-api-key
 ```
 
-Если ключ будет изменён через переменную окружения `ANALYSIS_API_KEY`, backend должен использовать новое значение.
+Сформировать отчёт:
 
-## Получение банка вопросов
-
-`GET /assessment/v1/questions?specialization=backend&grade=junior&limit=10`
-
-Пример ответа:
-
-```json
-{
-  "status": "ok",
-  "specialization": "backend",
-  "grade": "junior",
-  "count": 10,
-  "items": [
-    {
-      "question_id": "backend_junior_rest_methods",
-      "specialization": "backend",
-      "grade": "junior",
-      "topic_code": "http_api",
-      "topic_label": "HTTP API и REST-подход",
-      "question_text": "Чем отличаются методы GET, POST, PUT и DELETE в REST API?",
-      "tags": ["http", "rest", "crud"],
-      "version": "questions-2026.03-demo"
-    }
-  ]
-}
+```http
+POST /assessment/v1/report
+X-API-Key: demo-api-key
+Content-Type: application/json
 ```
 
-## JSON, который backend отправляет в модуль анализа
+Проверить статус асинхронной задачи:
 
-`POST /assessment/v1/report`
+```http
+GET /assessment/v1/report/{job_id}/status
+X-API-Key: demo-api-key
+```
+
+Получить готовый отчёт:
+
+```http
+GET /assessment/v1/report/{job_id}
+X-API-Key: demo-api-key
+```
+
+Пример тела запроса:
 
 ```json
 {
@@ -108,144 +171,108 @@ X-API-Key: demo-api-key
     "scenario_id": "backend_junior_session",
     "specialization": "backend",
     "grade": "junior",
-    "topics": ["http_api", "sql_performance", "distributed_systems"],
+    "topics": ["http_rest", "sql_indexes"],
     "report_language": "ru"
   },
   "items": [
     {
       "item_id": "item-1",
-      "question_id": "backend_junior_rest_methods",
-      "question_text": "Чем отличаются методы GET, POST, PUT и DELETE в REST API?",
-      "answer_text": "GET читает ресурс и не должен менять состояние. POST обычно создает ресурс. PUT заменяет ресурс целиком и является идемпотентным. DELETE удаляет ресурс.",
-      "asked_at": "2026-03-17T10:00:00Z",
-      "tags": ["http", "rest", "crud"]
-    },
-    {
-      "item_id": "item-2",
-      "question_id": "backend_junior_sql_index",
-      "question_text": "Что такое индекс в SQL-базе данных и когда он помогает?",
-      "answer_text": "Индекс ускоряет поиск по WHERE и JOIN, но занимает место и замедляет запись.",
-      "asked_at": "2026-03-17T10:02:00Z",
-      "tags": ["sql", "index", "performance"]
+      "question_id": "be_junior_http_rest_003",
+      "question_text": "В чём разница между PUT и PATCH?",
+      "answer_text": "PUT обычно заменяет ресурс целиком, PATCH применяют для частичного обновления. Идемпотентность PATCH зависит от операции.",
+      "tags": ["http_rest"]
     }
   ],
   "metadata": {
-    "source": "main-backend",
-    "subscription_plan": "start"
+    "source": "main-backend"
   }
 }
 ```
 
-## JSON, который модуль возвращает backend
+Ответ API содержит `job` и `report`. В `report` возвращаются:
 
-Пример ответа для `mode = sync`:
+- `overall_score` — общий балл сессии.
+- `criterion_scores` — агрегированные оценки по критериям.
+- `summary` — краткое резюме.
+- `questions` — детальный разбор каждого ответа.
+- `topics` — агрегированный разбор по темам.
+- `recommendations` — итоговые рекомендации.
+- `versions` — версии модели, рубрик, базы знаний, банка вопросов и промпта.
 
-```json
-{
-  "status": "ready",
-  "job": {
-    "status": "ready",
-    "job_id": "6e1a3ade-6691-44a6-9c0b-87ace1a083f5",
-    "request_id": "req-1001",
-    "session_id": "session-1001",
-    "created_at": "2026-03-17T10:05:21+00:00",
-    "updated_at": "2026-03-17T10:05:34+00:00",
-    "error_code": null,
-    "error_message": null
-  },
-  "report": {
-    "request_id": "req-1001",
-    "session_id": "session-1001",
-    "client_id": "main-backend",
-    "specialization": "backend",
-    "grade": "junior",
-    "overall_score": 74,
-    "criterion_scores": {
-      "correctness": 78,
-      "completeness": 72,
-      "clarity": 75,
-      "practicality": 70,
-      "terminology": 73
-    },
-    "summary": "Сессия показывает уверенное понимание базовых тем backend junior. Основной резерв улучшения связан с полнотой и практической детализацией ответов.",
-    "questions": [
-      {
-        "item_id": "item-1",
-        "question_id": "backend_junior_rest_methods",
-        "question_text": "Чем отличаются методы GET, POST, PUT и DELETE в REST API?",
-        "topic": "HTTP API и REST-подход",
-        "score": 80,
-        "criterion_scores": {
-          "correctness": 84,
-          "completeness": 78,
-          "clarity": 82,
-          "practicality": 75,
-          "terminology": 78
-        },
-        "summary": "Ответ в целом корректно различает основные HTTP-методы и их назначение.",
-        "strengths": [
-          "Корректно описана семантика GET и POST.",
-          "Упомянута идемпотентность PUT."
-        ],
-        "issues": [
-          "Не раскрыто, почему GET считается safe-методом."
-        ],
-        "covered_keypoints": [
-          "GET используется для чтения ресурса.",
-          "PUT должен быть идемпотентным."
-        ],
-        "missing_keypoints": [
-          "Не раскрыта safe-семантика GET."
-        ],
-        "detected_mistakes": [],
-        "recommendations": [
-          "Добавить объяснение safe- и idempotent-семантики HTTP-методов."
-        ],
-        "context_snippets": [
-          {
-            "chunk_id": "kb_backend_http_1",
-            "source_title": "REST semantics notes",
-            "source_url": "https://example.local/kb/rest-semantics",
-            "excerpt": "GET запрашивает представление ресурса и по спецификации считается safe-методом...",
-            "score": 0.62
-          }
-        ]
-      }
-    ],
-    "topics": [
-      {
-        "topic": "HTTP API и REST-подход",
-        "average_score": 80,
-        "strengths": ["Базовая семантика HTTP-методов раскрыта верно."],
-        "gaps": ["Не хватает объяснения safe/idempotent-свойств."]
-      }
-    ],
-    "recommendations": [
-      "Усилить ответы практическими примерами и деталями по протоколу HTTP."
-    ],
-    "versions": {
-      "model_version": "qwen2.5:3b",
-      "rubric_version": "rubrics-2026.03-demo",
-      "kb_version": "kb-2026.03-demo",
-      "questions_version": "questions-2026.03-demo",
-      "prompt_version": "ollama-json-ru-v4"
-    },
-    "generated_at": "2026-03-17T10:05:34+00:00"
-  }
-}
+## Настройки модели и API
+
+Основные переменные окружения:
+
+```powershell
+$env:ANALYSIS_API_KEY="demo-api-key"
+$env:ANALYSIS_LLM_MODE="hf"
+$env:ANALYSIS_JOB_STORE_BACKEND="memory"
+$env:ANALYSIS_HF_BASE_MODEL="Qwen/Qwen2.5-3B-Instruct"
+$env:ANALYSIS_HF_ADAPTER_PATH="training/artifacts/qwen2.5-3b-interview-full-ru-qlora-v1"
+$env:ANALYSIS_HF_LOAD_IN_4BIT="true"
+$env:ANALYSIS_HF_MAX_NEW_TOKENS="900"
+$env:ANALYSIS_MAX_SESSION_ITEMS="20"
+$env:ANALYSIS_MAX_ANSWER_LENGTH="4000"
 ```
 
-## Асинхронный режим
+По умолчанию режим `hf` использует адаптер `training/artifacts/qwen2.5-3b-interview-full-ru-qlora-v1`.
 
-Если отправить `"mode": "async"`, сервис сначала вернёт только статус задачи, а готовый отчёт можно забрать позже:
-- `GET /assessment/v1/report/{job_id}/status`
-- `GET /assessment/v1/report/{job_id}`
+## Датасет
 
-## OpenAPI для backend
+Полный датасет находится в `interviewcoach_dataset_full_ru`.
 
-1. склонировать репозиторий;
-2. запустить `start.bat`;
-3. открыть `http://127.0.0.1:8000/docs`;
-4. подключиться к endpoint `GET /assessment/v1/questions` и `POST /assessment/v1/report`.
+Структура датасета:
 
-Контракт целиком доступен по адресу `http://127.0.0.1:8000/openapi.json`.
+- `question_cards` — карточки вопросов с рубриками и ключевыми пунктами.
+- `raw` — размеченные записи для обучения и оценки.
+- `export` — SFT-датасет для дообучения.
+- `coverage_matrix.csv` — покрытие профилей, грейдов и тем.
+- `annotation_guidelines.md` — правила разметки.
+- `manifests/sources.csv` — источники и ссылки на материалы.
+- `reports/validation_report.json` — отчёт валидации датасета.
+
+Синхронизировать датасет с runtime-файлами и `training/data`:
+
+```powershell
+.\.venv\Scripts\python.exe training\scripts\sync_full_dataset.py
+```
+
+Проверить структуру датасета:
+
+```powershell
+.\.venv\Scripts\python.exe training\scripts\validate_dataset.py
+```
+
+Ожидаемый результат:
+
+```text
+Dataset validation passed: 600 records checked.
+```
+
+## Дообучение модели
+
+Smoke-run 3B QLoRA:
+
+```powershell
+.\.venv\Scripts\python.exe training\scripts\finetune_lora.py --config training\configs\qlora_rtx3060_6gb_smoke.json
+```
+
+Полное дообучение 3B QLoRA:
+
+```powershell
+.\.venv\Scripts\python.exe training\scripts\finetune_lora.py --config training\configs\qlora_rtx3060_6gb.json
+```
+
+Проверить инициализацию без запуска обучения:
+
+```powershell
+.\.venv\Scripts\python.exe training\scripts\finetune_lora.py --config training\configs\qlora_rtx3060_6gb.json --dry-run
+```
+
+Финальный адаптер сохраняется в:
+
+```text
+training/artifacts/qwen2.5-3b-interview-full-ru-qlora-v1
+```
+
+После дообучения этот путь нужно оставить в `ANALYSIS_HF_ADAPTER_PATH`.

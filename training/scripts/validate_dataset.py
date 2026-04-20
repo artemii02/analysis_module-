@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import argparse
 import json
@@ -9,6 +9,7 @@ ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_FILES = [
     ROOT / "training" / "data" / "raw_train.jsonl",
     ROOT / "training" / "data" / "raw_eval.jsonl",
+    ROOT / "training" / "data" / "raw_test.jsonl",
 ]
 REQUIRED_KEYS = {
     "record_id",
@@ -35,12 +36,10 @@ EXPECTED_FEEDBACK_KEYS = {
 }
 
 
-
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description="Проверка структуры raw JSONL датасета.")
     parser.add_argument("files", nargs="*", type=Path, default=DEFAULT_FILES)
     return parser.parse_args()
-
 
 
 def validate_record(record: dict, source: Path, line_no: int) -> list[str]:
@@ -68,10 +67,11 @@ def validate_record(record: dict, source: Path, line_no: int) -> list[str]:
     missing = set(feedback.get("missing_keypoints", []))
     if not covered and not missing:
         errors.append(f"{source}:{line_no} both covered_keypoints and missing_keypoints are empty")
+    if covered & missing:
+        errors.append(f"{source}:{line_no} covered_keypoints and missing_keypoints overlap")
     if not (covered | missing).issubset(keypoints):
         errors.append(f"{source}:{line_no} covered/missing keypoints contain values outside original keypoints")
     return errors
-
 
 
 def main() -> None:

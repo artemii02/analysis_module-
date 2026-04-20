@@ -1,0 +1,48 @@
+{
+  "question_id": "do_middle_kubernetes_003",
+  "question_text": "Что делает readiness probe и почему без неё rollout может быть проблемным?",
+  "specialization": "devops",
+  "grade": "middle",
+  "topic": "kubernetes",
+  "topic_name": "Kubernetes workloads",
+  "rubric": {
+    "criteria": [
+      "correctness",
+      "completeness",
+      "clarity",
+      "practicality",
+      "terminology"
+    ],
+    "weights": {
+      "correctness": 0.35,
+      "completeness": 0.25,
+      "clarity": 0.15,
+      "practicality": 0.15,
+      "terminology": 0.1
+    }
+  },
+  "keypoints": [
+    "Kubernetes управляет размещением, перезапуском, масштабированием и декларативным состоянием контейнеров",
+    "Deployment подходит для stateless workloads, StatefulSet — когда важны стабильные идентификаторы и состояние",
+    "Readiness probe не даёт слать трафик в ещё не готовый pod",
+    "Requests и limits влияют на планирование и защиту от resource contention",
+    "Оркестрация требует понимать и приложение, и операционные ограничения кластера"
+  ],
+  "canonical_mistakes": [
+    "Не различает Deployment и StatefulSet",
+    "Путает readiness и liveness",
+    "Недооценивает влияние resource requests/limits"
+  ],
+  "recommendation_hints": [
+    "Повторить основные сущности Kubernetes",
+    "Разобрать probes и rollout",
+    "Посмотреть requests/limits и scheduling"
+  ],
+  "source_refs": [
+    "habr_devops_senior",
+    "so_devops_tag",
+    "habr_devops_path_2026"
+  ],
+  "source_type": "open_source_paraphrased_topic_bank",
+  "language": "ru"
+}

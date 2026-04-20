@@ -1,0 +1,48 @@
+{
+  "question_id": "fe_middle_ssr_hydration_002",
+  "question_text": "Зачем может быть полезен SSR или pre-rendering?",
+  "specialization": "frontend",
+  "grade": "middle",
+  "topic": "ssr_hydration",
+  "topic_name": "SSR, CSR и hydration",
+  "rubric": {
+    "criteria": [
+      "correctness",
+      "completeness",
+      "clarity",
+      "practicality",
+      "terminology"
+    ],
+    "weights": {
+      "correctness": 0.35,
+      "completeness": 0.25,
+      "clarity": 0.15,
+      "practicality": 0.15,
+      "terminology": 0.1
+    }
+  },
+  "keypoints": [
+    "CSR рендерит приложение в основном на клиенте, SSR — частично или полностью на сервере",
+    "SSR может улучшать time-to-content и SEO в некоторых сценариях",
+    "Hydration связывает серверный HTML с клиентским приложением и требует совпадения разметки",
+    "Несовпадение серверного и клиентского вывода приводит к hydration errors",
+    "Нет универсально лучшей стратегии: выбор зависит от UX, SEO, infra и продукта"
+  ],
+  "canonical_mistakes": [
+    "Считает SSR всегда лучше CSR",
+    "Не понимает идею hydration",
+    "Игнорирует продуктовый контекст выбора стратегии"
+  ],
+  "recommendation_hints": [
+    "Повторить SSR vs CSR",
+    "Разобрать hydration mismatch",
+    "Посмотреть trade-offs разных rendering strategies"
+  ],
+  "source_refs": [
+    "habr_frontend_questions",
+    "so_frontend_interview",
+    "habr_frontend_js_2"
+  ],
+  "source_type": "open_source_paraphrased_topic_bank",
+  "language": "ru"
+}

@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
@@ -9,13 +9,12 @@ from interview_analysis.core.config import get_settings
 from interview_analysis.exceptions import AnalysisError
 
 
-
 def create_app() -> FastAPI:
     settings = get_settings()
     app = FastAPI(
         title=settings.app_name,
         version=__version__,
-        description='?????? ??????? ??????? ???????????? ?? ??????????? ???????? ? ????????? LLM ? JSON-??????? ??? ??????????.',
+        description='Сервис анализа ответов пользователя на техническом интервью с локальной LLM и JSON-отчётом для интеграции.',
     )
     app.include_router(demo.router, tags=['demo'])
     app.include_router(health.router, prefix=settings.api_prefix, tags=['health'])

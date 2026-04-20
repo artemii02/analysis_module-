@@ -1,0 +1,43 @@
+{
+  "question_id": "be_junior_cache_002",
+  "question_text": "Для чего обычно используют Redis?",
+  "specialization": "backend",
+  "grade": "junior",
+  "topic": "caching_redis",
+  "rubric": {
+    "criteria": [
+      "correctness",
+      "completeness",
+      "clarity",
+      "practicality",
+      "terminology"
+    ],
+    "weights": {
+      "correctness": 0.35,
+      "completeness": 0.25,
+      "clarity": 0.15,
+      "practicality": 0.15,
+      "terminology": 0.1
+    }
+  },
+  "keypoints": [
+    "Redis — in-memory хранилище данных, часто используемое для кэширования.",
+    "Его также используют для счётчиков, сессий, очередей или короткоживущих данных.",
+    "Так как Redis работает в памяти, обычно он очень быстрый.",
+    "Он не должен автоматически заменять основную базу данных для всех данных.",
+    "Сценарий использования зависит от паттернов доступа и требований к надёжности хранения."
+  ],
+  "canonical_mistakes": [
+    "Описывает Redis только как замену базы данных.",
+    "Не упоминает, что Redis хранит данные в памяти.",
+    "Объясняет только один сценарий без общего понимания.",
+    "Игнорирует компромиссы durability и persistence."
+  ],
+  "recommendation_hints": [
+    "Повторить распространённые сценарии использования Redis.",
+    "Изучить компромиссы memory-based storage.",
+    "Сравнить Redis с реляционными базами в роли основного хранилища."
+  ],
+  "language": "ru",
+  "dataset_stage": "v1_backend_junior_ru"
+}

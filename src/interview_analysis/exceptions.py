@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 
 class AnalysisError(Exception):
@@ -17,7 +17,7 @@ class AnalysisError(Exception):
 
 
 class AuthenticationError(AnalysisError):
-    def __init__(self, message: str = "???????? API-????.") -> None:
+    def __init__(self, message: str = "Неверный API-ключ.") -> None:
         super().__init__("AUTHENTICATION_ERROR", message, status_code=401)
 
 
@@ -35,7 +35,7 @@ class UnknownQuestionError(AnalysisError):
     def __init__(self, question_id: str) -> None:
         super().__init__(
             "UNKNOWN_QUESTION",
-            f"?????? '{question_id}' ?????????? ??? ?????????? ????????.",
+            f"Вопрос '{question_id}' отсутствует или недоступен для выбранного профиля.",
             status_code=404,
             details={"question_id": question_id},
         )
@@ -50,7 +50,7 @@ class ReportNotReadyError(AnalysisError):
     def __init__(self, job_id: str) -> None:
         super().__init__(
             "REPORT_NOT_READY",
-            f"????? ??? ?????? '{job_id}' ??? ?? ?????.",
+            f"Отчёт для задачи '{job_id}' ещё не готов.",
             status_code=409,
             details={"job_id": job_id},
         )
@@ -60,7 +60,7 @@ class JobNotFoundError(AnalysisError):
     def __init__(self, job_id: str) -> None:
         super().__init__(
             "JOB_NOT_FOUND",
-            f"?????? '{job_id}' ?? ???????.",
+            f"Задача '{job_id}' не найдена.",
             status_code=404,
             details={"job_id": job_id},
         )

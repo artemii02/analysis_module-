@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 from functools import lru_cache
 
@@ -32,7 +32,6 @@ def get_service() -> AssessmentService:
     )
 
 
-
 def _build_llm_provider(settings: Settings):
     if settings.llm_mode == "ollama":
         return OllamaLLMProvider(
@@ -41,8 +40,17 @@ def _build_llm_provider(settings: Settings):
             prompt_path=settings.prompt_path,
             timeout_seconds=settings.request_timeout_seconds,
         )
-    return MockLLMProvider()
+    if settings.llm_mode == "hf":
+        from interview_analysis.services.llm.hf_provider import HFLLMProvider
 
+        return HFLLMProvider(
+            base_model=settings.hf_base_model,
+            adapter_path=settings.hf_adapter_path,
+            device=settings.hf_device,
+            max_new_tokens=settings.hf_max_new_tokens,
+            load_in_4bit=settings.hf_load_in_4bit,
+        )
+    return MockLLMProvider()
 
 
 def _build_job_store(settings: Settings):
@@ -59,7 +67,6 @@ def _build_job_store(settings: Settings):
             schema_path=settings.db_schema_path,
         )
     return InMemoryAssessmentJobStore()
-
 
 
 def verify_api_key(x_api_key: str | None = Header(default=None, alias="X-API-Key")) -> None:

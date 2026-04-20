@@ -1,0 +1,43 @@
+{
+  "question_id": "be_junior_auth_001",
+  "question_text": "Что такое JWT и для чего он используется?",
+  "specialization": "backend",
+  "grade": "junior",
+  "topic": "jwt_auth",
+  "rubric": {
+    "criteria": [
+      "correctness",
+      "completeness",
+      "clarity",
+      "practicality",
+      "terminology"
+    ],
+    "weights": {
+      "correctness": 0.35,
+      "completeness": 0.25,
+      "clarity": 0.15,
+      "practicality": 0.15,
+      "terminology": 0.1
+    }
+  },
+  "keypoints": [
+    "JWT — это компактный формат токена для передачи claims.",
+    "Он часто используется в потоках аутентификации или авторизации.",
+    "JWT содержит закодированные части, например header, payload и signature.",
+    "Подпись используется для проверки целостности.",
+    "JWT по умолчанию не следует считать зашифрованным."
+  ],
+  "canonical_mistakes": [
+    "Утверждает, что JWT — это зашифрованный пароль.",
+    "Объясняет JWT без упоминания claims или подписи.",
+    "Считает JWT безопасным для раскрытия, потому что он якобы нечитаем.",
+    "Путает JWT с session id, который хранится только на сервере."
+  ],
+  "recommendation_hints": [
+    "Повторить структуру JWT.",
+    "Различать кодирование, подпись и шифрование.",
+    "Изучить типовые сценарии использования JWT в backend-системах."
+  ],
+  "language": "ru",
+  "dataset_stage": "v1_backend_junior_ru"
+}

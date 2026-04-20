@@ -1,0 +1,43 @@
+{
+  "question_id": "be_junior_auth_004",
+  "question_text": "Для чего нужны access token и refresh token?",
+  "specialization": "backend",
+  "grade": "junior",
+  "topic": "jwt_auth",
+  "rubric": {
+    "criteria": [
+      "correctness",
+      "completeness",
+      "clarity",
+      "practicality",
+      "terminology"
+    ],
+    "weights": {
+      "correctness": 0.35,
+      "completeness": 0.25,
+      "clarity": 0.15,
+      "practicality": 0.15,
+      "terminology": 0.1
+    }
+  },
+  "keypoints": [
+    "Access token — короткоживущий токен для доступа к защищённым ресурсам.",
+    "Refresh token используется для получения нового access token.",
+    "Короткий срок жизни access token снижает ущерб при краже.",
+    "Refresh token нужно хранить более осторожно.",
+    "Разделение токенов улучшает безопасность и управление сессиями."
+  ],
+  "canonical_mistakes": [
+    "Утверждает, что access token и refresh token — одно и то же.",
+    "Считает, что refresh token отправляется в каждом API-запросе.",
+    "Объясняет только срок действия токена без механизма обновления.",
+    "Игнорирует преимущества безопасности от разделения токенов."
+  ],
+  "recommendation_hints": [
+    "Повторить token-based authentication flow.",
+    "Изучить жизненный цикл access и refresh token.",
+    "Подумать о безопасном хранении и отзыве refresh token."
+  ],
+  "language": "ru",
+  "dataset_stage": "v1_backend_junior_ru"
+}

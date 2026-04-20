@@ -1,0 +1,48 @@
+{
+  "question_id": "fe_junior_browser_dom_001",
+  "question_text": "Что такое DOM?",
+  "specialization": "frontend",
+  "grade": "junior",
+  "topic": "browser_dom",
+  "topic_name": "Браузер и DOM",
+  "rubric": {
+    "criteria": [
+      "correctness",
+      "completeness",
+      "clarity",
+      "practicality",
+      "terminology"
+    ],
+    "weights": {
+      "correctness": 0.35,
+      "completeness": 0.25,
+      "clarity": 0.15,
+      "practicality": 0.15,
+      "terminology": 0.1
+    }
+  },
+  "keypoints": [
+    "DOM — это объектное представление HTML-документа в памяти браузера",
+    "События могут всплывать от дочернего элемента к родителям, что важно для delegation",
+    "Частые DOM-изменения могут вызывать reflow и repaint",
+    "localStorage доступен из JavaScript и не отправляется автоматически на сервер, в отличие от cookie",
+    "Работа с браузером требует понимания и API, и performance, и storage-механизмов"
+  ],
+  "canonical_mistakes": [
+    "Не понимает связь JavaScript и DOM",
+    "Не знает про bubbling и delegation",
+    "Считает localStorage и cookie одинаковыми"
+  ],
+  "recommendation_hints": [
+    "Повторить DOM tree и browser APIs",
+    "Разобрать event bubbling и delegation",
+    "Посмотреть reflow/repaint и browser storage"
+  ],
+  "source_refs": [
+    "habr_frontend_js_1",
+    "so_frontend_interview",
+    "habr_frontend_questions"
+  ],
+  "source_type": "open_source_paraphrased_topic_bank",
+  "language": "ru"
+}

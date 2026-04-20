@@ -1,9 +1,9 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 from fastapi import APIRouter, Depends
 
 from interview_analysis.api.dependencies import get_service, verify_api_key
-from interview_analysis.core.config import get_settings
+from interview_analysis.core.config import Settings, get_settings
 from interview_analysis.schemas.api import HealthResponsePayload
 
 
@@ -17,7 +17,7 @@ def health(service=Depends(get_service)) -> dict:
         'status': 'ok',
         'service': settings.app_name,
         'llm_mode': settings.llm_mode,
-        'llm_model': settings.ollama_model if settings.llm_mode == 'ollama' else 'mock-heuristic-v1',
+        'llm_model': _llm_model_name(settings),
         'api_prefix': settings.api_prefix,
         'job_store': service.health_snapshot(),
     }
@@ -33,3 +33,13 @@ def metrics(
         'metrics': service.metrics_snapshot(),
         'job_store': service.health_snapshot(),
     }
+
+
+def _llm_model_name(settings: Settings) -> str:
+    if settings.llm_mode == 'ollama':
+        return settings.ollama_model
+    if settings.llm_mode == 'hf':
+        if settings.hf_adapter_path:
+            return f'{settings.hf_base_model}+{settings.hf_adapter_path.name}'
+        return settings.hf_base_model
+    return 'mock-heuristic-v1'

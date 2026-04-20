@@ -1,0 +1,17 @@
+source_id,title,url,domain,note
+habr_frontend_react_junior,Вопросы к собеседованию React (Junior level) / Хабр,https://habr.com/ru/articles/803799/,frontend,React Junior темы
+habr_frontend_js_1,Вопросы и ответы для собеседования на позицию frontend-разработчик. Часть 1 / Хабр,https://habr.com/ru/articles/784548/,frontend,"JavaScript, браузер, HTML/CSS"
+habr_frontend_js_2,Вопросы и ответы для собеседования на позицию frontend-разработчик. Часть 2 / Хабр,https://habr.com/ru/articles/785596/,frontend,TypeScript и React
+so_frontend_interview,Front-end developer interview questions / Stack Overflow,https://stackoverflow.com/questions/2863435/front-end-developer-interview-questions,frontend,Общие frontend interview themes
+habr_frontend_questions,Подборка вопросов для собеседования Frontend-разработчика / Хабр,https://habr.com/ru/articles/973072/,frontend,Frontend topics
+ru_so_frontend_interview,Angular Junior interview task / Stack Overflow на русском,https://ru.stackoverflow.com/questions/1577897/,frontend,Frontend task style
+habr_backend_java_1,Собеседование Backend-Java-разработчика: вопросы и где искать ответы. Часть 1 / Хабр,https://habr.com/ru/articles/529210/,backend,Backend interview topics
+habr_backend_java_2,Собеседование Backend-Java-разработчика: вопросы и где искать ответы. Часть 2 / Хабр,https://habr.com/ru/articles/529214/,backend,"БД, транзакции, практики"
+habr_backend_php_junior,Junior PHP. Ответы на часто задаваемые вопросы на технических собеседованиях / Хабр,https://habr.com/ru/articles/786464/,backend,Backend junior topics
+habr_backend_guide,Гайд по подготовке к собеседованию для Backend-разработчиков / Хабр,https://habr.com/ru/articles/876808/,backend,Backend interview guide
+so_sql_interview,SQL Server interview questions / Stack Overflow,https://stackoverflow.com/questions/3473724/sql-server-interview-questions,backend,SQL topics
+ru_so_java_interview,Собеседование по java / Stack Overflow на русском,https://ru.stackoverflow.com/questions/311451/,backend,Junior backend interview topics
+habr_devops_senior,Собеседование Senior DevOps Engineer: вопросы / Хабр,https://habr.com/ru/articles/733158/,devops,DevOps interview themes
+habr_devops_path_2026,DevOps в 2026 году и путь инженера к платформенной роли / Habr,https://habr.com/en/companies/habr_career/articles/979270/,devops,Junior/Middle DevOps responsibilities
+so_cicd_collective,CI/CD Collective / Stack Overflow,https://stackoverflow.com/collectives/ci-cd,devops,CI/CD topics
+so_devops_tag,DevOps tag / Stack Overflow,https://stackoverflow.com/questions/tagged/devops,devops,"Docker, Kubernetes, pipelines, infra"

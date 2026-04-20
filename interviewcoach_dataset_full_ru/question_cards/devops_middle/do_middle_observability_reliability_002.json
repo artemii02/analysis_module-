@@ -1,0 +1,48 @@
+{
+  "question_id": "do_middle_observability_reliability_002",
+  "question_text": "Почему высокий uptime сам по себе ещё не гарантирует хороший пользовательский опыт?",
+  "specialization": "devops",
+  "grade": "middle",
+  "topic": "observability_reliability",
+  "topic_name": "Observability и reliability",
+  "rubric": {
+    "criteria": [
+      "correctness",
+      "completeness",
+      "clarity",
+      "practicality",
+      "terminology"
+    ],
+    "weights": {
+      "correctness": 0.35,
+      "completeness": 0.25,
+      "clarity": 0.15,
+      "practicality": 0.15,
+      "terminology": 0.1
+    }
+  },
+  "keypoints": [
+    "SLI — измеримая метрика качества, SLO — целевое значение, error budget — допустимый запас отклонения",
+    "Uptime не отражает latency, partial failures и degraded user experience",
+    "Observability помогает быстрее локализовать причину проблемы через метрики, логи и трассировки",
+    "Graceful degradation сохраняет базовую функциональность при частичном отказе зависимостей",
+    "Надёжность — это не только жив ли процесс, но и насколько сервис полезен для пользователя"
+  ],
+  "canonical_mistakes": [
+    "Не различает SLI и SLO",
+    "Считает uptime единственной метрикой качества сервиса",
+    "Не видит практической пользы graceful degradation"
+  ],
+  "recommendation_hints": [
+    "Повторить SLI/SLO/error budget",
+    "Разобрать user-perceived reliability",
+    "Посмотреть graceful degradation patterns"
+  ],
+  "source_refs": [
+    "habr_devops_senior",
+    "habr_devops_path_2026",
+    "so_devops_tag"
+  ],
+  "source_type": "open_source_paraphrased_topic_bank",
+  "language": "ru"
+}

@@ -1,0 +1,48 @@
+{
+  "question_id": "fe_middle_react_architecture_001",
+  "question_text": "Как понять, когда компонент стоит разбивать на более мелкие части?",
+  "specialization": "frontend",
+  "grade": "middle",
+  "topic": "react_architecture",
+  "topic_name": "Архитектура React-приложения",
+  "rubric": {
+    "criteria": [
+      "correctness",
+      "completeness",
+      "clarity",
+      "practicality",
+      "terminology"
+    ],
+    "weights": {
+      "correctness": 0.35,
+      "completeness": 0.25,
+      "clarity": 0.15,
+      "practicality": 0.15,
+      "terminology": 0.1
+    }
+  },
+  "keypoints": [
+    "Компоненты стоит разбивать по ответственности и удобству сопровождения",
+    "Поднятие state полезно для общего источника истины, но может приводить к prop drilling и лишним рендерам",
+    "Разделение UI и бизнес-логики улучшает переиспользование и тестируемость",
+    "Разные уровни приложения обычно отделяют generic UI от feature-specific logic",
+    "Архитектура фронтенда должна учитывать масштаб команды и развитие проекта"
+  ],
+  "canonical_mistakes": [
+    "Считает, что чем больше компонент, тем проще поддержка",
+    "Всегда поднимает state максимально вверх без оценки последствий",
+    "Не видит пользы в разделении generic UI и feature-логики"
+  ],
+  "recommendation_hints": [
+    "Повторить component decomposition",
+    "Разобрать state ownership и prop drilling",
+    "Посмотреть архитектурные слои frontend-приложения"
+  ],
+  "source_refs": [
+    "habr_frontend_react_junior",
+    "habr_frontend_js_2",
+    "so_frontend_interview"
+  ],
+  "source_type": "open_source_paraphrased_topic_bank",
+  "language": "ru"
+}

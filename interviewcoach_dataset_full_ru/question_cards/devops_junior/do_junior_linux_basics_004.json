@@ -1,0 +1,48 @@
+{
+  "question_id": "do_junior_linux_basics_004",
+  "question_text": "Почему права доступа и владелец файла важны в Linux?",
+  "specialization": "devops",
+  "grade": "junior",
+  "topic": "linux_basics",
+  "topic_name": "Linux basics",
+  "rubric": {
+    "criteria": [
+      "correctness",
+      "completeness",
+      "clarity",
+      "practicality",
+      "terminology"
+    ],
+    "weights": {
+      "correctness": 0.35,
+      "completeness": 0.25,
+      "clarity": 0.15,
+      "practicality": 0.15,
+      "terminology": 0.1
+    }
+  },
+  "keypoints": [
+    "Большая часть серверной инфраструктуры работает на Linux или похожих системах",
+    "Процесс — это выполняемая программа, сервис — управляемая единица работы системы",
+    "Логи помогают понять причину отказа запуска, конфигурационные ошибки и missing dependencies",
+    "Права доступа и владелец определяют, кто может читать, писать и исполнять файл",
+    "DevOps-инженеру важно уверенно ориентироваться в базовых операционных понятиях"
+  ],
+  "canonical_mistakes": [
+    "Не понимает, зачем Linux нужен DevOps-инженеру",
+    "Путает процесс и сервис",
+    "Игнорирует права доступа как источник эксплуатационных проблем"
+  ],
+  "recommendation_hints": [
+    "Повторить основы Linux",
+    "Разобрать process/service/logs",
+    "Посмотреть ownership и file permissions"
+  ],
+  "source_refs": [
+    "habr_devops_path_2026",
+    "habr_devops_senior",
+    "so_devops_tag"
+  ],
+  "source_type": "open_source_paraphrased_topic_bank",
+  "language": "ru"
+}

@@ -1,0 +1,43 @@
+{
+  "question_id": "be_junior_http_002",
+  "question_text": "Что означает statelessness в REST?",
+  "specialization": "backend",
+  "grade": "junior",
+  "topic": "http_rest",
+  "rubric": {
+    "criteria": [
+      "correctness",
+      "completeness",
+      "clarity",
+      "practicality",
+      "terminology"
+    ],
+    "weights": {
+      "correctness": 0.35,
+      "completeness": 0.25,
+      "clarity": 0.15,
+      "practicality": 0.15,
+      "terminology": 0.1
+    }
+  },
+  "keypoints": [
+    "Каждый запрос содержит всю информацию, необходимую для обработки.",
+    "Сервер не опирается на состояние клиентской сессии между запросами.",
+    "Состояние клиента хранится на стороне клиента или отправляется с запросом.",
+    "Statelessness улучшает масштабируемость и упрощает систему.",
+    "Это не означает, что сервер вообще не хранит данные."
+  ],
+  "canonical_mistakes": [
+    "Утверждает, что stateless означает отсутствие данных в базе на сервере.",
+    "Считает, что stateless запрещает аутентификацию.",
+    "Путает statelessness с кэшированием.",
+    "Описывает только buzzword без определения."
+  ],
+  "recommendation_hints": [
+    "Повторить ограничения REST.",
+    "Различать состояние приложения и состояние ресурса.",
+    "Изучить stateless-паттерны аутентификации, например JWT."
+  ],
+  "language": "ru",
+  "dataset_stage": "v1_backend_junior_ru"
+}

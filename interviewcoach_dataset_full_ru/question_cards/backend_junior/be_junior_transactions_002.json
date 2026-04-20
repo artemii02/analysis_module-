@@ -1,0 +1,48 @@
+{
+  "question_id": "be_junior_transactions_002",
+  "question_text": "Что означает atomicity в ACID?",
+  "specialization": "backend",
+  "grade": "junior",
+  "topic": "transactions",
+  "topic_name": "Транзакции",
+  "rubric": {
+    "criteria": [
+      "correctness",
+      "completeness",
+      "clarity",
+      "practicality",
+      "terminology"
+    ],
+    "weights": {
+      "correctness": 0.35,
+      "completeness": 0.25,
+      "clarity": 0.15,
+      "practicality": 0.15,
+      "terminology": 0.1
+    }
+  },
+  "keypoints": [
+    "Транзакция объединяет несколько операций в одну логическую единицу",
+    "Atomicity означает all-or-nothing: либо всё применилось, либо всё откатилось",
+    "Commit фиксирует изменения, rollback отменяет их при ошибке",
+    "Транзакции нужны для согласованности данных и защиты от частично применённых изменений",
+    "Бизнес-операции вроде перевода денег требуют единого согласованного результата"
+  ],
+  "canonical_mistakes": [
+    "Путает транзакцию с любым одиночным запросом",
+    "Не понимает смысл rollback или atomicity",
+    "Считает, что многосоставные операции можно безопасно выполнять без транзакции"
+  ],
+  "recommendation_hints": [
+    "Повторить ACID",
+    "Разобрать commit и rollback на практических примерах",
+    "Посмотреть типичные бизнес-операции внутри транзакций"
+  ],
+  "source_refs": [
+    "habr_backend_java_2",
+    "so_sql_interview",
+    "ru_so_java_interview"
+  ],
+  "source_type": "open_source_paraphrased_topic_bank",
+  "language": "ru"
+}

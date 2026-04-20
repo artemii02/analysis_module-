@@ -1,0 +1,43 @@
+{
+  "question_id": "be_junior_tx_004",
+  "question_text": "Что такое isolation в транзакциях простыми словами?",
+  "specialization": "backend",
+  "grade": "junior",
+  "topic": "transactions",
+  "rubric": {
+    "criteria": [
+      "correctness",
+      "completeness",
+      "clarity",
+      "practicality",
+      "terminology"
+    ],
+    "weights": {
+      "correctness": 0.35,
+      "completeness": 0.25,
+      "clarity": 0.15,
+      "practicality": 0.15,
+      "terminology": 0.1
+    }
+  },
+  "keypoints": [
+    "Isolation управляет тем, как параллельные транзакции видят изменения друг друга.",
+    "Он уменьшает аномалии, вызванные конкурентным доступом.",
+    "Isolation — одно из свойств ACID.",
+    "Разные уровни isolation дают разные компромиссы.",
+    "Идею можно объяснить как ограничение взаимного влияния параллельных операций."
+  ],
+  "canonical_mistakes": [
+    "Определяет isolation как контроль доступа к базе по ролям пользователей.",
+    "Утверждает, что isolation означает физическое последовательное выполнение всех транзакций.",
+    "Игнорирует конкуренцию и аномалии.",
+    "Объясняет ACID без упоминания взаимодействия между транзакциями."
+  ],
+  "recommendation_hints": [
+    "Повторить свойства ACID.",
+    "Изучить простые аномалии конкурентного доступа.",
+    "Сравнить базовые компромиссы уровней isolation."
+  ],
+  "language": "ru",
+  "dataset_stage": "v1_backend_junior_ru"
+}

@@ -1,0 +1,43 @@
+{
+  "question_id": "be_junior_http_001",
+  "question_text": "Чем отличаются PUT и PATCH в HTTP?",
+  "specialization": "backend",
+  "grade": "junior",
+  "topic": "http_rest",
+  "rubric": {
+    "criteria": [
+      "correctness",
+      "completeness",
+      "clarity",
+      "practicality",
+      "terminology"
+    ],
+    "weights": {
+      "correctness": 0.35,
+      "completeness": 0.25,
+      "clarity": 0.15,
+      "practicality": 0.15,
+      "terminology": 0.1
+    }
+  },
+  "keypoints": [
+    "PUT обычно заменяет ресурс целиком или отправляет полное представление ресурса.",
+    "PATCH предназначен для частичных обновлений.",
+    "Разница семантическая, а не только в размере payload.",
+    "PUT обычно считают идемпотентным.",
+    "Идемпотентность PATCH зависит от дизайна конкретной операции."
+  ],
+  "canonical_mistakes": [
+    "Утверждает, что PUT и PATCH полностью одинаковы.",
+    "Путает PATCH с POST.",
+    "Называет PATCH всегда неидемпотентным как строгое правило.",
+    "Объясняет только синтаксис и игнорирует семантику."
+  ],
+  "recommendation_hints": [
+    "Повторить семантику HTTP-методов.",
+    "Сравнить PUT, PATCH и POST при обновлении ресурсов.",
+    "Повторить понятие идемпотентности в HTTP API."
+  ],
+  "language": "ru",
+  "dataset_stage": "v1_backend_junior_ru"
+}

@@ -1,0 +1,48 @@
+{
+  "question_id": "be_junior_sql_indexes_001",
+  "question_text": "Зачем в SQL используют JOIN и чем он полезен?",
+  "specialization": "backend",
+  "grade": "junior",
+  "topic": "sql_indexes",
+  "topic_name": "SQL и индексы",
+  "rubric": {
+    "criteria": [
+      "correctness",
+      "completeness",
+      "clarity",
+      "practicality",
+      "terminology"
+    ],
+    "weights": {
+      "correctness": 0.35,
+      "completeness": 0.25,
+      "clarity": 0.15,
+      "practicality": 0.15,
+      "terminology": 0.1
+    }
+  },
+  "keypoints": [
+    "JOIN нужен для объединения связанных данных из нескольких таблиц",
+    "Индекс ускоряет часть операций чтения, но не бесплатен для записи и хранения",
+    "Без индекса база может делать full scan по большому числу строк",
+    "PRIMARY KEY уникально идентифицирует строку и обычно не допускает NULL",
+    "План выполнения запроса помогает понять причину медленной работы"
+  ],
+  "canonical_mistakes": [
+    "Не понимает связь JOIN и отношений между таблицами",
+    "Считает, что индекс ускоряет любой запрос без побочных эффектов",
+    "Не знает роли PRIMARY KEY и уникальности"
+  ],
+  "recommendation_hints": [
+    "Повторить основы JOIN",
+    "Посмотреть устройство индексов и explain plan",
+    "Разобрать primary key и foreign key"
+  ],
+  "source_refs": [
+    "habr_backend_java_2",
+    "so_sql_interview",
+    "ru_so_java_interview"
+  ],
+  "source_type": "open_source_paraphrased_topic_bank",
+  "language": "ru"
+}

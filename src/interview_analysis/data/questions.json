@@ -1,215 +1,2045 @@
 {
-  "version": "questions-2026.03-demo",
+  "version": "questions-2026.04-full-ru-v1",
   "items": [
     {
-      "question_id": "backend_junior_auth_header",
+      "question_id": "be_junior_auth_jwt_001",
       "specialization": "backend",
       "grade": "junior",
-      "topic": "http_api",
-      "question_text": "Где обычно передают JWT-токен в HTTP-запросе и какие типичные ошибки здесь бывают?",
+      "topic": "auth_jwt",
+      "question_text": "Чем аутентификация отличается от авторизации?",
       "tags": [
-        "http",
-        "jwt",
-        "authorization",
-        "security"
+        "auth_jwt",
+        "backend",
+        "be_junior_auth_jwt_001",
+        "habr_backend_java_1",
+        "habr_backend_php_junior",
+        "junior",
+        "ru_so_java_interview"
       ],
-      "version": "questions-2026.03-demo"
+      "version": "questions-2026.04-full-ru-v1"
     },
     {
-      "question_id": "backend_junior_http_status_codes",
+      "question_id": "be_junior_auth_jwt_002",
       "specialization": "backend",
       "grade": "junior",
-      "topic": "http_api",
-      "question_text": "Когда API должен возвращать 200, 201 и 204, и чем они отличаются от 400, 401, 403, 404 и 500?",
+      "topic": "auth_jwt",
+      "question_text": "Что такое JWT и из каких частей он состоит?",
       "tags": [
-        "http",
-        "status",
-        "api",
-        "response"
+        "auth_jwt",
+        "backend",
+        "be_junior_auth_jwt_002",
+        "habr_backend_java_1",
+        "habr_backend_php_junior",
+        "junior",
+        "ru_so_java_interview"
       ],
-      "version": "questions-2026.03-demo"
+      "version": "questions-2026.04-full-ru-v1"
     },
     {
-      "question_id": "backend_junior_idempotency_key",
+      "question_id": "be_junior_auth_jwt_003",
       "specialization": "backend",
       "grade": "junior",
-      "topic": "http_api",
-      "question_text": "Зачем нужен idempotency key при создании ресурса и в каких случаях он особенно полезен?",
+      "topic": "auth_jwt",
+      "question_text": "Почему пароль пользователя нельзя хранить в базе в открытом виде?",
       "tags": [
-        "http",
-        "idempotency",
-        "retry",
-        "api"
+        "auth_jwt",
+        "backend",
+        "be_junior_auth_jwt_003",
+        "habr_backend_java_1",
+        "habr_backend_php_junior",
+        "junior",
+        "ru_so_java_interview"
       ],
-      "version": "questions-2026.03-demo"
+      "version": "questions-2026.04-full-ru-v1"
     },
     {
-      "question_id": "backend_junior_inner_left_join",
+      "question_id": "be_junior_auth_jwt_004",
       "specialization": "backend",
       "grade": "junior",
-      "topic": "sql_performance",
-      "question_text": "Чем INNER JOIN отличается от LEFT JOIN и как это влияет на результат запроса?",
+      "topic": "auth_jwt",
+      "question_text": "Какие риски есть у хранения токена на клиенте и какие бывают альтернативы?",
       "tags": [
-        "sql",
-        "join",
-        "database",
-        "query"
+        "auth_jwt",
+        "backend",
+        "be_junior_auth_jwt_004",
+        "habr_backend_java_1",
+        "habr_backend_php_junior",
+        "junior",
+        "ru_so_java_interview"
       ],
-      "version": "questions-2026.03-demo"
+      "version": "questions-2026.04-full-ru-v1"
     },
     {
-      "question_id": "backend_junior_n_plus_one",
+      "question_id": "be_junior_caching_001",
       "specialization": "backend",
       "grade": "junior",
-      "topic": "sql_performance",
-      "question_text": "Что такое проблема N+1 запросов и как её обнаружить?",
+      "topic": "caching",
+      "question_text": "Зачем в backend используют кэш?",
       "tags": [
-        "sql",
-        "orm",
-        "performance",
-        "n+1"
+        "backend",
+        "be_junior_caching_001",
+        "caching",
+        "habr_backend_guide",
+        "habr_backend_java_2",
+        "junior",
+        "so_devops_tag"
       ],
-      "version": "questions-2026.03-demo"
+      "version": "questions-2026.04-full-ru-v1"
     },
     {
-      "question_id": "backend_junior_normalization",
+      "question_id": "be_junior_caching_002",
       "specialization": "backend",
       "grade": "junior",
-      "topic": "sql_performance",
-      "question_text": "Зачем нужна нормализация данных и когда её сознательно нарушают?",
+      "topic": "caching",
+      "question_text": "Чем cache hit отличается от cache miss?",
       "tags": [
-        "sql",
-        "normalization",
-        "schema",
-        "database"
+        "backend",
+        "be_junior_caching_002",
+        "caching",
+        "habr_backend_guide",
+        "habr_backend_java_2",
+        "junior",
+        "so_devops_tag"
       ],
-      "version": "questions-2026.03-demo"
+      "version": "questions-2026.04-full-ru-v1"
     },
     {
-      "question_id": "backend_junior_pagination",
+      "question_id": "be_junior_caching_003",
       "specialization": "backend",
       "grade": "junior",
-      "topic": "http_api",
-      "question_text": "Чем пагинация по offset отличается от cursor pagination и когда каждая подходит?",
+      "topic": "caching",
+      "question_text": "Почему кэш может отдавать устаревшие данные?",
       "tags": [
-        "http",
-        "pagination",
-        "cursor",
-        "offset"
+        "backend",
+        "be_junior_caching_003",
+        "caching",
+        "habr_backend_guide",
+        "habr_backend_java_2",
+        "junior",
+        "so_devops_tag"
       ],
-      "version": "questions-2026.03-demo"
+      "version": "questions-2026.04-full-ru-v1"
     },
     {
-      "question_id": "backend_junior_rest_methods",
+      "question_id": "be_junior_caching_004",
       "specialization": "backend",
       "grade": "junior",
-      "topic": "http_api",
-      "question_text": "Чем отличаются методы GET, POST, PUT и DELETE в REST API?",
+      "topic": "caching",
+      "question_text": "Когда Redis используют как кэш, а когда для специальных задач?",
       "tags": [
-        "http",
-        "rest",
-        "api",
-        "methods"
+        "backend",
+        "be_junior_caching_004",
+        "caching",
+        "habr_backend_guide",
+        "habr_backend_java_2",
+        "junior",
+        "so_devops_tag"
       ],
-      "version": "questions-2026.03-demo"
+      "version": "questions-2026.04-full-ru-v1"
     },
     {
-      "question_id": "backend_junior_sql_index",
+      "question_id": "be_junior_http_rest_001",
       "specialization": "backend",
       "grade": "junior",
-      "topic": "sql_performance",
-      "question_text": "Что такое индекс в SQL-базе данных и когда он помогает?",
+      "topic": "http_rest",
+      "question_text": "Что такое HTTP и как в общих чертах устроено взаимодействие клиента и сервера?",
       "tags": [
-        "sql",
-        "database",
-        "index",
-        "query"
+        "backend",
+        "be_junior_http_rest_001",
+        "habr_backend_guide",
+        "habr_backend_java_1",
+        "habr_backend_php_junior",
+        "http_rest",
+        "junior"
       ],
-      "version": "questions-2026.03-demo"
+      "version": "questions-2026.04-full-ru-v1"
     },
     {
-      "question_id": "backend_junior_transactions_acid",
+      "question_id": "be_junior_http_rest_002",
       "specialization": "backend",
       "grade": "junior",
-      "topic": "sql_performance",
-      "question_text": "Что означают свойства ACID у транзакций и зачем они нужны?",
+      "topic": "http_rest",
+      "question_text": "Чем GET отличается от POST и в каких сценариях обычно используют каждый метод?",
       "tags": [
-        "sql",
-        "transaction",
-        "acid",
-        "database"
+        "backend",
+        "be_junior_http_rest_002",
+        "habr_backend_guide",
+        "habr_backend_java_1",
+        "habr_backend_php_junior",
+        "http_rest",
+        "junior"
       ],
-      "version": "questions-2026.03-demo"
+      "version": "questions-2026.04-full-ru-v1"
     },
     {
-      "question_id": "backend_middle_idempotency",
+      "question_id": "be_junior_http_rest_003",
+      "specialization": "backend",
+      "grade": "junior",
+      "topic": "http_rest",
+      "question_text": "В чём разница между PUT и PATCH?",
+      "tags": [
+        "backend",
+        "be_junior_http_rest_003",
+        "habr_backend_guide",
+        "habr_backend_java_1",
+        "habr_backend_php_junior",
+        "http_rest",
+        "junior"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "be_junior_http_rest_004",
+      "specialization": "backend",
+      "grade": "junior",
+      "topic": "http_rest",
+      "question_text": "Что обычно имеют в виду, когда говорят про REST API?",
+      "tags": [
+        "backend",
+        "be_junior_http_rest_004",
+        "habr_backend_guide",
+        "habr_backend_java_1",
+        "habr_backend_php_junior",
+        "http_rest",
+        "junior"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "be_junior_sql_indexes_001",
+      "specialization": "backend",
+      "grade": "junior",
+      "topic": "sql_indexes",
+      "question_text": "Зачем в SQL используют JOIN и чем он полезен?",
+      "tags": [
+        "backend",
+        "be_junior_sql_indexes_001",
+        "habr_backend_java_2",
+        "junior",
+        "ru_so_java_interview",
+        "so_sql_interview",
+        "sql_indexes"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "be_junior_sql_indexes_002",
+      "specialization": "backend",
+      "grade": "junior",
+      "topic": "sql_indexes",
+      "question_text": "Что такое индекс в базе данных и зачем он нужен?",
+      "tags": [
+        "backend",
+        "be_junior_sql_indexes_002",
+        "habr_backend_java_2",
+        "junior",
+        "ru_so_java_interview",
+        "so_sql_interview",
+        "sql_indexes"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "be_junior_sql_indexes_003",
+      "specialization": "backend",
+      "grade": "junior",
+      "topic": "sql_indexes",
+      "question_text": "Почему запрос по неиндексированному полю может быть медленным?",
+      "tags": [
+        "backend",
+        "be_junior_sql_indexes_003",
+        "habr_backend_java_2",
+        "junior",
+        "ru_so_java_interview",
+        "so_sql_interview",
+        "sql_indexes"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "be_junior_sql_indexes_004",
+      "specialization": "backend",
+      "grade": "junior",
+      "topic": "sql_indexes",
+      "question_text": "Чем PRIMARY KEY отличается от обычного поля таблицы?",
+      "tags": [
+        "backend",
+        "be_junior_sql_indexes_004",
+        "habr_backend_java_2",
+        "junior",
+        "ru_so_java_interview",
+        "so_sql_interview",
+        "sql_indexes"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "be_junior_transactions_001",
+      "specialization": "backend",
+      "grade": "junior",
+      "topic": "transactions",
+      "question_text": "Что такое транзакция в базе данных?",
+      "tags": [
+        "backend",
+        "be_junior_transactions_001",
+        "habr_backend_java_2",
+        "junior",
+        "ru_so_java_interview",
+        "so_sql_interview",
+        "transactions"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "be_junior_transactions_002",
+      "specialization": "backend",
+      "grade": "junior",
+      "topic": "transactions",
+      "question_text": "Что означает atomicity в ACID?",
+      "tags": [
+        "backend",
+        "be_junior_transactions_002",
+        "habr_backend_java_2",
+        "junior",
+        "ru_so_java_interview",
+        "so_sql_interview",
+        "transactions"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "be_junior_transactions_003",
+      "specialization": "backend",
+      "grade": "junior",
+      "topic": "transactions",
+      "question_text": "Зачем нужен rollback?",
+      "tags": [
+        "backend",
+        "be_junior_transactions_003",
+        "habr_backend_java_2",
+        "junior",
+        "ru_so_java_interview",
+        "so_sql_interview",
+        "transactions"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "be_junior_transactions_004",
+      "specialization": "backend",
+      "grade": "junior",
+      "topic": "transactions",
+      "question_text": "Почему перевод денег между счетами обычно делают внутри одной транзакции?",
+      "tags": [
+        "backend",
+        "be_junior_transactions_004",
+        "habr_backend_java_2",
+        "junior",
+        "ru_so_java_interview",
+        "so_sql_interview",
+        "transactions"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "be_middle_api_design_001",
       "specialization": "backend",
       "grade": "middle",
-      "topic": "distributed_systems",
-      "question_text": "Что такое идемпотентность API и зачем она нужна в распределенных системах?",
+      "topic": "api_design",
+      "question_text": "Что такое идемпотентность на уровне API и почему она важна?",
       "tags": [
-        "idempotency",
-        "api",
-        "distributed",
-        "retries"
+        "api_design",
+        "backend",
+        "be_middle_api_design_001",
+        "habr_backend_guide",
+        "habr_backend_java_1",
+        "habr_backend_java_2",
+        "middle"
       ],
-      "version": "questions-2026.03-demo"
+      "version": "questions-2026.04-full-ru-v1"
     },
     {
-      "question_id": "devops_junior_docker",
+      "question_id": "be_middle_api_design_002",
+      "specialization": "backend",
+      "grade": "middle",
+      "topic": "api_design",
+      "question_text": "Как бы вы спроектировали API для долгой операции, которая может выполняться несколько минут?",
+      "tags": [
+        "api_design",
+        "backend",
+        "be_middle_api_design_002",
+        "habr_backend_guide",
+        "habr_backend_java_1",
+        "habr_backend_java_2",
+        "middle"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "be_middle_api_design_003",
+      "specialization": "backend",
+      "grade": "middle",
+      "topic": "api_design",
+      "question_text": "Почему версия API и обратная совместимость важны для backend-сервисов?",
+      "tags": [
+        "api_design",
+        "backend",
+        "be_middle_api_design_003",
+        "habr_backend_guide",
+        "habr_backend_java_1",
+        "habr_backend_java_2",
+        "middle"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "be_middle_api_design_004",
+      "specialization": "backend",
+      "grade": "middle",
+      "topic": "api_design",
+      "question_text": "Какие проблемы возникают, если ошибки API не стандартизированы?",
+      "tags": [
+        "api_design",
+        "backend",
+        "be_middle_api_design_004",
+        "habr_backend_guide",
+        "habr_backend_java_1",
+        "habr_backend_java_2",
+        "middle"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "be_middle_db_isolation_001",
+      "specialization": "backend",
+      "grade": "middle",
+      "topic": "db_isolation",
+      "question_text": "Что такое уровень изоляции транзакций и зачем он нужен?",
+      "tags": [
+        "backend",
+        "be_middle_db_isolation_001",
+        "db_isolation",
+        "habr_backend_java_2",
+        "middle",
+        "ru_so_java_interview",
+        "so_sql_interview"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "be_middle_db_isolation_002",
+      "specialization": "backend",
+      "grade": "middle",
+      "topic": "db_isolation",
+      "question_text": "Чем dirty read отличается от non-repeatable read?",
+      "tags": [
+        "backend",
+        "be_middle_db_isolation_002",
+        "db_isolation",
+        "habr_backend_java_2",
+        "middle",
+        "ru_so_java_interview",
+        "so_sql_interview"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "be_middle_db_isolation_003",
+      "specialization": "backend",
+      "grade": "middle",
+      "topic": "db_isolation",
+      "question_text": "Когда блокировки полезны, а когда они становятся проблемой?",
+      "tags": [
+        "backend",
+        "be_middle_db_isolation_003",
+        "db_isolation",
+        "habr_backend_java_2",
+        "middle",
+        "ru_so_java_interview",
+        "so_sql_interview"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "be_middle_db_isolation_004",
+      "specialization": "backend",
+      "grade": "middle",
+      "topic": "db_isolation",
+      "question_text": "Что такое optimistic locking и когда он полезен?",
+      "tags": [
+        "backend",
+        "be_middle_db_isolation_004",
+        "db_isolation",
+        "habr_backend_java_2",
+        "middle",
+        "ru_so_java_interview",
+        "so_sql_interview"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "be_middle_messaging_outbox_001",
+      "specialization": "backend",
+      "grade": "middle",
+      "topic": "messaging_outbox",
+      "question_text": "Почему двойная запись в базу и брокер сообщений может быть проблемой?",
+      "tags": [
+        "backend",
+        "be_middle_messaging_outbox_001",
+        "habr_backend_guide",
+        "messaging_outbox",
+        "middle",
+        "so_cicd_collective",
+        "so_devops_tag"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "be_middle_messaging_outbox_002",
+      "specialization": "backend",
+      "grade": "middle",
+      "topic": "messaging_outbox",
+      "question_text": "Что такое outbox pattern простыми словами?",
+      "tags": [
+        "backend",
+        "be_middle_messaging_outbox_002",
+        "habr_backend_guide",
+        "messaging_outbox",
+        "middle",
+        "so_cicd_collective",
+        "so_devops_tag"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "be_middle_messaging_outbox_003",
+      "specialization": "backend",
+      "grade": "middle",
+      "topic": "messaging_outbox",
+      "question_text": "Почему retry без лимитов и без backoff опасен?",
+      "tags": [
+        "backend",
+        "be_middle_messaging_outbox_003",
+        "habr_backend_guide",
+        "messaging_outbox",
+        "middle",
+        "so_cicd_collective",
+        "so_devops_tag"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "be_middle_messaging_outbox_004",
+      "specialization": "backend",
+      "grade": "middle",
+      "topic": "messaging_outbox",
+      "question_text": "Зачем потребителю сообщений может понадобиться дедупликация?",
+      "tags": [
+        "backend",
+        "be_middle_messaging_outbox_004",
+        "habr_backend_guide",
+        "messaging_outbox",
+        "middle",
+        "so_cicd_collective",
+        "so_devops_tag"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "be_middle_microservices_001",
+      "specialization": "backend",
+      "grade": "middle",
+      "topic": "microservices",
+      "question_text": "Какие плюсы и минусы у микросервисной архитектуры по сравнению с монолитом?",
+      "tags": [
+        "backend",
+        "be_middle_microservices_001",
+        "habr_backend_guide",
+        "microservices",
+        "middle",
+        "so_cicd_collective",
+        "so_devops_tag"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "be_middle_microservices_002",
+      "specialization": "backend",
+      "grade": "middle",
+      "topic": "microservices",
+      "question_text": "Почему в микросервисах сложнее поддерживать консистентность данных?",
+      "tags": [
+        "backend",
+        "be_middle_microservices_002",
+        "habr_backend_guide",
+        "microservices",
+        "middle",
+        "so_cicd_collective",
+        "so_devops_tag"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "be_middle_microservices_003",
+      "specialization": "backend",
+      "grade": "middle",
+      "topic": "microservices",
+      "question_text": "Что такое eventual consistency и когда она допустима?",
+      "tags": [
+        "backend",
+        "be_middle_microservices_003",
+        "habr_backend_guide",
+        "microservices",
+        "middle",
+        "so_cicd_collective",
+        "so_devops_tag"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "be_middle_microservices_004",
+      "specialization": "backend",
+      "grade": "middle",
+      "topic": "microservices",
+      "question_text": "Зачем в распределённой системе correlation id и трассировка запросов?",
+      "tags": [
+        "backend",
+        "be_middle_microservices_004",
+        "habr_backend_guide",
+        "microservices",
+        "middle",
+        "so_cicd_collective",
+        "so_devops_tag"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "be_middle_observability_001",
+      "specialization": "backend",
+      "grade": "middle",
+      "topic": "observability",
+      "question_text": "Чем метрики, логи и трассировки отличаются друг от друга?",
+      "tags": [
+        "backend",
+        "be_middle_observability_001",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "middle",
+        "observability",
+        "so_devops_tag"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "be_middle_observability_002",
+      "specialization": "backend",
+      "grade": "middle",
+      "topic": "observability",
+      "question_text": "Что такое circuit breaker и какую проблему он решает?",
+      "tags": [
+        "backend",
+        "be_middle_observability_002",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "middle",
+        "observability",
+        "so_devops_tag"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "be_middle_observability_003",
+      "specialization": "backend",
+      "grade": "middle",
+      "topic": "observability",
+      "question_text": "Почему 100% availability обычно нельзя обещать реалистично?",
+      "tags": [
+        "backend",
+        "be_middle_observability_003",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "middle",
+        "observability",
+        "so_devops_tag"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "be_middle_observability_004",
+      "specialization": "backend",
+      "grade": "middle",
+      "topic": "observability",
+      "question_text": "Зачем healthcheck-эндпоинты и чем liveness отличается от readiness?",
+      "tags": [
+        "backend",
+        "be_middle_observability_004",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "middle",
+        "observability",
+        "so_devops_tag"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "do_junior_cicd_basics_001",
       "specialization": "devops",
       "grade": "junior",
-      "topic": "containers",
-      "question_text": "Чем образ Docker отличается от контейнера?",
+      "topic": "cicd_basics",
+      "question_text": "Что обычно понимают под CI и под CD?",
       "tags": [
-        "docker",
-        "container",
-        "image",
-        "runtime"
+        "cicd_basics",
+        "devops",
+        "do_junior_cicd_basics_001",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "junior",
+        "so_cicd_collective"
       ],
-      "version": "questions-2026.03-demo"
+      "version": "questions-2026.04-full-ru-v1"
     },
     {
-      "question_id": "devops_middle_ci_cd",
+      "question_id": "do_junior_cicd_basics_002",
+      "specialization": "devops",
+      "grade": "junior",
+      "topic": "cicd_basics",
+      "question_text": "Зачем автоматизировать сборку и тесты в pipeline?",
+      "tags": [
+        "cicd_basics",
+        "devops",
+        "do_junior_cicd_basics_002",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "junior",
+        "so_cicd_collective"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "do_junior_cicd_basics_003",
+      "specialization": "devops",
+      "grade": "junior",
+      "topic": "cicd_basics",
+      "question_text": "Почему pipeline должен быть воспроизводимым, а не зависеть от ручных действий?",
+      "tags": [
+        "cicd_basics",
+        "devops",
+        "do_junior_cicd_basics_003",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "junior",
+        "so_cicd_collective"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "do_junior_cicd_basics_004",
+      "specialization": "devops",
+      "grade": "junior",
+      "topic": "cicd_basics",
+      "question_text": "Что делать, если тесты в pipeline нестабильны и иногда падают без причины?",
+      "tags": [
+        "cicd_basics",
+        "devops",
+        "do_junior_cicd_basics_004",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "junior",
+        "so_cicd_collective"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "do_junior_docker_basics_001",
+      "specialization": "devops",
+      "grade": "junior",
+      "topic": "docker_basics",
+      "question_text": "Зачем используют контейнеры и чем они полезны разработке и эксплуатации?",
+      "tags": [
+        "devops",
+        "do_junior_docker_basics_001",
+        "docker_basics",
+        "habr_devops_path_2026",
+        "junior",
+        "so_cicd_collective",
+        "so_devops_tag"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "do_junior_docker_basics_002",
+      "specialization": "devops",
+      "grade": "junior",
+      "topic": "docker_basics",
+      "question_text": "Чем образ отличается от контейнера?",
+      "tags": [
+        "devops",
+        "do_junior_docker_basics_002",
+        "docker_basics",
+        "habr_devops_path_2026",
+        "junior",
+        "so_cicd_collective",
+        "so_devops_tag"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "do_junior_docker_basics_003",
+      "specialization": "devops",
+      "grade": "junior",
+      "topic": "docker_basics",
+      "question_text": "Почему не стоит хранить данные только внутри контейнера без внешнего volume?",
+      "tags": [
+        "devops",
+        "do_junior_docker_basics_003",
+        "docker_basics",
+        "habr_devops_path_2026",
+        "junior",
+        "so_cicd_collective",
+        "so_devops_tag"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "do_junior_docker_basics_004",
+      "specialization": "devops",
+      "grade": "junior",
+      "topic": "docker_basics",
+      "question_text": "Зачем multi-stage build может быть полезен даже в простом проекте?",
+      "tags": [
+        "devops",
+        "do_junior_docker_basics_004",
+        "docker_basics",
+        "habr_devops_path_2026",
+        "junior",
+        "so_cicd_collective",
+        "so_devops_tag"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "do_junior_git_iac_001",
+      "specialization": "devops",
+      "grade": "junior",
+      "topic": "git_iac",
+      "question_text": "Почему инфраструктурные изменения полезно хранить в Git?",
+      "tags": [
+        "devops",
+        "do_junior_git_iac_001",
+        "git_iac",
+        "habr_devops_senior",
+        "junior",
+        "so_cicd_collective",
+        "so_devops_tag"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "do_junior_git_iac_002",
+      "specialization": "devops",
+      "grade": "junior",
+      "topic": "git_iac",
+      "question_text": "Что даёт pull request или code review для инфраструктурных конфигураций?",
+      "tags": [
+        "devops",
+        "do_junior_git_iac_002",
+        "git_iac",
+        "habr_devops_senior",
+        "junior",
+        "so_cicd_collective",
+        "so_devops_tag"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "do_junior_git_iac_003",
+      "specialization": "devops",
+      "grade": "junior",
+      "topic": "git_iac",
+      "question_text": "Что такое IaC в простом объяснении?",
+      "tags": [
+        "devops",
+        "do_junior_git_iac_003",
+        "git_iac",
+        "habr_devops_senior",
+        "junior",
+        "so_cicd_collective",
+        "so_devops_tag"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "do_junior_git_iac_004",
+      "specialization": "devops",
+      "grade": "junior",
+      "topic": "git_iac",
+      "question_text": "Почему ручные изменения на сервере без фиксации в коде опасны?",
+      "tags": [
+        "devops",
+        "do_junior_git_iac_004",
+        "git_iac",
+        "habr_devops_senior",
+        "junior",
+        "so_cicd_collective",
+        "so_devops_tag"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "do_junior_linux_basics_001",
+      "specialization": "devops",
+      "grade": "junior",
+      "topic": "linux_basics",
+      "question_text": "Почему DevOps-инженеру важно понимать базовые команды и файловую систему Linux?",
+      "tags": [
+        "devops",
+        "do_junior_linux_basics_001",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "junior",
+        "linux_basics",
+        "so_devops_tag"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "do_junior_linux_basics_002",
+      "specialization": "devops",
+      "grade": "junior",
+      "topic": "linux_basics",
+      "question_text": "Чем процесс отличается от сервиса на базовом уровне?",
+      "tags": [
+        "devops",
+        "do_junior_linux_basics_002",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "junior",
+        "linux_basics",
+        "so_devops_tag"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "do_junior_linux_basics_003",
+      "specialization": "devops",
+      "grade": "junior",
+      "topic": "linux_basics",
+      "question_text": "Что обычно смотрят в логах, когда сервис не стартует?",
+      "tags": [
+        "devops",
+        "do_junior_linux_basics_003",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "junior",
+        "linux_basics",
+        "so_devops_tag"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "do_junior_linux_basics_004",
+      "specialization": "devops",
+      "grade": "junior",
+      "topic": "linux_basics",
+      "question_text": "Почему права доступа и владелец файла важны в Linux?",
+      "tags": [
+        "devops",
+        "do_junior_linux_basics_004",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "junior",
+        "linux_basics",
+        "so_devops_tag"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "do_junior_network_logs_001",
+      "specialization": "devops",
+      "grade": "junior",
+      "topic": "network_logs",
+      "question_text": "Что такое порт и зачем его понимать при запуске сервиса?",
+      "tags": [
+        "devops",
+        "do_junior_network_logs_001",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "junior",
+        "network_logs",
+        "so_devops_tag"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "do_junior_network_logs_002",
+      "specialization": "devops",
+      "grade": "junior",
+      "topic": "network_logs",
+      "question_text": "Почему сервис может быть доступен локально, но недоступен извне?",
+      "tags": [
+        "devops",
+        "do_junior_network_logs_002",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "junior",
+        "network_logs",
+        "so_devops_tag"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "do_junior_network_logs_003",
+      "specialization": "devops",
+      "grade": "junior",
+      "topic": "network_logs",
+      "question_text": "Зачем собирать метрики и логи даже в небольшом сервисе?",
+      "tags": [
+        "devops",
+        "do_junior_network_logs_003",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "junior",
+        "network_logs",
+        "so_devops_tag"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "do_junior_network_logs_004",
+      "specialization": "devops",
+      "grade": "junior",
+      "topic": "network_logs",
+      "question_text": "Почему важно смотреть не только на ошибки, но и на latency?",
+      "tags": [
+        "devops",
+        "do_junior_network_logs_004",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "junior",
+        "network_logs",
+        "so_devops_tag"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "do_middle_cicd_design_001",
       "specialization": "devops",
       "grade": "middle",
-      "topic": "delivery_pipeline",
-      "question_text": "Чем CI отличается от CD и какие проверки стоит встроить в pipeline?",
+      "topic": "cicd_design",
+      "question_text": "Как бы вы разделили pipeline на стадии и почему?",
       "tags": [
-        "ci",
-        "cd",
-        "pipeline",
-        "automation"
+        "cicd_design",
+        "devops",
+        "do_middle_cicd_design_001",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "middle",
+        "so_cicd_collective"
       ],
-      "version": "questions-2026.03-demo"
+      "version": "questions-2026.04-full-ru-v1"
     },
     {
-      "question_id": "frontend_junior_virtual_dom",
+      "question_id": "do_middle_cicd_design_002",
+      "specialization": "devops",
+      "grade": "middle",
+      "topic": "cicd_design",
+      "question_text": "Почему секреты нельзя просто зашивать в репозиторий или Docker image?",
+      "tags": [
+        "cicd_design",
+        "devops",
+        "do_middle_cicd_design_002",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "middle",
+        "so_cicd_collective"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "do_middle_cicd_design_003",
+      "specialization": "devops",
+      "grade": "middle",
+      "topic": "cicd_design",
+      "question_text": "Зачем pipeline должен быть быстрым, но не за счёт отказа от важных проверок?",
+      "tags": [
+        "cicd_design",
+        "devops",
+        "do_middle_cicd_design_003",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "middle",
+        "so_cicd_collective"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "do_middle_cicd_design_004",
+      "specialization": "devops",
+      "grade": "middle",
+      "topic": "cicd_design",
+      "question_text": "Что даёт артефактный подход, когда один и тот же build продвигается по окружениям?",
+      "tags": [
+        "cicd_design",
+        "devops",
+        "do_middle_cicd_design_004",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "middle",
+        "so_cicd_collective"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "do_middle_deployments_001",
+      "specialization": "devops",
+      "grade": "middle",
+      "topic": "deployments",
+      "question_text": "Чем rolling update отличается от blue-green deployment?",
+      "tags": [
+        "deployments",
+        "devops",
+        "do_middle_deployments_001",
+        "habr_devops_senior",
+        "middle",
+        "so_cicd_collective",
+        "so_devops_tag"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "do_middle_deployments_002",
+      "specialization": "devops",
+      "grade": "middle",
+      "topic": "deployments",
+      "question_text": "Когда canary deployment особенно полезен?",
+      "tags": [
+        "deployments",
+        "devops",
+        "do_middle_deployments_002",
+        "habr_devops_senior",
+        "middle",
+        "so_cicd_collective",
+        "so_devops_tag"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "do_middle_deployments_003",
+      "specialization": "devops",
+      "grade": "middle",
+      "topic": "deployments",
+      "question_text": "Почему rollback должен быть продуман заранее, а не после инцидента?",
+      "tags": [
+        "deployments",
+        "devops",
+        "do_middle_deployments_003",
+        "habr_devops_senior",
+        "middle",
+        "so_cicd_collective",
+        "so_devops_tag"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "do_middle_deployments_004",
+      "specialization": "devops",
+      "grade": "middle",
+      "topic": "deployments",
+      "question_text": "Какие метрики вы бы смотрели во время rollout новой версии?",
+      "tags": [
+        "deployments",
+        "devops",
+        "do_middle_deployments_004",
+        "habr_devops_senior",
+        "middle",
+        "so_cicd_collective",
+        "so_devops_tag"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "do_middle_kubernetes_001",
+      "specialization": "devops",
+      "grade": "middle",
+      "topic": "kubernetes",
+      "question_text": "Зачем Kubernetes вообще нужен по сравнению с ручным запуском контейнеров?",
+      "tags": [
+        "devops",
+        "do_middle_kubernetes_001",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "kubernetes",
+        "middle",
+        "so_devops_tag"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "do_middle_kubernetes_002",
+      "specialization": "devops",
+      "grade": "middle",
+      "topic": "kubernetes",
+      "question_text": "Чем Deployment отличается от StatefulSet на базовом архитектурном уровне?",
+      "tags": [
+        "devops",
+        "do_middle_kubernetes_002",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "kubernetes",
+        "middle",
+        "so_devops_tag"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "do_middle_kubernetes_003",
+      "specialization": "devops",
+      "grade": "middle",
+      "topic": "kubernetes",
+      "question_text": "Что делает readiness probe и почему без неё rollout может быть проблемным?",
+      "tags": [
+        "devops",
+        "do_middle_kubernetes_003",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "kubernetes",
+        "middle",
+        "so_devops_tag"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "do_middle_kubernetes_004",
+      "specialization": "devops",
+      "grade": "middle",
+      "topic": "kubernetes",
+      "question_text": "Почему ресурсы CPU/memory и limits/requests важны для кластера?",
+      "tags": [
+        "devops",
+        "do_middle_kubernetes_004",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "kubernetes",
+        "middle",
+        "so_devops_tag"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "do_middle_observability_reliability_001",
+      "specialization": "devops",
+      "grade": "middle",
+      "topic": "observability_reliability",
+      "question_text": "Что такое SLI, SLO и error budget простыми словами?",
+      "tags": [
+        "devops",
+        "do_middle_observability_reliability_001",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "middle",
+        "observability_reliability",
+        "so_devops_tag"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "do_middle_observability_reliability_002",
+      "specialization": "devops",
+      "grade": "middle",
+      "topic": "observability_reliability",
+      "question_text": "Почему высокий uptime сам по себе ещё не гарантирует хороший пользовательский опыт?",
+      "tags": [
+        "devops",
+        "do_middle_observability_reliability_002",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "middle",
+        "observability_reliability",
+        "so_devops_tag"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "do_middle_observability_reliability_003",
+      "specialization": "devops",
+      "grade": "middle",
+      "topic": "observability_reliability",
+      "question_text": "Как observability помогает при инциденте в распределённой системе?",
+      "tags": [
+        "devops",
+        "do_middle_observability_reliability_003",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "middle",
+        "observability_reliability",
+        "so_devops_tag"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "do_middle_observability_reliability_004",
+      "specialization": "devops",
+      "grade": "middle",
+      "topic": "observability_reliability",
+      "question_text": "Почему graceful degradation полезен, даже если сервис не может быть полностью доступен?",
+      "tags": [
+        "devops",
+        "do_middle_observability_reliability_004",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "middle",
+        "observability_reliability",
+        "so_devops_tag"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "do_middle_terraform_iac_001",
+      "specialization": "devops",
+      "grade": "middle",
+      "topic": "terraform_iac",
+      "question_text": "Зачем нужен Terraform или похожий IaC-инструмент, если можно настроить всё руками?",
+      "tags": [
+        "devops",
+        "do_middle_terraform_iac_001",
+        "habr_devops_senior",
+        "middle",
+        "so_cicd_collective",
+        "so_devops_tag",
+        "terraform_iac"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "do_middle_terraform_iac_002",
+      "specialization": "devops",
+      "grade": "middle",
+      "topic": "terraform_iac",
+      "question_text": "Что такое state в Terraform и почему с ним нужно быть аккуратным?",
+      "tags": [
+        "devops",
+        "do_middle_terraform_iac_002",
+        "habr_devops_senior",
+        "middle",
+        "so_cicd_collective",
+        "so_devops_tag",
+        "terraform_iac"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "do_middle_terraform_iac_003",
+      "specialization": "devops",
+      "grade": "middle",
+      "topic": "terraform_iac",
+      "question_text": "Почему drift между кодом и реальной инфраструктурой опасен?",
+      "tags": [
+        "devops",
+        "do_middle_terraform_iac_003",
+        "habr_devops_senior",
+        "middle",
+        "so_cicd_collective",
+        "so_devops_tag",
+        "terraform_iac"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "do_middle_terraform_iac_004",
+      "specialization": "devops",
+      "grade": "middle",
+      "topic": "terraform_iac",
+      "question_text": "Зачем разделять окружения и конфигурации для dev, stage и prod?",
+      "tags": [
+        "devops",
+        "do_middle_terraform_iac_004",
+        "habr_devops_senior",
+        "middle",
+        "so_cicd_collective",
+        "so_devops_tag",
+        "terraform_iac"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "fe_junior_browser_dom_001",
+      "specialization": "frontend",
+      "grade": "junior",
+      "topic": "browser_dom",
+      "question_text": "Что такое DOM?",
+      "tags": [
+        "browser_dom",
+        "fe_junior_browser_dom_001",
+        "frontend",
+        "habr_frontend_js_1",
+        "habr_frontend_questions",
+        "junior",
+        "so_frontend_interview"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "fe_junior_browser_dom_002",
+      "specialization": "frontend",
+      "grade": "junior",
+      "topic": "browser_dom",
+      "question_text": "Что такое всплытие события и зачем это знать?",
+      "tags": [
+        "browser_dom",
+        "fe_junior_browser_dom_002",
+        "frontend",
+        "habr_frontend_js_1",
+        "habr_frontend_questions",
+        "junior",
+        "so_frontend_interview"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "fe_junior_browser_dom_003",
+      "specialization": "frontend",
+      "grade": "junior",
+      "topic": "browser_dom",
+      "question_text": "Почему частые прямые изменения DOM могут быть дорогими по производительности?",
+      "tags": [
+        "browser_dom",
+        "fe_junior_browser_dom_003",
+        "frontend",
+        "habr_frontend_js_1",
+        "habr_frontend_questions",
+        "junior",
+        "so_frontend_interview"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "fe_junior_browser_dom_004",
+      "specialization": "frontend",
+      "grade": "junior",
+      "topic": "browser_dom",
+      "question_text": "Что делает localStorage и чем он отличается от cookie на базовом уровне?",
+      "tags": [
+        "browser_dom",
+        "fe_junior_browser_dom_004",
+        "frontend",
+        "habr_frontend_js_1",
+        "habr_frontend_questions",
+        "junior",
+        "so_frontend_interview"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "fe_junior_html_css_001",
+      "specialization": "frontend",
+      "grade": "junior",
+      "topic": "html_css",
+      "question_text": "Чем display: none отличается от visibility: hidden?",
+      "tags": [
+        "fe_junior_html_css_001",
+        "frontend",
+        "habr_frontend_js_1",
+        "habr_frontend_questions",
+        "html_css",
+        "junior",
+        "so_frontend_interview"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "fe_junior_html_css_002",
+      "specialization": "frontend",
+      "grade": "junior",
+      "topic": "html_css",
+      "question_text": "Что такое семантическая вёрстка и зачем она нужна?",
+      "tags": [
+        "fe_junior_html_css_002",
+        "frontend",
+        "habr_frontend_js_1",
+        "habr_frontend_questions",
+        "html_css",
+        "junior",
+        "so_frontend_interview"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "fe_junior_html_css_003",
+      "specialization": "frontend",
+      "grade": "junior",
+      "topic": "html_css",
+      "question_text": "В чём разница между flex и grid на базовом уровне?",
+      "tags": [
+        "fe_junior_html_css_003",
+        "frontend",
+        "habr_frontend_js_1",
+        "habr_frontend_questions",
+        "html_css",
+        "junior",
+        "so_frontend_interview"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "fe_junior_html_css_004",
+      "specialization": "frontend",
+      "grade": "junior",
+      "topic": "html_css",
+      "question_text": "Почему адаптивная вёрстка важна и какие есть базовые инструменты для неё?",
+      "tags": [
+        "fe_junior_html_css_004",
+        "frontend",
+        "habr_frontend_js_1",
+        "habr_frontend_questions",
+        "html_css",
+        "junior",
+        "so_frontend_interview"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "fe_junior_javascript_core_001",
+      "specialization": "frontend",
+      "grade": "junior",
+      "topic": "javascript_core",
+      "question_text": "Что такое замыкание в JavaScript простыми словами?",
+      "tags": [
+        "fe_junior_javascript_core_001",
+        "frontend",
+        "habr_frontend_js_1",
+        "habr_frontend_js_2",
+        "javascript_core",
+        "junior",
+        "so_frontend_interview"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "fe_junior_javascript_core_002",
+      "specialization": "frontend",
+      "grade": "junior",
+      "topic": "javascript_core",
+      "question_text": "Как работает event loop на базовом уровне?",
+      "tags": [
+        "fe_junior_javascript_core_002",
+        "frontend",
+        "habr_frontend_js_1",
+        "habr_frontend_js_2",
+        "javascript_core",
+        "junior",
+        "so_frontend_interview"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "fe_junior_javascript_core_003",
+      "specialization": "frontend",
+      "grade": "junior",
+      "topic": "javascript_core",
+      "question_text": "Чем let и const отличаются от var?",
+      "tags": [
+        "fe_junior_javascript_core_003",
+        "frontend",
+        "habr_frontend_js_1",
+        "habr_frontend_js_2",
+        "javascript_core",
+        "junior",
+        "so_frontend_interview"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "fe_junior_javascript_core_004",
+      "specialization": "frontend",
+      "grade": "junior",
+      "topic": "javascript_core",
+      "question_text": "Чем == отличается от ===?",
+      "tags": [
+        "fe_junior_javascript_core_004",
+        "frontend",
+        "habr_frontend_js_1",
+        "habr_frontend_js_2",
+        "javascript_core",
+        "junior",
+        "so_frontend_interview"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "fe_junior_react_basics_001",
       "specialization": "frontend",
       "grade": "junior",
       "topic": "react_basics",
-      "question_text": "Что такое Virtual DOM и почему он важен в React?",
+      "question_text": "Что такое state в React и чем он отличается от props?",
       "tags": [
-        "react",
-        "virtual-dom",
-        "render",
-        "ui"
+        "fe_junior_react_basics_001",
+        "frontend",
+        "habr_frontend_js_2",
+        "habr_frontend_react_junior",
+        "junior",
+        "react_basics",
+        "so_frontend_interview"
       ],
-      "version": "questions-2026.03-demo"
+      "version": "questions-2026.04-full-ru-v1"
     },
     {
-      "question_id": "frontend_middle_state_management",
+      "question_id": "fe_junior_react_basics_002",
+      "specialization": "frontend",
+      "grade": "junior",
+      "topic": "react_basics",
+      "question_text": "Зачем нужен useEffect?",
+      "tags": [
+        "fe_junior_react_basics_002",
+        "frontend",
+        "habr_frontend_js_2",
+        "habr_frontend_react_junior",
+        "junior",
+        "react_basics",
+        "so_frontend_interview"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "fe_junior_react_basics_003",
+      "specialization": "frontend",
+      "grade": "junior",
+      "topic": "react_basics",
+      "question_text": "Почему key важен при рендере списков?",
+      "tags": [
+        "fe_junior_react_basics_003",
+        "frontend",
+        "habr_frontend_js_2",
+        "habr_frontend_react_junior",
+        "junior",
+        "react_basics",
+        "so_frontend_interview"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "fe_junior_react_basics_004",
+      "specialization": "frontend",
+      "grade": "junior",
+      "topic": "react_basics",
+      "question_text": "Что такое controlled component на примере input?",
+      "tags": [
+        "fe_junior_react_basics_004",
+        "frontend",
+        "habr_frontend_js_2",
+        "habr_frontend_react_junior",
+        "junior",
+        "react_basics",
+        "so_frontend_interview"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "fe_junior_typescript_security_001",
+      "specialization": "frontend",
+      "grade": "junior",
+      "topic": "typescript_security",
+      "question_text": "Зачем вообще используют TypeScript в frontend-проектах?",
+      "tags": [
+        "fe_junior_typescript_security_001",
+        "frontend",
+        "habr_frontend_js_2",
+        "junior",
+        "ru_so_frontend_interview",
+        "so_frontend_interview",
+        "typescript_security"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "fe_junior_typescript_security_002",
+      "specialization": "frontend",
+      "grade": "junior",
+      "topic": "typescript_security",
+      "question_text": "Что такое union type и зачем он нужен?",
+      "tags": [
+        "fe_junior_typescript_security_002",
+        "frontend",
+        "habr_frontend_js_2",
+        "junior",
+        "ru_so_frontend_interview",
+        "so_frontend_interview",
+        "typescript_security"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "fe_junior_typescript_security_003",
+      "specialization": "frontend",
+      "grade": "junior",
+      "topic": "typescript_security",
+      "question_text": "Что такое CORS простыми словами?",
+      "tags": [
+        "fe_junior_typescript_security_003",
+        "frontend",
+        "habr_frontend_js_2",
+        "junior",
+        "ru_so_frontend_interview",
+        "so_frontend_interview",
+        "typescript_security"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "fe_junior_typescript_security_004",
+      "specialization": "frontend",
+      "grade": "junior",
+      "topic": "typescript_security",
+      "question_text": "Чем XSS опасен для frontend-приложения?",
+      "tags": [
+        "fe_junior_typescript_security_004",
+        "frontend",
+        "habr_frontend_js_2",
+        "junior",
+        "ru_so_frontend_interview",
+        "so_frontend_interview",
+        "typescript_security"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "fe_middle_browser_security_001",
       "specialization": "frontend",
       "grade": "middle",
-      "topic": "frontend_architecture",
-      "question_text": "Как вы выбираете между локальным state, Context и внешним state manager?",
+      "topic": "browser_security",
+      "question_text": "Чем XSS и CSRF отличаются друг от друга?",
       "tags": [
-        "react",
-        "state",
-        "context",
-        "architecture"
+        "browser_security",
+        "fe_middle_browser_security_001",
+        "frontend",
+        "habr_frontend_js_1",
+        "middle",
+        "ru_so_frontend_interview",
+        "so_frontend_interview"
       ],
-      "version": "questions-2026.03-demo"
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "fe_middle_browser_security_002",
+      "specialization": "frontend",
+      "grade": "middle",
+      "topic": "browser_security",
+      "question_text": "Почему dangerouslySetInnerHTML требует особой осторожности?",
+      "tags": [
+        "browser_security",
+        "fe_middle_browser_security_002",
+        "frontend",
+        "habr_frontend_js_1",
+        "middle",
+        "ru_so_frontend_interview",
+        "so_frontend_interview"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "fe_middle_browser_security_003",
+      "specialization": "frontend",
+      "grade": "middle",
+      "topic": "browser_security",
+      "question_text": "Как Content Security Policy помогает снижать риск XSS?",
+      "tags": [
+        "browser_security",
+        "fe_middle_browser_security_003",
+        "frontend",
+        "habr_frontend_js_1",
+        "middle",
+        "ru_so_frontend_interview",
+        "so_frontend_interview"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "fe_middle_browser_security_004",
+      "specialization": "frontend",
+      "grade": "middle",
+      "topic": "browser_security",
+      "question_text": "Почему авторизацию на клиенте нельзя считать полноценной защитой доступа к данным?",
+      "tags": [
+        "browser_security",
+        "fe_middle_browser_security_004",
+        "frontend",
+        "habr_frontend_js_1",
+        "middle",
+        "ru_so_frontend_interview",
+        "so_frontend_interview"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "fe_middle_react_architecture_001",
+      "specialization": "frontend",
+      "grade": "middle",
+      "topic": "react_architecture",
+      "question_text": "Как понять, когда компонент стоит разбивать на более мелкие части?",
+      "tags": [
+        "fe_middle_react_architecture_001",
+        "frontend",
+        "habr_frontend_js_2",
+        "habr_frontend_react_junior",
+        "middle",
+        "react_architecture",
+        "so_frontend_interview"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "fe_middle_react_architecture_002",
+      "specialization": "frontend",
+      "grade": "middle",
+      "topic": "react_architecture",
+      "question_text": "Почему lifting state up бывает полезен, а когда он превращается в проблему?",
+      "tags": [
+        "fe_middle_react_architecture_002",
+        "frontend",
+        "habr_frontend_js_2",
+        "habr_frontend_react_junior",
+        "middle",
+        "react_architecture",
+        "so_frontend_interview"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "fe_middle_react_architecture_003",
+      "specialization": "frontend",
+      "grade": "middle",
+      "topic": "react_architecture",
+      "question_text": "Зачем разделять UI и бизнес-логику в приложении?",
+      "tags": [
+        "fe_middle_react_architecture_003",
+        "frontend",
+        "habr_frontend_js_2",
+        "habr_frontend_react_junior",
+        "middle",
+        "react_architecture",
+        "so_frontend_interview"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "fe_middle_react_architecture_004",
+      "specialization": "frontend",
+      "grade": "middle",
+      "topic": "react_architecture",
+      "question_text": "Почему generic UI-компоненты и feature-слой обычно разводят по разным уровням?",
+      "tags": [
+        "fe_middle_react_architecture_004",
+        "frontend",
+        "habr_frontend_js_2",
+        "habr_frontend_react_junior",
+        "middle",
+        "react_architecture",
+        "so_frontend_interview"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "fe_middle_rendering_perf_001",
+      "specialization": "frontend",
+      "grade": "middle",
+      "topic": "rendering_perf",
+      "question_text": "Почему лишние ререндеры могут быть проблемой не всегда, но иногда очень важны?",
+      "tags": [
+        "fe_middle_rendering_perf_001",
+        "frontend",
+        "habr_frontend_js_1",
+        "habr_frontend_questions",
+        "middle",
+        "rendering_perf",
+        "so_frontend_interview"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "fe_middle_rendering_perf_002",
+      "specialization": "frontend",
+      "grade": "middle",
+      "topic": "rendering_perf",
+      "question_text": "Когда memoization в React полезна, а когда только усложняет код?",
+      "tags": [
+        "fe_middle_rendering_perf_002",
+        "frontend",
+        "habr_frontend_js_1",
+        "habr_frontend_questions",
+        "middle",
+        "rendering_perf",
+        "so_frontend_interview"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "fe_middle_rendering_perf_003",
+      "specialization": "frontend",
+      "grade": "middle",
+      "topic": "rendering_perf",
+      "question_text": "Что такое code splitting и зачем он нужен?",
+      "tags": [
+        "fe_middle_rendering_perf_003",
+        "frontend",
+        "habr_frontend_js_1",
+        "habr_frontend_questions",
+        "middle",
+        "rendering_perf",
+        "so_frontend_interview"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "fe_middle_rendering_perf_004",
+      "specialization": "frontend",
+      "grade": "middle",
+      "topic": "rendering_perf",
+      "question_text": "Почему производительность нужно измерять, а не угадывать?",
+      "tags": [
+        "fe_middle_rendering_perf_004",
+        "frontend",
+        "habr_frontend_js_1",
+        "habr_frontend_questions",
+        "middle",
+        "rendering_perf",
+        "so_frontend_interview"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "fe_middle_ssr_hydration_001",
+      "specialization": "frontend",
+      "grade": "middle",
+      "topic": "ssr_hydration",
+      "question_text": "Чем CSR отличается от SSR на высоком уровне?",
+      "tags": [
+        "fe_middle_ssr_hydration_001",
+        "frontend",
+        "habr_frontend_js_2",
+        "habr_frontend_questions",
+        "middle",
+        "so_frontend_interview",
+        "ssr_hydration"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "fe_middle_ssr_hydration_002",
+      "specialization": "frontend",
+      "grade": "middle",
+      "topic": "ssr_hydration",
+      "question_text": "Зачем может быть полезен SSR или pre-rendering?",
+      "tags": [
+        "fe_middle_ssr_hydration_002",
+        "frontend",
+        "habr_frontend_js_2",
+        "habr_frontend_questions",
+        "middle",
+        "so_frontend_interview",
+        "ssr_hydration"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "fe_middle_ssr_hydration_003",
+      "specialization": "frontend",
+      "grade": "middle",
+      "topic": "ssr_hydration",
+      "question_text": "Что такое hydration и почему из-за неё бывают ошибки?",
+      "tags": [
+        "fe_middle_ssr_hydration_003",
+        "frontend",
+        "habr_frontend_js_2",
+        "habr_frontend_questions",
+        "middle",
+        "so_frontend_interview",
+        "ssr_hydration"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "fe_middle_ssr_hydration_004",
+      "specialization": "frontend",
+      "grade": "middle",
+      "topic": "ssr_hydration",
+      "question_text": "Почему выбор SSR или CSR зависит от контекста продукта?",
+      "tags": [
+        "fe_middle_ssr_hydration_004",
+        "frontend",
+        "habr_frontend_js_2",
+        "habr_frontend_questions",
+        "middle",
+        "so_frontend_interview",
+        "ssr_hydration"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "fe_middle_state_management_001",
+      "specialization": "frontend",
+      "grade": "middle",
+      "topic": "state_management",
+      "question_text": "Когда локального состояния компонента достаточно, а когда нужен общий store?",
+      "tags": [
+        "fe_middle_state_management_001",
+        "frontend",
+        "habr_frontend_js_2",
+        "habr_frontend_questions",
+        "middle",
+        "so_frontend_interview",
+        "state_management"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "fe_middle_state_management_002",
+      "specialization": "frontend",
+      "grade": "middle",
+      "topic": "state_management",
+      "question_text": "В чём риск дублирования одного и того же состояния в нескольких местах?",
+      "tags": [
+        "fe_middle_state_management_002",
+        "frontend",
+        "habr_frontend_js_2",
+        "habr_frontend_questions",
+        "middle",
+        "so_frontend_interview",
+        "state_management"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "fe_middle_state_management_003",
+      "specialization": "frontend",
+      "grade": "middle",
+      "topic": "state_management",
+      "question_text": "Почему derived state лучше не хранить отдельно без необходимости?",
+      "tags": [
+        "fe_middle_state_management_003",
+        "frontend",
+        "habr_frontend_js_2",
+        "habr_frontend_questions",
+        "middle",
+        "so_frontend_interview",
+        "state_management"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
+    },
+    {
+      "question_id": "fe_middle_state_management_004",
+      "specialization": "frontend",
+      "grade": "middle",
+      "topic": "state_management",
+      "question_text": "Как бы вы объяснили разницу между server state и client state?",
+      "tags": [
+        "fe_middle_state_management_004",
+        "frontend",
+        "habr_frontend_js_2",
+        "habr_frontend_questions",
+        "middle",
+        "so_frontend_interview",
+        "state_management"
+      ],
+      "version": "questions-2026.04-full-ru-v1"
     }
   ]
 }

@@ -1,0 +1,48 @@
+{
+  "question_id": "be_middle_microservices_002",
+  "question_text": "Почему в микросервисах сложнее поддерживать консистентность данных?",
+  "specialization": "backend",
+  "grade": "middle",
+  "topic": "microservices",
+  "topic_name": "Микросервисы и консистентность",
+  "rubric": {
+    "criteria": [
+      "correctness",
+      "completeness",
+      "clarity",
+      "practicality",
+      "terminology"
+    ],
+    "weights": {
+      "correctness": 0.35,
+      "completeness": 0.25,
+      "clarity": 0.15,
+      "practicality": 0.15,
+      "terminology": 0.1
+    }
+  },
+  "keypoints": [
+    "Микросервисы дают независимое развёртывание и bounded contexts, но усложняют сеть и операционку",
+    "Распределённые данные сложно обновлять одной локальной транзакцией",
+    "Eventual consistency допустима, если короткое расхождение состояния приемлемо для бизнеса",
+    "Correlation id и tracing помогают связывать события и находить путь запроса через сервисы",
+    "В распределённой системе нужно проектировать наблюдаемость и компенсационные механизмы"
+  ],
+  "canonical_mistakes": [
+    "Считает микросервисы автоматически лучшим решением в любом контексте",
+    "Не видит разницы в консистентности между монолитом и микросервисами",
+    "Не понимает ценность tracing и correlation id"
+  ],
+  "recommendation_hints": [
+    "Разобрать trade-offs монолит vs microservices",
+    "Повторить eventual consistency и distributed tracing",
+    "Посмотреть bounded context и компенсационные процессы"
+  ],
+  "source_refs": [
+    "habr_backend_guide",
+    "so_devops_tag",
+    "so_cicd_collective"
+  ],
+  "source_type": "open_source_paraphrased_topic_bank",
+  "language": "ru"
+}

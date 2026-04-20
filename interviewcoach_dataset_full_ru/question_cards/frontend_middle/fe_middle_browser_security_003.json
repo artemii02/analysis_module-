@@ -1,0 +1,48 @@
+{
+  "question_id": "fe_middle_browser_security_003",
+  "question_text": "Как Content Security Policy помогает снижать риск XSS?",
+  "specialization": "frontend",
+  "grade": "middle",
+  "topic": "browser_security",
+  "topic_name": "Безопасность frontend",
+  "rubric": {
+    "criteria": [
+      "correctness",
+      "completeness",
+      "clarity",
+      "practicality",
+      "terminology"
+    ],
+    "weights": {
+      "correctness": 0.35,
+      "completeness": 0.25,
+      "clarity": 0.15,
+      "practicality": 0.15,
+      "terminology": 0.1
+    }
+  },
+  "keypoints": [
+    "XSS — внедрение и выполнение чужого JavaScript, CSRF — навязывание действия доверенному клиенту",
+    "dangerouslySetInnerHTML может привести к исполнению непроверенного HTML или JS",
+    "CSP ограничивает источники скриптов и снижает последствия части XSS-сценариев",
+    "Проверка прав должна происходить и на сервере, а не только в client-side routing",
+    "Безопасность frontend требует сочетания safe rendering, политики браузера и server-side checks"
+  ],
+  "canonical_mistakes": [
+    "Путает XSS и CSRF",
+    "Считает dangerouslySetInnerHTML безопасным без санитизации",
+    "Полагается только на клиентскую защиту маршрутов"
+  ],
+  "recommendation_hints": [
+    "Повторить XSS и CSRF",
+    "Разобрать sanitization и CSP",
+    "Посмотреть почему authz должна проверяться на сервере"
+  ],
+  "source_refs": [
+    "habr_frontend_js_1",
+    "so_frontend_interview",
+    "ru_so_frontend_interview"
+  ],
+  "source_type": "open_source_paraphrased_topic_bank",
+  "language": "ru"
+}

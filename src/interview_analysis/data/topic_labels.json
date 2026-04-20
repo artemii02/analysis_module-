@@ -1,0 +1,125 @@
+{
+  "version": "topic-labels-2026.04-full-ru-v1",
+  "items": [
+    {
+      "topic": "api_design",
+      "label": "Дизайн API и идемпотентность"
+    },
+    {
+      "topic": "auth_jwt",
+      "label": "Аутентификация и JWT"
+    },
+    {
+      "topic": "browser_dom",
+      "label": "Браузер и DOM"
+    },
+    {
+      "topic": "browser_security",
+      "label": "Безопасность frontend"
+    },
+    {
+      "topic": "caching",
+      "label": "Кэширование"
+    },
+    {
+      "topic": "cicd_basics",
+      "label": "CI/CD basics"
+    },
+    {
+      "topic": "cicd_design",
+      "label": "Проектирование CI/CD и безопасность"
+    },
+    {
+      "topic": "db_isolation",
+      "label": "Транзакции и изоляция"
+    },
+    {
+      "topic": "deployments",
+      "label": "Стратегии деплоя"
+    },
+    {
+      "topic": "docker_basics",
+      "label": "Docker basics"
+    },
+    {
+      "topic": "git_iac",
+      "label": "Git и базовая автоматизация"
+    },
+    {
+      "topic": "html_css",
+      "label": "HTML и CSS"
+    },
+    {
+      "topic": "http_rest",
+      "label": "HTTP и REST"
+    },
+    {
+      "topic": "javascript_core",
+      "label": "JavaScript core"
+    },
+    {
+      "topic": "kubernetes",
+      "label": "Kubernetes workloads"
+    },
+    {
+      "topic": "linux_basics",
+      "label": "Linux basics"
+    },
+    {
+      "topic": "messaging_outbox",
+      "label": "Сообщения, ретраи и outbox"
+    },
+    {
+      "topic": "microservices",
+      "label": "Микросервисы и консистентность"
+    },
+    {
+      "topic": "network_logs",
+      "label": "Сети, логи и мониторинг"
+    },
+    {
+      "topic": "observability",
+      "label": "Наблюдаемость и устойчивость"
+    },
+    {
+      "topic": "observability_reliability",
+      "label": "Observability и reliability"
+    },
+    {
+      "topic": "react_architecture",
+      "label": "Архитектура React-приложения"
+    },
+    {
+      "topic": "react_basics",
+      "label": "React basics"
+    },
+    {
+      "topic": "rendering_perf",
+      "label": "Рендеринг и производительность"
+    },
+    {
+      "topic": "sql_indexes",
+      "label": "SQL и индексы"
+    },
+    {
+      "topic": "ssr_hydration",
+      "label": "SSR, CSR и hydration"
+    },
+    {
+      "topic": "state_management",
+      "label": "Управление состоянием"
+    },
+    {
+      "topic": "terraform_iac",
+      "label": "Terraform и IaC"
+    },
+    {
+      "topic": "transactions",
+      "label": "Транзакции"
+    },
+    {
+      "topic": "typescript_security",
+      "label": "TypeScript и базовая безопасность клиента"
+    }
+  ]
+}

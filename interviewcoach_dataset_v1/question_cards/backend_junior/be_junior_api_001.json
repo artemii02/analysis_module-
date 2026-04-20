@@ -1,0 +1,43 @@
+{
+  "question_id": "be_junior_api_001",
+  "question_text": "Что делает дизайн endpoint-ов REST API хорошим?",
+  "specialization": "backend",
+  "grade": "junior",
+  "topic": "api_design",
+  "rubric": {
+    "criteria": [
+      "correctness",
+      "completeness",
+      "clarity",
+      "practicality",
+      "terminology"
+    ],
+    "weights": {
+      "correctness": 0.35,
+      "completeness": 0.25,
+      "clarity": 0.15,
+      "practicality": 0.15,
+      "terminology": 0.1
+    }
+  },
+  "keypoints": [
+    "Endpoint-ы должны использовать существительные для ресурсов, а не глаголы.",
+    "URL должны быть единообразными и предсказуемыми.",
+    "HTTP-методы должны соответствовать семантике операции.",
+    "Имена ресурсов должны быть понятными и последовательно использовать множественное число, когда это уместно.",
+    "API должен быть понятен клиентам и удобен для сопровождения."
+  ],
+  "canonical_mistakes": [
+    "Проектирует endpoint-ы вокруг глаголов, например /getUsers и /deleteUser.",
+    "Игнорирует единообразие именования.",
+    "Считает дизайн endpoint-ов полностью субъективным.",
+    "Не упоминает семантику HTTP-методов."
+  ],
+  "recommendation_hints": [
+    "Повторить ресурсно-ориентированное проектирование API.",
+    "Сравнить endpoint-ы на основе глаголов и существительных.",
+    "Изучить шаблоны единообразия в REST API."
+  ],
+  "language": "ru",
+  "dataset_stage": "v1_backend_junior_ru"
+}

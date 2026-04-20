@@ -1,0 +1,48 @@
+{
+  "question_id": "do_junior_network_logs_002",
+  "question_text": "Почему сервис может быть доступен локально, но недоступен извне?",
+  "specialization": "devops",
+  "grade": "junior",
+  "topic": "network_logs",
+  "topic_name": "Сети, логи и мониторинг",
+  "rubric": {
+    "criteria": [
+      "correctness",
+      "completeness",
+      "clarity",
+      "practicality",
+      "terminology"
+    ],
+    "weights": {
+      "correctness": 0.35,
+      "completeness": 0.25,
+      "clarity": 0.15,
+      "practicality": 0.15,
+      "terminology": 0.1
+    }
+  },
+  "keypoints": [
+    "Порт помогает адресовать конкретный сетевой сервис на узле",
+    "Недоступность извне может быть связана с bind address, firewall, ingress или сетевой конфигурацией",
+    "Логи и метрики помогают видеть состояние системы и быстрее искать причину проблем",
+    "Latency важна так же, как и error rate, потому что деградация не всегда проявляется только ошибками",
+    "Даже небольшой сервис выигрывает от базовой наблюдаемости и сетевой диагностики"
+  ],
+  "canonical_mistakes": [
+    "Путает порт и IP или не понимает bind address",
+    "Считает, что логов всегда достаточно",
+    "Смотрит только на ошибки и игнорирует latency"
+  ],
+  "recommendation_hints": [
+    "Повторить основы сети и портов",
+    "Разобрать logs vs metrics",
+    "Посмотреть bind address, firewall и latency monitoring"
+  ],
+  "source_refs": [
+    "habr_devops_path_2026",
+    "habr_devops_senior",
+    "so_devops_tag"
+  ],
+  "source_type": "open_source_paraphrased_topic_bank",
+  "language": "ru"
+}

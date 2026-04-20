@@ -1,0 +1,43 @@
+{
+  "question_id": "be_junior_http_003",
+  "question_text": "Для чего нужны HTTP status codes?",
+  "specialization": "backend",
+  "grade": "junior",
+  "topic": "http_rest",
+  "rubric": {
+    "criteria": [
+      "correctness",
+      "completeness",
+      "clarity",
+      "practicality",
+      "terminology"
+    ],
+    "weights": {
+      "correctness": 0.35,
+      "completeness": 0.25,
+      "clarity": 0.15,
+      "practicality": 0.15,
+      "terminology": 0.1
+    }
+  },
+  "keypoints": [
+    "Они сообщают результат обработки запроса.",
+    "Они группируются по классам, например 2xx, 4xx и 5xx.",
+    "2xx означает успех, а 4xx обычно означает ошибку на стороне клиента.",
+    "5xx обычно означает ошибку на стороне сервера.",
+    "Они помогают клиентам выбирать правильную логику обработки."
+  ],
+  "canonical_mistakes": [
+    "Считает status codes необязательным украшением без смысла.",
+    "Путает классы 4xx и 5xx.",
+    "Утверждает, что каждый неуспешный запрос должен возвращать 500.",
+    "Не упоминает поведение клиента или обработку ошибок."
+  ],
+  "recommendation_hints": [
+    "Повторить основные классы HTTP status codes.",
+    "Разобрать, когда возвращать 400, 404, 409 и 500.",
+    "Связать status codes с retry и обработкой ошибок на клиенте."
+  ],
+  "language": "ru",
+  "dataset_stage": "v1_backend_junior_ru"
+}

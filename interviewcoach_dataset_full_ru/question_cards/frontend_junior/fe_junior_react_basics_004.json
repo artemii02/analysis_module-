@@ -1,0 +1,48 @@
+{
+  "question_id": "fe_junior_react_basics_004",
+  "question_text": "Что такое controlled component на примере input?",
+  "specialization": "frontend",
+  "grade": "junior",
+  "topic": "react_basics",
+  "topic_name": "React basics",
+  "rubric": {
+    "criteria": [
+      "correctness",
+      "completeness",
+      "clarity",
+      "practicality",
+      "terminology"
+    ],
+    "weights": {
+      "correctness": 0.35,
+      "completeness": 0.25,
+      "clarity": 0.15,
+      "practicality": 0.15,
+      "terminology": 0.1
+    }
+  },
+  "keypoints": [
+    "Props приходят в компонент извне, state описывает внутреннее изменяемое состояние",
+    "useEffect используют для side effects после рендера и работы с внешним миром",
+    "Key помогает React корректно сопоставлять элементы списка между рендерами",
+    "Controlled component хранит значение поля в state и обновляет его через onChange",
+    "Важно понимать one-way data flow и причины повторного рендера"
+  ],
+  "canonical_mistakes": [
+    "Путает props и state",
+    "Считает useEffect инструментом для любой логики без distinction side effects",
+    "Не понимает роль stable key в reconciliation"
+  ],
+  "recommendation_hints": [
+    "Повторить props, state и rerender",
+    "Разобрать useEffect и dependency array",
+    "Посмотреть reconciliation и controlled inputs"
+  ],
+  "source_refs": [
+    "habr_frontend_react_junior",
+    "habr_frontend_js_2",
+    "so_frontend_interview"
+  ],
+  "source_type": "open_source_paraphrased_topic_bank",
+  "language": "ru"
+}

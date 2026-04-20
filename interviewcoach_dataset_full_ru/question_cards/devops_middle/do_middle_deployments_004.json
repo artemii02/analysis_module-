@@ -1,0 +1,48 @@
+{
+  "question_id": "do_middle_deployments_004",
+  "question_text": "Какие метрики вы бы смотрели во время rollout новой версии?",
+  "specialization": "devops",
+  "grade": "middle",
+  "topic": "deployments",
+  "topic_name": "Стратегии деплоя",
+  "rubric": {
+    "criteria": [
+      "correctness",
+      "completeness",
+      "clarity",
+      "practicality",
+      "terminology"
+    ],
+    "weights": {
+      "correctness": 0.35,
+      "completeness": 0.25,
+      "clarity": 0.15,
+      "practicality": 0.15,
+      "terminology": 0.1
+    }
+  },
+  "keypoints": [
+    "Rolling update постепенно заменяет экземпляры, blue-green держит две версии окружения и переключает трафик",
+    "Canary помогает безопасно проверить новую версию на части трафика",
+    "Rollback должен быть технически и организационно готов до релиза",
+    "Во время rollout важно смотреть error rate, latency, saturation и бизнес-метрики",
+    "Стратегия деплоя выбирается под риск, стоимость отката и критичность сервиса"
+  ],
+  "canonical_mistakes": [
+    "Путает стратегии деплоя между собой",
+    "Считает rollback второстепенной задачей",
+    "Не связывает rollout с наблюдаемыми метриками"
+  ],
+  "recommendation_hints": [
+    "Повторить deployment strategies",
+    "Разобрать canary и blue-green",
+    "Посмотреть rollout metrics и rollback planning"
+  ],
+  "source_refs": [
+    "habr_devops_senior",
+    "so_cicd_collective",
+    "so_devops_tag"
+  ],
+  "source_type": "open_source_paraphrased_topic_bank",
+  "language": "ru"
+}

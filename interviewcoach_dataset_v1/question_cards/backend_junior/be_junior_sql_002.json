@@ -1,0 +1,43 @@
+{
+  "question_id": "be_junior_sql_002",
+  "question_text": "Чем отличается primary key от foreign key?",
+  "specialization": "backend",
+  "grade": "junior",
+  "topic": "sql_indexes",
+  "rubric": {
+    "criteria": [
+      "correctness",
+      "completeness",
+      "clarity",
+      "practicality",
+      "terminology"
+    ],
+    "weights": {
+      "correctness": 0.35,
+      "completeness": 0.25,
+      "clarity": 0.15,
+      "practicality": 0.15,
+      "terminology": 0.1
+    }
+  },
+  "keypoints": [
+    "Primary key уникально идентифицирует строку в своей таблице.",
+    "Foreign key ссылается на ключ в другой таблице.",
+    "Primary key обеспечивает уникальность сущности.",
+    "Foreign key помогает поддерживать ссылочную целостность.",
+    "Они решают разные задачи реляционного моделирования."
+  ],
+  "canonical_mistakes": [
+    "Утверждает, что оба ключа делают одно и то же.",
+    "Определяет foreign key как любую индексированную колонку.",
+    "Упоминает только уникальность и пропускает ссылочную целостность.",
+    "Путает candidate key с foreign key."
+  ],
+  "recommendation_hints": [
+    "Повторить ограничения в реляционных базах данных.",
+    "Потренироваться на примерах схемы one-to-many.",
+    "Изучить ссылочную целостность и связи через join."
+  ],
+  "language": "ru",
+  "dataset_stage": "v1_backend_junior_ru"
+}

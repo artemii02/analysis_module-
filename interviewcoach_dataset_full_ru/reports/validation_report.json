@@ -1,0 +1,31 @@
+{
+  "question_cards": 120,
+  "records_total": 600,
+  "splits": {
+    "train": 360,
+    "eval": 120,
+    "test": 120
+  },
+  "specializations": [
+    "backend",
+    "devops",
+    "frontend"
+  ],
+  "grades": [
+    "junior",
+    "middle"
+  ],
+  "topics_total": 30,
+  "bands": [
+    "empty",
+    "weak",
+    "medium",
+    "good",
+    "strong"
+  ],
+  "all_records_have_valid_subset_relations": true,
+  "notes": [
+    "dataset is synthetic_curated_from_public_topics",
+    "human review recommended before final fine-tune"
+  ]
+}

@@ -8,5 +8,10 @@ __pycache__/
 .env
 training/artifacts/*
 !training/artifacts/.gitkeep
+!training/artifacts/qwen2.5-3b-interview-full-ru-qlora-v1/
+!training/artifacts/qwen2.5-3b-interview-full-ru-qlora-v1/**
+training/artifacts/qwen2.5-3b-interview-full-ru-qlora-v1/checkpoint-*/
 models/adapters/*
 !models/adapters/.gitkeep
+training/reports/*
+!training/reports/.gitkeep

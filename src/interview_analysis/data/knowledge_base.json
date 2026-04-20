@@ -1,215 +1,2405 @@
 {
-  "version": "kb-2026.03-demo",
+  "version": "kb-2026.04-full-ru-v1",
   "items": [
     {
-      "chunk_id": "kb_backend_http_1",
+      "chunk_id": "kb_be_junior_auth_jwt_001",
       "specialization": "backend",
       "topics": [
-        "http_api"
+        "auth_jwt"
       ],
       "tags": [
-        "http",
-        "rest",
-        "get",
-        "post",
-        "put",
-        "delete"
+        "auth_jwt",
+        "backend",
+        "be_junior_auth_jwt_001",
+        "habr_backend_java_1",
+        "habr_backend_php_junior",
+        "junior",
+        "ru_so_java_interview"
       ],
-      "content": "GET запрашивает представление ресурса и по спецификации считается safe-методом. POST обычно создает подресурс или инициирует обработку. PUT заменяет представление ресурса целиком и должен быть идемпотентным. DELETE удаляет ресурс и при повторе обычно не меняет конечное состояние.",
-      "source_title": "REST semantics notes",
-      "source_url": "https://example.local/kb/rest-semantics",
-      "version": "kb-2026.03-demo"
+      "content": "Тема: Аутентификация и JWT. Вопрос: Чем аутентификация отличается от авторизации? Ключевые пункты хорошего ответа: 1. Аутентификация отвечает на вопрос кто пользователь, авторизация — что ему разрешено 2. JWT обычно состоит из header, payload и signature 3. Пароль нужно хранить в виде hash, а не в открытом виде; полезен salt 4. Токен нужно защищать от XSS/утечки; HttpOnly cookie и localStorage имеют разные риски 5. Безопасность схемы зависит не только от места хранения токена, но и от всего auth flow Типичные ошибки: 1. Смешивает аутентификацию и авторизацию 2. Считает, что JWT по умолчанию шифрует всё содержимое 3. Не знает, почему открытое хранение паролей опасно Рекомендации для повторения: 1. Повторить authentication vs authorization 2. Разобрать устройство JWT 3. Освежить password hashing и риски XSS/CSRF",
+      "source_title": "Карточка вопроса be_junior_auth_jwt_001",
+      "source_url": "local://question_cards/backend_junior/be_junior_auth_jwt_001.json",
+      "version": "kb-2026.04-full-ru-v1"
     },
     {
-      "chunk_id": "kb_backend_http_2",
+      "chunk_id": "kb_be_junior_auth_jwt_002",
       "specialization": "backend",
       "topics": [
-        "http_api"
+        "auth_jwt"
       ],
       "tags": [
-        "http",
-        "status",
-        "rest",
-        "api"
+        "auth_jwt",
+        "backend",
+        "be_junior_auth_jwt_002",
+        "habr_backend_java_1",
+        "habr_backend_php_junior",
+        "junior",
+        "ru_so_java_interview"
       ],
-      "content": "???? 200 ? 204 ?????? ???????? ???????? ?????? ??? ??????????. 201 ?????????? ????? ???????? ???????. 400 ?????????? ???????????? ??????, 401 ? 403 ????????? ? ?????????????? ? ???????????, ? 404 ????????, ??? ?????? ?? ??????.",
-      "source_title": "HTTP status codes notes",
-      "source_url": "https://example.local/kb/http-status-codes",
-      "version": "kb-2026.03-demo"
+      "content": "Тема: Аутентификация и JWT. Вопрос: Что такое JWT и из каких частей он состоит? Ключевые пункты хорошего ответа: 1. Аутентификация отвечает на вопрос кто пользователь, авторизация — что ему разрешено 2. JWT обычно состоит из header, payload и signature 3. Пароль нужно хранить в виде hash, а не в открытом виде; полезен salt 4. Токен нужно защищать от XSS/утечки; HttpOnly cookie и localStorage имеют разные риски 5. Безопасность схемы зависит не только от места хранения токена, но и от всего auth flow Типичные ошибки: 1. Смешивает аутентификацию и авторизацию 2. Считает, что JWT по умолчанию шифрует всё содержимое 3. Не знает, почему открытое хранение паролей опасно Рекомендации для повторения: 1. Повторить authentication vs authorization 2. Разобрать устройство JWT 3. Освежить password hashing и риски XSS/CSRF",
+      "source_title": "Карточка вопроса be_junior_auth_jwt_002",
+      "source_url": "local://question_cards/backend_junior/be_junior_auth_jwt_002.json",
+      "version": "kb-2026.04-full-ru-v1"
     },
     {
-      "chunk_id": "kb_backend_http_3",
+      "chunk_id": "kb_be_junior_auth_jwt_003",
       "specialization": "backend",
       "topics": [
-        "http_api"
+        "auth_jwt"
       ],
       "tags": [
-        "pagination",
-        "limit",
-        "offset",
-        "cursor",
-        "authorization",
-        "bearer"
+        "auth_jwt",
+        "backend",
+        "be_junior_auth_jwt_003",
+        "habr_backend_java_1",
+        "habr_backend_php_junior",
+        "junior",
+        "ru_so_java_interview"
       ],
-      "content": "????????? ????? ????????? ????? limit/offset ??? ??????? ??????? ??? ????? cursor ??? ?????????? ????????? ?? ??????? ??????. JWT-????? ?????? ???????? ? ????????? Authorization ? ??????? Bearer. ???????? ?????? ? query string ???????????? ??-?? ????? ? ??????? ????????.",
-      "source_title": "HTTP pagination and auth",
-      "source_url": "https://example.local/kb/http-pagination-auth",
-      "version": "kb-2026.03-demo"
+      "content": "Тема: Аутентификация и JWT. Вопрос: Почему пароль пользователя нельзя хранить в базе в открытом виде? Ключевые пункты хорошего ответа: 1. Аутентификация отвечает на вопрос кто пользователь, авторизация — что ему разрешено 2. JWT обычно состоит из header, payload и signature 3. Пароль нужно хранить в виде hash, а не в открытом виде; полезен salt 4. Токен нужно защищать от XSS/утечки; HttpOnly cookie и localStorage имеют разные риски 5. Безопасность схемы зависит не только от места хранения токена, но и от всего auth flow Типичные ошибки: 1. Смешивает аутентификацию и авторизацию 2. Считает, что JWT по умолчанию шифрует всё содержимое 3. Не знает, почему открытое хранение паролей опасно Рекомендации для повторения: 1. Повторить authentication vs authorization 2. Разобрать устройство JWT 3. Освежить password hashing и риски XSS/CSRF",
+      "source_title": "Карточка вопроса be_junior_auth_jwt_003",
+      "source_url": "local://question_cards/backend_junior/be_junior_auth_jwt_003.json",
+      "version": "kb-2026.04-full-ru-v1"
     },
     {
-      "chunk_id": "kb_backend_http_4",
+      "chunk_id": "kb_be_junior_auth_jwt_004",
       "specialization": "backend",
       "topics": [
-        "http_api",
-        "distributed_systems"
+        "auth_jwt"
       ],
       "tags": [
-        "idempotency",
-        "retry",
-        "payment",
-        "http"
+        "auth_jwt",
+        "backend",
+        "be_junior_auth_jwt_004",
+        "habr_backend_java_1",
+        "habr_backend_php_junior",
+        "junior",
+        "ru_so_java_interview"
       ],
-      "content": "Idempotency-Key ???????? ????????? ????????? ??????? ?? ???????? ??? ??????. ?????? ????????? ???? ? ????? ???????????? ??????????? ? ?????????? ??? ?? ???? ??? ????????? ????????, ??? ???????? ?? ?????? ??? ??????? ????? ? ???????.",
-      "source_title": "Idempotency key pattern",
-      "source_url": "https://example.local/kb/idempotency-key",
-      "version": "kb-2026.03-demo"
+      "content": "Тема: Аутентификация и JWT. Вопрос: Какие риски есть у хранения токена на клиенте и какие бывают альтернативы? Ключевые пункты хорошего ответа: 1. Аутентификация отвечает на вопрос кто пользователь, авторизация — что ему разрешено 2. JWT обычно состоит из header, payload и signature 3. Пароль нужно хранить в виде hash, а не в открытом виде; полезен salt 4. Токен нужно защищать от XSS/утечки; HttpOnly cookie и localStorage имеют разные риски 5. Безопасность схемы зависит не только от места хранения токена, но и от всего auth flow Типичные ошибки: 1. Смешивает аутентификацию и авторизацию 2. Считает, что JWT по умолчанию шифрует всё содержимое 3. Не знает, почему открытое хранение паролей опасно Рекомендации для повторения: 1. Повторить authentication vs authorization 2. Разобрать устройство JWT 3. Освежить password hashing и риски XSS/CSRF",
+      "source_title": "Карточка вопроса be_junior_auth_jwt_004",
+      "source_url": "local://question_cards/backend_junior/be_junior_auth_jwt_004.json",
+      "version": "kb-2026.04-full-ru-v1"
     },
     {
-      "chunk_id": "kb_backend_idempotency_1",
+      "chunk_id": "kb_be_junior_caching_001",
       "specialization": "backend",
       "topics": [
-        "distributed_systems"
+        "caching"
       ],
       "tags": [
-        "idempotency",
-        "retry",
-        "request-id",
-        "distributed"
+        "backend",
+        "be_junior_caching_001",
+        "caching",
+        "habr_backend_guide",
+        "habr_backend_java_2",
+        "junior",
+        "so_devops_tag"
       ],
-      "content": "Идемпотентность означает, что повторение операции приводит к тому же итоговому состоянию, что и одиночный вызов. Это особенно важно при таймаутах и повторных отправках запросов. Часто используются idempotency key, deduplication table или upsert-подход.",
-      "source_title": "Retry-safe API patterns",
-      "source_url": "https://example.local/kb/retry-safe-api",
-      "version": "kb-2026.03-demo"
+      "content": "Тема: Кэширование. Вопрос: Зачем в backend используют кэш? Ключевые пункты хорошего ответа: 1. Кэш уменьшает latency и нагрузку на основной источник данных 2. Cache hit означает, что данные найдены в кэше; cache miss — что их пришлось брать из первичного источника 3. Кэш может хранить stale data, если стратегия обновления или инвалидации выбрана плохо 4. Redis часто используют и как кэш, и как хранилище для counters, locks, rate limits и очередей 5. Кэш ускоряет систему ценой дополнительной сложности по freshness и invalidation Типичные ошибки: 1. Считает, что кэш всегда синхронен с базой и не даёт устаревших данных 2. Не различает hit и miss 3. Путает Redis как SQL-базу и как in-memory data store Рекомендации для повторения: 1. Повторить базовые цели кэша 2. Разобрать stale data и invalidation 3. Посмотреть типовые use-cases Redis",
+      "source_title": "Карточка вопроса be_junior_caching_001",
+      "source_url": "local://question_cards/backend_junior/be_junior_caching_001.json",
+      "version": "kb-2026.04-full-ru-v1"
     },
     {
-      "chunk_id": "kb_backend_sql_1",
+      "chunk_id": "kb_be_junior_caching_002",
       "specialization": "backend",
       "topics": [
-        "sql_performance"
+        "caching"
       ],
       "tags": [
-        "sql",
-        "index",
-        "query",
-        "performance"
+        "backend",
+        "be_junior_caching_002",
+        "caching",
+        "habr_backend_guide",
+        "habr_backend_java_2",
+        "junior",
+        "so_devops_tag"
       ],
-      "content": "Индекс хранит дополнительную структуру поиска, например B-tree. Он помогает уменьшить стоимость поиска, сортировки и join-операций, но требует места на диске и обновления при изменении данных. Эффект зависит от селективности и паттерна запросов.",
-      "source_title": "Database indexing basics",
-      "source_url": "https://example.local/kb/sql-indexing",
-      "version": "kb-2026.03-demo"
+      "content": "Тема: Кэширование. Вопрос: Чем cache hit отличается от cache miss? Ключевые пункты хорошего ответа: 1. Кэш уменьшает latency и нагрузку на основной источник данных 2. Cache hit означает, что данные найдены в кэше; cache miss — что их пришлось брать из первичного источника 3. Кэш может хранить stale data, если стратегия обновления или инвалидации выбрана плохо 4. Redis часто используют и как кэш, и как хранилище для counters, locks, rate limits и очередей 5. Кэш ускоряет систему ценой дополнительной сложности по freshness и invalidation Типичные ошибки: 1. Считает, что кэш всегда синхронен с базой и не даёт устаревших данных 2. Не различает hit и miss 3. Путает Redis как SQL-базу и как in-memory data store Рекомендации для повторения: 1. Повторить базовые цели кэша 2. Разобрать stale data и invalidation 3. Посмотреть типовые use-cases Redis",
+      "source_title": "Карточка вопроса be_junior_caching_002",
+      "source_url": "local://question_cards/backend_junior/be_junior_caching_002.json",
+      "version": "kb-2026.04-full-ru-v1"
     },
     {
-      "chunk_id": "kb_backend_sql_2",
+      "chunk_id": "kb_be_junior_caching_003",
       "specialization": "backend",
       "topics": [
-        "sql_performance"
+        "caching"
       ],
       "tags": [
-        "join",
-        "inner join",
-        "left join",
-        "acid",
-        "transaction",
-        "normalization"
+        "backend",
+        "be_junior_caching_003",
+        "caching",
+        "habr_backend_guide",
+        "habr_backend_java_2",
+        "junior",
+        "so_devops_tag"
       ],
-      "content": "INNER JOIN ?????????? ?????? ????????? ?????? ?? ????? ??????, ? LEFT JOIN ????????? ??? ?????? ?? ????? ??????? ???? ??? ?????????? ??????. ACID ???????? ???????????, ???????????????, ??????????????? ? ?????????????. ???????????? ????????? ???????????? ? ???????? ??????????, ?? ?????? ????????? ?????? ? ??????.",
-      "source_title": "SQL joins and ACID basics",
-      "source_url": "https://example.local/kb/sql-joins-acid",
-      "version": "kb-2026.03-demo"
+      "content": "Тема: Кэширование. Вопрос: Почему кэш может отдавать устаревшие данные? Ключевые пункты хорошего ответа: 1. Кэш уменьшает latency и нагрузку на основной источник данных 2. Cache hit означает, что данные найдены в кэше; cache miss — что их пришлось брать из первичного источника 3. Кэш может хранить stale data, если стратегия обновления или инвалидации выбрана плохо 4. Redis часто используют и как кэш, и как хранилище для counters, locks, rate limits и очередей 5. Кэш ускоряет систему ценой дополнительной сложности по freshness и invalidation Типичные ошибки: 1. Считает, что кэш всегда синхронен с базой и не даёт устаревших данных 2. Не различает hit и miss 3. Путает Redis как SQL-базу и как in-memory data store Рекомендации для повторения: 1. Повторить базовые цели кэша 2. Разобрать stale data и invalidation 3. Посмотреть типовые use-cases Redis",
+      "source_title": "Карточка вопроса be_junior_caching_003",
+      "source_url": "local://question_cards/backend_junior/be_junior_caching_003.json",
+      "version": "kb-2026.04-full-ru-v1"
     },
     {
-      "chunk_id": "kb_backend_sql_3",
+      "chunk_id": "kb_be_junior_caching_004",
       "specialization": "backend",
       "topics": [
-        "sql_performance"
+        "caching"
       ],
       "tags": [
-        "orm",
-        "n+1",
-        "eager loading",
-        "join fetch"
+        "backend",
+        "be_junior_caching_004",
+        "caching",
+        "habr_backend_guide",
+        "habr_backend_java_2",
+        "junior",
+        "so_devops_tag"
       ],
-      "content": "???????? N+1 ?????????, ????? ?????????? ??????? ????????? ?????? ?????????, ? ????? ?????? ????????? ?????? ??? ?????? ????????? ??????. ?? ????????? ????? join fetch, eager loading, batch loading ? ??????????????? ????????? ??????.",
-      "source_title": "N+1 query problem",
-      "source_url": "https://example.local/kb/sql-n-plus-one",
-      "version": "kb-2026.03-demo"
+      "content": "Тема: Кэширование. Вопрос: Когда Redis используют как кэш, а когда для специальных задач? Ключевые пункты хорошего ответа: 1. Кэш уменьшает latency и нагрузку на основной источник данных 2. Cache hit означает, что данные найдены в кэше; cache miss — что их пришлось брать из первичного источника 3. Кэш может хранить stale data, если стратегия обновления или инвалидации выбрана плохо 4. Redis часто используют и как кэш, и как хранилище для counters, locks, rate limits и очередей 5. Кэш ускоряет систему ценой дополнительной сложности по freshness и invalidation Типичные ошибки: 1. Считает, что кэш всегда синхронен с базой и не даёт устаревших данных 2. Не различает hit и miss 3. Путает Redis как SQL-базу и как in-memory data store Рекомендации для повторения: 1. Повторить базовые цели кэша 2. Разобрать stale data и invalidation 3. Посмотреть типовые use-cases Redis",
+      "source_title": "Карточка вопроса be_junior_caching_004",
+      "source_url": "local://question_cards/backend_junior/be_junior_caching_004.json",
+      "version": "kb-2026.04-full-ru-v1"
     },
     {
-      "chunk_id": "kb_devops_cicd_1",
+      "chunk_id": "kb_be_junior_http_rest_001",
+      "specialization": "backend",
+      "topics": [
+        "http_rest"
+      ],
+      "tags": [
+        "backend",
+        "be_junior_http_rest_001",
+        "habr_backend_guide",
+        "habr_backend_java_1",
+        "habr_backend_php_junior",
+        "http_rest",
+        "junior"
+      ],
+      "content": "Тема: HTTP и REST. Вопрос: Что такое HTTP и как в общих чертах устроено взаимодействие клиента и сервера? Ключевые пункты хорошего ответа: 1. HTTP — это протокол прикладного уровня для модели request-response 2. Клиент отправляет запрос, сервер возвращает ответ со статусом, заголовками и телом 3. GET обычно используют для чтения, POST — для создания или запуска операции с побочным эффектом 4. PUT обычно означает полную замену ресурса, PATCH — частичное изменение 5. REST строится вокруг ресурсов, URI, стандартных методов и консистентных статусов Типичные ошибки: 1. Путает роли клиента и сервера или семантику методов 2. Сводит различие методов только к наличию body 3. Описывает REST как библиотеку или просто JSON API Рекомендации для повторения: 1. Повторить request-response модель HTTP 2. Разобрать семантику методов GET/POST/PUT/PATCH 3. Посмотреть принципы REST и ресурсный дизайн",
+      "source_title": "Карточка вопроса be_junior_http_rest_001",
+      "source_url": "local://question_cards/backend_junior/be_junior_http_rest_001.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_be_junior_http_rest_002",
+      "specialization": "backend",
+      "topics": [
+        "http_rest"
+      ],
+      "tags": [
+        "backend",
+        "be_junior_http_rest_002",
+        "habr_backend_guide",
+        "habr_backend_java_1",
+        "habr_backend_php_junior",
+        "http_rest",
+        "junior"
+      ],
+      "content": "Тема: HTTP и REST. Вопрос: Чем GET отличается от POST и в каких сценариях обычно используют каждый метод? Ключевые пункты хорошего ответа: 1. HTTP — это протокол прикладного уровня для модели request-response 2. Клиент отправляет запрос, сервер возвращает ответ со статусом, заголовками и телом 3. GET обычно используют для чтения, POST — для создания или запуска операции с побочным эффектом 4. PUT обычно означает полную замену ресурса, PATCH — частичное изменение 5. REST строится вокруг ресурсов, URI, стандартных методов и консистентных статусов Типичные ошибки: 1. Путает роли клиента и сервера или семантику методов 2. Сводит различие методов только к наличию body 3. Описывает REST как библиотеку или просто JSON API Рекомендации для повторения: 1. Повторить request-response модель HTTP 2. Разобрать семантику методов GET/POST/PUT/PATCH 3. Посмотреть принципы REST и ресурсный дизайн",
+      "source_title": "Карточка вопроса be_junior_http_rest_002",
+      "source_url": "local://question_cards/backend_junior/be_junior_http_rest_002.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_be_junior_http_rest_003",
+      "specialization": "backend",
+      "topics": [
+        "http_rest"
+      ],
+      "tags": [
+        "backend",
+        "be_junior_http_rest_003",
+        "habr_backend_guide",
+        "habr_backend_java_1",
+        "habr_backend_php_junior",
+        "http_rest",
+        "junior"
+      ],
+      "content": "Тема: HTTP и REST. Вопрос: В чём разница между PUT и PATCH? Ключевые пункты хорошего ответа: 1. HTTP — это протокол прикладного уровня для модели request-response 2. Клиент отправляет запрос, сервер возвращает ответ со статусом, заголовками и телом 3. GET обычно используют для чтения, POST — для создания или запуска операции с побочным эффектом 4. PUT обычно означает полную замену ресурса, PATCH — частичное изменение 5. REST строится вокруг ресурсов, URI, стандартных методов и консистентных статусов Типичные ошибки: 1. Путает роли клиента и сервера или семантику методов 2. Сводит различие методов только к наличию body 3. Описывает REST как библиотеку или просто JSON API Рекомендации для повторения: 1. Повторить request-response модель HTTP 2. Разобрать семантику методов GET/POST/PUT/PATCH 3. Посмотреть принципы REST и ресурсный дизайн",
+      "source_title": "Карточка вопроса be_junior_http_rest_003",
+      "source_url": "local://question_cards/backend_junior/be_junior_http_rest_003.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_be_junior_http_rest_004",
+      "specialization": "backend",
+      "topics": [
+        "http_rest"
+      ],
+      "tags": [
+        "backend",
+        "be_junior_http_rest_004",
+        "habr_backend_guide",
+        "habr_backend_java_1",
+        "habr_backend_php_junior",
+        "http_rest",
+        "junior"
+      ],
+      "content": "Тема: HTTP и REST. Вопрос: Что обычно имеют в виду, когда говорят про REST API? Ключевые пункты хорошего ответа: 1. HTTP — это протокол прикладного уровня для модели request-response 2. Клиент отправляет запрос, сервер возвращает ответ со статусом, заголовками и телом 3. GET обычно используют для чтения, POST — для создания или запуска операции с побочным эффектом 4. PUT обычно означает полную замену ресурса, PATCH — частичное изменение 5. REST строится вокруг ресурсов, URI, стандартных методов и консистентных статусов Типичные ошибки: 1. Путает роли клиента и сервера или семантику методов 2. Сводит различие методов только к наличию body 3. Описывает REST как библиотеку или просто JSON API Рекомендации для повторения: 1. Повторить request-response модель HTTP 2. Разобрать семантику методов GET/POST/PUT/PATCH 3. Посмотреть принципы REST и ресурсный дизайн",
+      "source_title": "Карточка вопроса be_junior_http_rest_004",
+      "source_url": "local://question_cards/backend_junior/be_junior_http_rest_004.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_be_junior_sql_indexes_001",
+      "specialization": "backend",
+      "topics": [
+        "sql_indexes"
+      ],
+      "tags": [
+        "backend",
+        "be_junior_sql_indexes_001",
+        "habr_backend_java_2",
+        "junior",
+        "ru_so_java_interview",
+        "so_sql_interview",
+        "sql_indexes"
+      ],
+      "content": "Тема: SQL и индексы. Вопрос: Зачем в SQL используют JOIN и чем он полезен? Ключевые пункты хорошего ответа: 1. JOIN нужен для объединения связанных данных из нескольких таблиц 2. Индекс ускоряет часть операций чтения, но не бесплатен для записи и хранения 3. Без индекса база может делать full scan по большому числу строк 4. PRIMARY KEY уникально идентифицирует строку и обычно не допускает NULL 5. План выполнения запроса помогает понять причину медленной работы Типичные ошибки: 1. Не понимает связь JOIN и отношений между таблицами 2. Считает, что индекс ускоряет любой запрос без побочных эффектов 3. Не знает роли PRIMARY KEY и уникальности Рекомендации для повторения: 1. Повторить основы JOIN 2. Посмотреть устройство индексов и explain plan 3. Разобрать primary key и foreign key",
+      "source_title": "Карточка вопроса be_junior_sql_indexes_001",
+      "source_url": "local://question_cards/backend_junior/be_junior_sql_indexes_001.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_be_junior_sql_indexes_002",
+      "specialization": "backend",
+      "topics": [
+        "sql_indexes"
+      ],
+      "tags": [
+        "backend",
+        "be_junior_sql_indexes_002",
+        "habr_backend_java_2",
+        "junior",
+        "ru_so_java_interview",
+        "so_sql_interview",
+        "sql_indexes"
+      ],
+      "content": "Тема: SQL и индексы. Вопрос: Что такое индекс в базе данных и зачем он нужен? Ключевые пункты хорошего ответа: 1. JOIN нужен для объединения связанных данных из нескольких таблиц 2. Индекс ускоряет часть операций чтения, но не бесплатен для записи и хранения 3. Без индекса база может делать full scan по большому числу строк 4. PRIMARY KEY уникально идентифицирует строку и обычно не допускает NULL 5. План выполнения запроса помогает понять причину медленной работы Типичные ошибки: 1. Не понимает связь JOIN и отношений между таблицами 2. Считает, что индекс ускоряет любой запрос без побочных эффектов 3. Не знает роли PRIMARY KEY и уникальности Рекомендации для повторения: 1. Повторить основы JOIN 2. Посмотреть устройство индексов и explain plan 3. Разобрать primary key и foreign key",
+      "source_title": "Карточка вопроса be_junior_sql_indexes_002",
+      "source_url": "local://question_cards/backend_junior/be_junior_sql_indexes_002.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_be_junior_sql_indexes_003",
+      "specialization": "backend",
+      "topics": [
+        "sql_indexes"
+      ],
+      "tags": [
+        "backend",
+        "be_junior_sql_indexes_003",
+        "habr_backend_java_2",
+        "junior",
+        "ru_so_java_interview",
+        "so_sql_interview",
+        "sql_indexes"
+      ],
+      "content": "Тема: SQL и индексы. Вопрос: Почему запрос по неиндексированному полю может быть медленным? Ключевые пункты хорошего ответа: 1. JOIN нужен для объединения связанных данных из нескольких таблиц 2. Индекс ускоряет часть операций чтения, но не бесплатен для записи и хранения 3. Без индекса база может делать full scan по большому числу строк 4. PRIMARY KEY уникально идентифицирует строку и обычно не допускает NULL 5. План выполнения запроса помогает понять причину медленной работы Типичные ошибки: 1. Не понимает связь JOIN и отношений между таблицами 2. Считает, что индекс ускоряет любой запрос без побочных эффектов 3. Не знает роли PRIMARY KEY и уникальности Рекомендации для повторения: 1. Повторить основы JOIN 2. Посмотреть устройство индексов и explain plan 3. Разобрать primary key и foreign key",
+      "source_title": "Карточка вопроса be_junior_sql_indexes_003",
+      "source_url": "local://question_cards/backend_junior/be_junior_sql_indexes_003.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_be_junior_sql_indexes_004",
+      "specialization": "backend",
+      "topics": [
+        "sql_indexes"
+      ],
+      "tags": [
+        "backend",
+        "be_junior_sql_indexes_004",
+        "habr_backend_java_2",
+        "junior",
+        "ru_so_java_interview",
+        "so_sql_interview",
+        "sql_indexes"
+      ],
+      "content": "Тема: SQL и индексы. Вопрос: Чем PRIMARY KEY отличается от обычного поля таблицы? Ключевые пункты хорошего ответа: 1. JOIN нужен для объединения связанных данных из нескольких таблиц 2. Индекс ускоряет часть операций чтения, но не бесплатен для записи и хранения 3. Без индекса база может делать full scan по большому числу строк 4. PRIMARY KEY уникально идентифицирует строку и обычно не допускает NULL 5. План выполнения запроса помогает понять причину медленной работы Типичные ошибки: 1. Не понимает связь JOIN и отношений между таблицами 2. Считает, что индекс ускоряет любой запрос без побочных эффектов 3. Не знает роли PRIMARY KEY и уникальности Рекомендации для повторения: 1. Повторить основы JOIN 2. Посмотреть устройство индексов и explain plan 3. Разобрать primary key и foreign key",
+      "source_title": "Карточка вопроса be_junior_sql_indexes_004",
+      "source_url": "local://question_cards/backend_junior/be_junior_sql_indexes_004.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_be_junior_transactions_001",
+      "specialization": "backend",
+      "topics": [
+        "transactions"
+      ],
+      "tags": [
+        "backend",
+        "be_junior_transactions_001",
+        "habr_backend_java_2",
+        "junior",
+        "ru_so_java_interview",
+        "so_sql_interview",
+        "transactions"
+      ],
+      "content": "Тема: Транзакции. Вопрос: Что такое транзакция в базе данных? Ключевые пункты хорошего ответа: 1. Транзакция объединяет несколько операций в одну логическую единицу 2. Atomicity означает all-or-nothing: либо всё применилось, либо всё откатилось 3. Commit фиксирует изменения, rollback отменяет их при ошибке 4. Транзакции нужны для согласованности данных и защиты от частично применённых изменений 5. Бизнес-операции вроде перевода денег требуют единого согласованного результата Типичные ошибки: 1. Путает транзакцию с любым одиночным запросом 2. Не понимает смысл rollback или atomicity 3. Считает, что многосоставные операции можно безопасно выполнять без транзакции Рекомендации для повторения: 1. Повторить ACID 2. Разобрать commit и rollback на практических примерах 3. Посмотреть типичные бизнес-операции внутри транзакций",
+      "source_title": "Карточка вопроса be_junior_transactions_001",
+      "source_url": "local://question_cards/backend_junior/be_junior_transactions_001.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_be_junior_transactions_002",
+      "specialization": "backend",
+      "topics": [
+        "transactions"
+      ],
+      "tags": [
+        "backend",
+        "be_junior_transactions_002",
+        "habr_backend_java_2",
+        "junior",
+        "ru_so_java_interview",
+        "so_sql_interview",
+        "transactions"
+      ],
+      "content": "Тема: Транзакции. Вопрос: Что означает atomicity в ACID? Ключевые пункты хорошего ответа: 1. Транзакция объединяет несколько операций в одну логическую единицу 2. Atomicity означает all-or-nothing: либо всё применилось, либо всё откатилось 3. Commit фиксирует изменения, rollback отменяет их при ошибке 4. Транзакции нужны для согласованности данных и защиты от частично применённых изменений 5. Бизнес-операции вроде перевода денег требуют единого согласованного результата Типичные ошибки: 1. Путает транзакцию с любым одиночным запросом 2. Не понимает смысл rollback или atomicity 3. Считает, что многосоставные операции можно безопасно выполнять без транзакции Рекомендации для повторения: 1. Повторить ACID 2. Разобрать commit и rollback на практических примерах 3. Посмотреть типичные бизнес-операции внутри транзакций",
+      "source_title": "Карточка вопроса be_junior_transactions_002",
+      "source_url": "local://question_cards/backend_junior/be_junior_transactions_002.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_be_junior_transactions_003",
+      "specialization": "backend",
+      "topics": [
+        "transactions"
+      ],
+      "tags": [
+        "backend",
+        "be_junior_transactions_003",
+        "habr_backend_java_2",
+        "junior",
+        "ru_so_java_interview",
+        "so_sql_interview",
+        "transactions"
+      ],
+      "content": "Тема: Транзакции. Вопрос: Зачем нужен rollback? Ключевые пункты хорошего ответа: 1. Транзакция объединяет несколько операций в одну логическую единицу 2. Atomicity означает all-or-nothing: либо всё применилось, либо всё откатилось 3. Commit фиксирует изменения, rollback отменяет их при ошибке 4. Транзакции нужны для согласованности данных и защиты от частично применённых изменений 5. Бизнес-операции вроде перевода денег требуют единого согласованного результата Типичные ошибки: 1. Путает транзакцию с любым одиночным запросом 2. Не понимает смысл rollback или atomicity 3. Считает, что многосоставные операции можно безопасно выполнять без транзакции Рекомендации для повторения: 1. Повторить ACID 2. Разобрать commit и rollback на практических примерах 3. Посмотреть типичные бизнес-операции внутри транзакций",
+      "source_title": "Карточка вопроса be_junior_transactions_003",
+      "source_url": "local://question_cards/backend_junior/be_junior_transactions_003.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_be_junior_transactions_004",
+      "specialization": "backend",
+      "topics": [
+        "transactions"
+      ],
+      "tags": [
+        "backend",
+        "be_junior_transactions_004",
+        "habr_backend_java_2",
+        "junior",
+        "ru_so_java_interview",
+        "so_sql_interview",
+        "transactions"
+      ],
+      "content": "Тема: Транзакции. Вопрос: Почему перевод денег между счетами обычно делают внутри одной транзакции? Ключевые пункты хорошего ответа: 1. Транзакция объединяет несколько операций в одну логическую единицу 2. Atomicity означает all-or-nothing: либо всё применилось, либо всё откатилось 3. Commit фиксирует изменения, rollback отменяет их при ошибке 4. Транзакции нужны для согласованности данных и защиты от частично применённых изменений 5. Бизнес-операции вроде перевода денег требуют единого согласованного результата Типичные ошибки: 1. Путает транзакцию с любым одиночным запросом 2. Не понимает смысл rollback или atomicity 3. Считает, что многосоставные операции можно безопасно выполнять без транзакции Рекомендации для повторения: 1. Повторить ACID 2. Разобрать commit и rollback на практических примерах 3. Посмотреть типичные бизнес-операции внутри транзакций",
+      "source_title": "Карточка вопроса be_junior_transactions_004",
+      "source_url": "local://question_cards/backend_junior/be_junior_transactions_004.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_be_middle_api_design_001",
+      "specialization": "backend",
+      "topics": [
+        "api_design"
+      ],
+      "tags": [
+        "api_design",
+        "backend",
+        "be_middle_api_design_001",
+        "habr_backend_guide",
+        "habr_backend_java_1",
+        "habr_backend_java_2",
+        "middle"
+      ],
+      "content": "Тема: Дизайн API и идемпотентность. Вопрос: Что такое идемпотентность на уровне API и почему она важна? Ключевые пункты хорошего ответа: 1. Идемпотентный запрос при повторе приводит к тому же конечному состоянию 2. Для долгих операций нужен асинхронный контракт со статусом задачи или job id 3. Ломающие изменения API без версии нарушают интеграции клиентов 4. Стандартизированный error contract упрощает клиентскую обработку и наблюдаемость 5. Надёжный API-дизайн должен учитывать retries, timeouts и backward compatibility Типичные ошибки: 1. Путает идемпотентность с кэшированием или скоростью 2. Предлагает для долгой операции только долгое удержание HTTP-соединения 3. Недооценивает важность versioning и error schema Рекомендации для повторения: 1. Повторить идемпотентность и retries 2. Посмотреть job-based API для long-running operations 3. Разобрать versioning и error contracts",
+      "source_title": "Карточка вопроса be_middle_api_design_001",
+      "source_url": "local://question_cards/backend_middle/be_middle_api_design_001.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_be_middle_api_design_002",
+      "specialization": "backend",
+      "topics": [
+        "api_design"
+      ],
+      "tags": [
+        "api_design",
+        "backend",
+        "be_middle_api_design_002",
+        "habr_backend_guide",
+        "habr_backend_java_1",
+        "habr_backend_java_2",
+        "middle"
+      ],
+      "content": "Тема: Дизайн API и идемпотентность. Вопрос: Как бы вы спроектировали API для долгой операции, которая может выполняться несколько минут? Ключевые пункты хорошего ответа: 1. Идемпотентный запрос при повторе приводит к тому же конечному состоянию 2. Для долгих операций нужен асинхронный контракт со статусом задачи или job id 3. Ломающие изменения API без версии нарушают интеграции клиентов 4. Стандартизированный error contract упрощает клиентскую обработку и наблюдаемость 5. Надёжный API-дизайн должен учитывать retries, timeouts и backward compatibility Типичные ошибки: 1. Путает идемпотентность с кэшированием или скоростью 2. Предлагает для долгой операции только долгое удержание HTTP-соединения 3. Недооценивает важность versioning и error schema Рекомендации для повторения: 1. Повторить идемпотентность и retries 2. Посмотреть job-based API для long-running operations 3. Разобрать versioning и error contracts",
+      "source_title": "Карточка вопроса be_middle_api_design_002",
+      "source_url": "local://question_cards/backend_middle/be_middle_api_design_002.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_be_middle_api_design_003",
+      "specialization": "backend",
+      "topics": [
+        "api_design"
+      ],
+      "tags": [
+        "api_design",
+        "backend",
+        "be_middle_api_design_003",
+        "habr_backend_guide",
+        "habr_backend_java_1",
+        "habr_backend_java_2",
+        "middle"
+      ],
+      "content": "Тема: Дизайн API и идемпотентность. Вопрос: Почему версия API и обратная совместимость важны для backend-сервисов? Ключевые пункты хорошего ответа: 1. Идемпотентный запрос при повторе приводит к тому же конечному состоянию 2. Для долгих операций нужен асинхронный контракт со статусом задачи или job id 3. Ломающие изменения API без версии нарушают интеграции клиентов 4. Стандартизированный error contract упрощает клиентскую обработку и наблюдаемость 5. Надёжный API-дизайн должен учитывать retries, timeouts и backward compatibility Типичные ошибки: 1. Путает идемпотентность с кэшированием или скоростью 2. Предлагает для долгой операции только долгое удержание HTTP-соединения 3. Недооценивает важность versioning и error schema Рекомендации для повторения: 1. Повторить идемпотентность и retries 2. Посмотреть job-based API для long-running operations 3. Разобрать versioning и error contracts",
+      "source_title": "Карточка вопроса be_middle_api_design_003",
+      "source_url": "local://question_cards/backend_middle/be_middle_api_design_003.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_be_middle_api_design_004",
+      "specialization": "backend",
+      "topics": [
+        "api_design"
+      ],
+      "tags": [
+        "api_design",
+        "backend",
+        "be_middle_api_design_004",
+        "habr_backend_guide",
+        "habr_backend_java_1",
+        "habr_backend_java_2",
+        "middle"
+      ],
+      "content": "Тема: Дизайн API и идемпотентность. Вопрос: Какие проблемы возникают, если ошибки API не стандартизированы? Ключевые пункты хорошего ответа: 1. Идемпотентный запрос при повторе приводит к тому же конечному состоянию 2. Для долгих операций нужен асинхронный контракт со статусом задачи или job id 3. Ломающие изменения API без версии нарушают интеграции клиентов 4. Стандартизированный error contract упрощает клиентскую обработку и наблюдаемость 5. Надёжный API-дизайн должен учитывать retries, timeouts и backward compatibility Типичные ошибки: 1. Путает идемпотентность с кэшированием или скоростью 2. Предлагает для долгой операции только долгое удержание HTTP-соединения 3. Недооценивает важность versioning и error schema Рекомендации для повторения: 1. Повторить идемпотентность и retries 2. Посмотреть job-based API для long-running operations 3. Разобрать versioning и error contracts",
+      "source_title": "Карточка вопроса be_middle_api_design_004",
+      "source_url": "local://question_cards/backend_middle/be_middle_api_design_004.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_be_middle_db_isolation_001",
+      "specialization": "backend",
+      "topics": [
+        "db_isolation"
+      ],
+      "tags": [
+        "backend",
+        "be_middle_db_isolation_001",
+        "db_isolation",
+        "habr_backend_java_2",
+        "middle",
+        "ru_so_java_interview",
+        "so_sql_interview"
+      ],
+      "content": "Тема: Транзакции и изоляция. Вопрос: Что такое уровень изоляции транзакций и зачем он нужен? Ключевые пункты хорошего ответа: 1. Уровни изоляции определяют допустимые эффекты параллельных транзакций 2. Dirty read — чтение неподтверждённых данных, non-repeatable read — разные результаты повторного чтения 3. Блокировки защищают корректность, но могут снижать throughput и вызывать contention 4. Optimistic locking полезен, когда конфликтов немного и можно проверять version field 5. Нужно искать баланс между корректностью, латентностью и конкурентным доступом Типичные ошибки: 1. Путает аномалии изоляции между собой 2. Считает блокировки либо всегда бесплатными, либо всегда бесполезными 3. Не понимает смысл optimistic locking Рекомендации для повторения: 1. Повторить уровни изоляции и типовые аномалии 2. Разобрать lock contention и deadlock 3. Посмотреть optimistic vs pessimistic locking",
+      "source_title": "Карточка вопроса be_middle_db_isolation_001",
+      "source_url": "local://question_cards/backend_middle/be_middle_db_isolation_001.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_be_middle_db_isolation_002",
+      "specialization": "backend",
+      "topics": [
+        "db_isolation"
+      ],
+      "tags": [
+        "backend",
+        "be_middle_db_isolation_002",
+        "db_isolation",
+        "habr_backend_java_2",
+        "middle",
+        "ru_so_java_interview",
+        "so_sql_interview"
+      ],
+      "content": "Тема: Транзакции и изоляция. Вопрос: Чем dirty read отличается от non-repeatable read? Ключевые пункты хорошего ответа: 1. Уровни изоляции определяют допустимые эффекты параллельных транзакций 2. Dirty read — чтение неподтверждённых данных, non-repeatable read — разные результаты повторного чтения 3. Блокировки защищают корректность, но могут снижать throughput и вызывать contention 4. Optimistic locking полезен, когда конфликтов немного и можно проверять version field 5. Нужно искать баланс между корректностью, латентностью и конкурентным доступом Типичные ошибки: 1. Путает аномалии изоляции между собой 2. Считает блокировки либо всегда бесплатными, либо всегда бесполезными 3. Не понимает смысл optimistic locking Рекомендации для повторения: 1. Повторить уровни изоляции и типовые аномалии 2. Разобрать lock contention и deadlock 3. Посмотреть optimistic vs pessimistic locking",
+      "source_title": "Карточка вопроса be_middle_db_isolation_002",
+      "source_url": "local://question_cards/backend_middle/be_middle_db_isolation_002.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_be_middle_db_isolation_003",
+      "specialization": "backend",
+      "topics": [
+        "db_isolation"
+      ],
+      "tags": [
+        "backend",
+        "be_middle_db_isolation_003",
+        "db_isolation",
+        "habr_backend_java_2",
+        "middle",
+        "ru_so_java_interview",
+        "so_sql_interview"
+      ],
+      "content": "Тема: Транзакции и изоляция. Вопрос: Когда блокировки полезны, а когда они становятся проблемой? Ключевые пункты хорошего ответа: 1. Уровни изоляции определяют допустимые эффекты параллельных транзакций 2. Dirty read — чтение неподтверждённых данных, non-repeatable read — разные результаты повторного чтения 3. Блокировки защищают корректность, но могут снижать throughput и вызывать contention 4. Optimistic locking полезен, когда конфликтов немного и можно проверять version field 5. Нужно искать баланс между корректностью, латентностью и конкурентным доступом Типичные ошибки: 1. Путает аномалии изоляции между собой 2. Считает блокировки либо всегда бесплатными, либо всегда бесполезными 3. Не понимает смысл optimistic locking Рекомендации для повторения: 1. Повторить уровни изоляции и типовые аномалии 2. Разобрать lock contention и deadlock 3. Посмотреть optimistic vs pessimistic locking",
+      "source_title": "Карточка вопроса be_middle_db_isolation_003",
+      "source_url": "local://question_cards/backend_middle/be_middle_db_isolation_003.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_be_middle_db_isolation_004",
+      "specialization": "backend",
+      "topics": [
+        "db_isolation"
+      ],
+      "tags": [
+        "backend",
+        "be_middle_db_isolation_004",
+        "db_isolation",
+        "habr_backend_java_2",
+        "middle",
+        "ru_so_java_interview",
+        "so_sql_interview"
+      ],
+      "content": "Тема: Транзакции и изоляция. Вопрос: Что такое optimistic locking и когда он полезен? Ключевые пункты хорошего ответа: 1. Уровни изоляции определяют допустимые эффекты параллельных транзакций 2. Dirty read — чтение неподтверждённых данных, non-repeatable read — разные результаты повторного чтения 3. Блокировки защищают корректность, но могут снижать throughput и вызывать contention 4. Optimistic locking полезен, когда конфликтов немного и можно проверять version field 5. Нужно искать баланс между корректностью, латентностью и конкурентным доступом Типичные ошибки: 1. Путает аномалии изоляции между собой 2. Считает блокировки либо всегда бесплатными, либо всегда бесполезными 3. Не понимает смысл optimistic locking Рекомендации для повторения: 1. Повторить уровни изоляции и типовые аномалии 2. Разобрать lock contention и deadlock 3. Посмотреть optimistic vs pessimistic locking",
+      "source_title": "Карточка вопроса be_middle_db_isolation_004",
+      "source_url": "local://question_cards/backend_middle/be_middle_db_isolation_004.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_be_middle_messaging_outbox_001",
+      "specialization": "backend",
+      "topics": [
+        "messaging_outbox"
+      ],
+      "tags": [
+        "backend",
+        "be_middle_messaging_outbox_001",
+        "habr_backend_guide",
+        "messaging_outbox",
+        "middle",
+        "so_cicd_collective",
+        "so_devops_tag"
+      ],
+      "content": "Тема: Сообщения, ретраи и outbox. Вопрос: Почему двойная запись в базу и брокер сообщений может быть проблемой? Ключевые пункты хорошего ответа: 1. Между записью в БД и публикацией события есть окно сбоя, которое создаёт рассинхронизацию 2. Outbox pattern позволяет сначала надёжно записать событие рядом с бизнес-изменением, а потом опубликовать его отдельно 3. Retry без backoff и лимитов может усилить деградацию и привести к storm effect 4. Потребителю нужна дедупликация или идемпотентность из-за at-least-once delivery 5. Надёжный messaging требует продуманной обработки дублей, ошибок и DLQ Типичные ошибки: 1. Считает, что локальный try/catch полностью решает dual write 2. Не понимает, зачем нужен outbox 3. Не видит проблем в бесконечном retry без ограничений Рекомендации для повторения: 1. Повторить dual write problem 2. Разобрать outbox pattern и delivery semantics 3. Посмотреть retries, backoff и DLQ",
+      "source_title": "Карточка вопроса be_middle_messaging_outbox_001",
+      "source_url": "local://question_cards/backend_middle/be_middle_messaging_outbox_001.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_be_middle_messaging_outbox_002",
+      "specialization": "backend",
+      "topics": [
+        "messaging_outbox"
+      ],
+      "tags": [
+        "backend",
+        "be_middle_messaging_outbox_002",
+        "habr_backend_guide",
+        "messaging_outbox",
+        "middle",
+        "so_cicd_collective",
+        "so_devops_tag"
+      ],
+      "content": "Тема: Сообщения, ретраи и outbox. Вопрос: Что такое outbox pattern простыми словами? Ключевые пункты хорошего ответа: 1. Между записью в БД и публикацией события есть окно сбоя, которое создаёт рассинхронизацию 2. Outbox pattern позволяет сначала надёжно записать событие рядом с бизнес-изменением, а потом опубликовать его отдельно 3. Retry без backoff и лимитов может усилить деградацию и привести к storm effect 4. Потребителю нужна дедупликация или идемпотентность из-за at-least-once delivery 5. Надёжный messaging требует продуманной обработки дублей, ошибок и DLQ Типичные ошибки: 1. Считает, что локальный try/catch полностью решает dual write 2. Не понимает, зачем нужен outbox 3. Не видит проблем в бесконечном retry без ограничений Рекомендации для повторения: 1. Повторить dual write problem 2. Разобрать outbox pattern и delivery semantics 3. Посмотреть retries, backoff и DLQ",
+      "source_title": "Карточка вопроса be_middle_messaging_outbox_002",
+      "source_url": "local://question_cards/backend_middle/be_middle_messaging_outbox_002.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_be_middle_messaging_outbox_003",
+      "specialization": "backend",
+      "topics": [
+        "messaging_outbox"
+      ],
+      "tags": [
+        "backend",
+        "be_middle_messaging_outbox_003",
+        "habr_backend_guide",
+        "messaging_outbox",
+        "middle",
+        "so_cicd_collective",
+        "so_devops_tag"
+      ],
+      "content": "Тема: Сообщения, ретраи и outbox. Вопрос: Почему retry без лимитов и без backoff опасен? Ключевые пункты хорошего ответа: 1. Между записью в БД и публикацией события есть окно сбоя, которое создаёт рассинхронизацию 2. Outbox pattern позволяет сначала надёжно записать событие рядом с бизнес-изменением, а потом опубликовать его отдельно 3. Retry без backoff и лимитов может усилить деградацию и привести к storm effect 4. Потребителю нужна дедупликация или идемпотентность из-за at-least-once delivery 5. Надёжный messaging требует продуманной обработки дублей, ошибок и DLQ Типичные ошибки: 1. Считает, что локальный try/catch полностью решает dual write 2. Не понимает, зачем нужен outbox 3. Не видит проблем в бесконечном retry без ограничений Рекомендации для повторения: 1. Повторить dual write problem 2. Разобрать outbox pattern и delivery semantics 3. Посмотреть retries, backoff и DLQ",
+      "source_title": "Карточка вопроса be_middle_messaging_outbox_003",
+      "source_url": "local://question_cards/backend_middle/be_middle_messaging_outbox_003.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_be_middle_messaging_outbox_004",
+      "specialization": "backend",
+      "topics": [
+        "messaging_outbox"
+      ],
+      "tags": [
+        "backend",
+        "be_middle_messaging_outbox_004",
+        "habr_backend_guide",
+        "messaging_outbox",
+        "middle",
+        "so_cicd_collective",
+        "so_devops_tag"
+      ],
+      "content": "Тема: Сообщения, ретраи и outbox. Вопрос: Зачем потребителю сообщений может понадобиться дедупликация? Ключевые пункты хорошего ответа: 1. Между записью в БД и публикацией события есть окно сбоя, которое создаёт рассинхронизацию 2. Outbox pattern позволяет сначала надёжно записать событие рядом с бизнес-изменением, а потом опубликовать его отдельно 3. Retry без backoff и лимитов может усилить деградацию и привести к storm effect 4. Потребителю нужна дедупликация или идемпотентность из-за at-least-once delivery 5. Надёжный messaging требует продуманной обработки дублей, ошибок и DLQ Типичные ошибки: 1. Считает, что локальный try/catch полностью решает dual write 2. Не понимает, зачем нужен outbox 3. Не видит проблем в бесконечном retry без ограничений Рекомендации для повторения: 1. Повторить dual write problem 2. Разобрать outbox pattern и delivery semantics 3. Посмотреть retries, backoff и DLQ",
+      "source_title": "Карточка вопроса be_middle_messaging_outbox_004",
+      "source_url": "local://question_cards/backend_middle/be_middle_messaging_outbox_004.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_be_middle_microservices_001",
+      "specialization": "backend",
+      "topics": [
+        "microservices"
+      ],
+      "tags": [
+        "backend",
+        "be_middle_microservices_001",
+        "habr_backend_guide",
+        "microservices",
+        "middle",
+        "so_cicd_collective",
+        "so_devops_tag"
+      ],
+      "content": "Тема: Микросервисы и консистентность. Вопрос: Какие плюсы и минусы у микросервисной архитектуры по сравнению с монолитом? Ключевые пункты хорошего ответа: 1. Микросервисы дают независимое развёртывание и bounded contexts, но усложняют сеть и операционку 2. Распределённые данные сложно обновлять одной локальной транзакцией 3. Eventual consistency допустима, если короткое расхождение состояния приемлемо для бизнеса 4. Correlation id и tracing помогают связывать события и находить путь запроса через сервисы 5. В распределённой системе нужно проектировать наблюдаемость и компенсационные механизмы Типичные ошибки: 1. Считает микросервисы автоматически лучшим решением в любом контексте 2. Не видит разницы в консистентности между монолитом и микросервисами 3. Не понимает ценность tracing и correlation id Рекомендации для повторения: 1. Разобрать trade-offs монолит vs microservices 2. Повторить eventual consistency и distributed tracing 3. Посмотреть bounded context и компенсационные процессы",
+      "source_title": "Карточка вопроса be_middle_microservices_001",
+      "source_url": "local://question_cards/backend_middle/be_middle_microservices_001.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_be_middle_microservices_002",
+      "specialization": "backend",
+      "topics": [
+        "microservices"
+      ],
+      "tags": [
+        "backend",
+        "be_middle_microservices_002",
+        "habr_backend_guide",
+        "microservices",
+        "middle",
+        "so_cicd_collective",
+        "so_devops_tag"
+      ],
+      "content": "Тема: Микросервисы и консистентность. Вопрос: Почему в микросервисах сложнее поддерживать консистентность данных? Ключевые пункты хорошего ответа: 1. Микросервисы дают независимое развёртывание и bounded contexts, но усложняют сеть и операционку 2. Распределённые данные сложно обновлять одной локальной транзакцией 3. Eventual consistency допустима, если короткое расхождение состояния приемлемо для бизнеса 4. Correlation id и tracing помогают связывать события и находить путь запроса через сервисы 5. В распределённой системе нужно проектировать наблюдаемость и компенсационные механизмы Типичные ошибки: 1. Считает микросервисы автоматически лучшим решением в любом контексте 2. Не видит разницы в консистентности между монолитом и микросервисами 3. Не понимает ценность tracing и correlation id Рекомендации для повторения: 1. Разобрать trade-offs монолит vs microservices 2. Повторить eventual consistency и distributed tracing 3. Посмотреть bounded context и компенсационные процессы",
+      "source_title": "Карточка вопроса be_middle_microservices_002",
+      "source_url": "local://question_cards/backend_middle/be_middle_microservices_002.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_be_middle_microservices_003",
+      "specialization": "backend",
+      "topics": [
+        "microservices"
+      ],
+      "tags": [
+        "backend",
+        "be_middle_microservices_003",
+        "habr_backend_guide",
+        "microservices",
+        "middle",
+        "so_cicd_collective",
+        "so_devops_tag"
+      ],
+      "content": "Тема: Микросервисы и консистентность. Вопрос: Что такое eventual consistency и когда она допустима? Ключевые пункты хорошего ответа: 1. Микросервисы дают независимое развёртывание и bounded contexts, но усложняют сеть и операционку 2. Распределённые данные сложно обновлять одной локальной транзакцией 3. Eventual consistency допустима, если короткое расхождение состояния приемлемо для бизнеса 4. Correlation id и tracing помогают связывать события и находить путь запроса через сервисы 5. В распределённой системе нужно проектировать наблюдаемость и компенсационные механизмы Типичные ошибки: 1. Считает микросервисы автоматически лучшим решением в любом контексте 2. Не видит разницы в консистентности между монолитом и микросервисами 3. Не понимает ценность tracing и correlation id Рекомендации для повторения: 1. Разобрать trade-offs монолит vs microservices 2. Повторить eventual consistency и distributed tracing 3. Посмотреть bounded context и компенсационные процессы",
+      "source_title": "Карточка вопроса be_middle_microservices_003",
+      "source_url": "local://question_cards/backend_middle/be_middle_microservices_003.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_be_middle_microservices_004",
+      "specialization": "backend",
+      "topics": [
+        "microservices"
+      ],
+      "tags": [
+        "backend",
+        "be_middle_microservices_004",
+        "habr_backend_guide",
+        "microservices",
+        "middle",
+        "so_cicd_collective",
+        "so_devops_tag"
+      ],
+      "content": "Тема: Микросервисы и консистентность. Вопрос: Зачем в распределённой системе correlation id и трассировка запросов? Ключевые пункты хорошего ответа: 1. Микросервисы дают независимое развёртывание и bounded contexts, но усложняют сеть и операционку 2. Распределённые данные сложно обновлять одной локальной транзакцией 3. Eventual consistency допустима, если короткое расхождение состояния приемлемо для бизнеса 4. Correlation id и tracing помогают связывать события и находить путь запроса через сервисы 5. В распределённой системе нужно проектировать наблюдаемость и компенсационные механизмы Типичные ошибки: 1. Считает микросервисы автоматически лучшим решением в любом контексте 2. Не видит разницы в консистентности между монолитом и микросервисами 3. Не понимает ценность tracing и correlation id Рекомендации для повторения: 1. Разобрать trade-offs монолит vs microservices 2. Повторить eventual consistency и distributed tracing 3. Посмотреть bounded context и компенсационные процессы",
+      "source_title": "Карточка вопроса be_middle_microservices_004",
+      "source_url": "local://question_cards/backend_middle/be_middle_microservices_004.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_be_middle_observability_001",
+      "specialization": "backend",
+      "topics": [
+        "observability"
+      ],
+      "tags": [
+        "backend",
+        "be_middle_observability_001",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "middle",
+        "observability",
+        "so_devops_tag"
+      ],
+      "content": "Тема: Наблюдаемость и устойчивость. Вопрос: Чем метрики, логи и трассировки отличаются друг от друга? Ключевые пункты хорошего ответа: 1. Метрики дают агрегированную картину, логи — детали событий, трассировки — путь запроса 2. Circuit breaker защищает систему от усиления сбоев при проблемной зависимости 3. Абсолютная доступность нереалистична из-за отказов, работ и зависимости от внешних систем 4. Healthcheck нужен для orchestration, liveness проверяет жив ли процесс, readiness — готов ли принимать трафик 5. Устойчивость строится через SLO/SLA, graceful degradation и контроль зависимостей Типичные ошибки: 1. Считает, что логов всегда достаточно без метрик и трассировок 2. Путает circuit breaker с балансировщиком или firewall 3. Не различает liveness и readiness Рекомендации для повторения: 1. Повторить observability pillars 2. Разобрать circuit breaker и graceful degradation 3. Посмотреть SLO/SLA и health probes",
+      "source_title": "Карточка вопроса be_middle_observability_001",
+      "source_url": "local://question_cards/backend_middle/be_middle_observability_001.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_be_middle_observability_002",
+      "specialization": "backend",
+      "topics": [
+        "observability"
+      ],
+      "tags": [
+        "backend",
+        "be_middle_observability_002",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "middle",
+        "observability",
+        "so_devops_tag"
+      ],
+      "content": "Тема: Наблюдаемость и устойчивость. Вопрос: Что такое circuit breaker и какую проблему он решает? Ключевые пункты хорошего ответа: 1. Метрики дают агрегированную картину, логи — детали событий, трассировки — путь запроса 2. Circuit breaker защищает систему от усиления сбоев при проблемной зависимости 3. Абсолютная доступность нереалистична из-за отказов, работ и зависимости от внешних систем 4. Healthcheck нужен для orchestration, liveness проверяет жив ли процесс, readiness — готов ли принимать трафик 5. Устойчивость строится через SLO/SLA, graceful degradation и контроль зависимостей Типичные ошибки: 1. Считает, что логов всегда достаточно без метрик и трассировок 2. Путает circuit breaker с балансировщиком или firewall 3. Не различает liveness и readiness Рекомендации для повторения: 1. Повторить observability pillars 2. Разобрать circuit breaker и graceful degradation 3. Посмотреть SLO/SLA и health probes",
+      "source_title": "Карточка вопроса be_middle_observability_002",
+      "source_url": "local://question_cards/backend_middle/be_middle_observability_002.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_be_middle_observability_003",
+      "specialization": "backend",
+      "topics": [
+        "observability"
+      ],
+      "tags": [
+        "backend",
+        "be_middle_observability_003",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "middle",
+        "observability",
+        "so_devops_tag"
+      ],
+      "content": "Тема: Наблюдаемость и устойчивость. Вопрос: Почему 100% availability обычно нельзя обещать реалистично? Ключевые пункты хорошего ответа: 1. Метрики дают агрегированную картину, логи — детали событий, трассировки — путь запроса 2. Circuit breaker защищает систему от усиления сбоев при проблемной зависимости 3. Абсолютная доступность нереалистична из-за отказов, работ и зависимости от внешних систем 4. Healthcheck нужен для orchestration, liveness проверяет жив ли процесс, readiness — готов ли принимать трафик 5. Устойчивость строится через SLO/SLA, graceful degradation и контроль зависимостей Типичные ошибки: 1. Считает, что логов всегда достаточно без метрик и трассировок 2. Путает circuit breaker с балансировщиком или firewall 3. Не различает liveness и readiness Рекомендации для повторения: 1. Повторить observability pillars 2. Разобрать circuit breaker и graceful degradation 3. Посмотреть SLO/SLA и health probes",
+      "source_title": "Карточка вопроса be_middle_observability_003",
+      "source_url": "local://question_cards/backend_middle/be_middle_observability_003.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_be_middle_observability_004",
+      "specialization": "backend",
+      "topics": [
+        "observability"
+      ],
+      "tags": [
+        "backend",
+        "be_middle_observability_004",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "middle",
+        "observability",
+        "so_devops_tag"
+      ],
+      "content": "Тема: Наблюдаемость и устойчивость. Вопрос: Зачем healthcheck-эндпоинты и чем liveness отличается от readiness? Ключевые пункты хорошего ответа: 1. Метрики дают агрегированную картину, логи — детали событий, трассировки — путь запроса 2. Circuit breaker защищает систему от усиления сбоев при проблемной зависимости 3. Абсолютная доступность нереалистична из-за отказов, работ и зависимости от внешних систем 4. Healthcheck нужен для orchestration, liveness проверяет жив ли процесс, readiness — готов ли принимать трафик 5. Устойчивость строится через SLO/SLA, graceful degradation и контроль зависимостей Типичные ошибки: 1. Считает, что логов всегда достаточно без метрик и трассировок 2. Путает circuit breaker с балансировщиком или firewall 3. Не различает liveness и readiness Рекомендации для повторения: 1. Повторить observability pillars 2. Разобрать circuit breaker и graceful degradation 3. Посмотреть SLO/SLA и health probes",
+      "source_title": "Карточка вопроса be_middle_observability_004",
+      "source_url": "local://question_cards/backend_middle/be_middle_observability_004.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_do_junior_cicd_basics_001",
       "specialization": "devops",
       "topics": [
-        "delivery_pipeline"
+        "cicd_basics"
       ],
       "tags": [
-        "ci",
-        "cd",
-        "pipeline",
-        "deploy"
+        "cicd_basics",
+        "devops",
+        "do_junior_cicd_basics_001",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "junior",
+        "so_cicd_collective"
       ],
-      "content": "Continuous Integration фокусируется на сборке и автоматических проверках изменений. Continuous Delivery доводит сборку до готовности к релизу, а Continuous Deployment автоматически выкатывает проверенную версию в production. Практичный pipeline обычно включает lint, tests, security scans, artifact versioning и rollback strategy.",
-      "source_title": "CI/CD pipeline patterns",
-      "source_url": "https://example.local/kb/cicd-patterns",
-      "version": "kb-2026.03-demo"
+      "content": "Тема: CI/CD basics. Вопрос: Что обычно понимают под CI и под CD? Ключевые пункты хорошего ответа: 1. CI — это регулярная интеграция изменений с автоматической проверкой, CD — автоматизированная доставка или развёртывание 2. Pipeline помогает раньше находить ошибки и делать поставку изменений предсказуемой 3. Ручные шаги ухудшают повторяемость и повышают риск человеческой ошибки 4. Flaky tests подрывают доверие к pipeline и требуют отдельной работы 5. Хороший CI/CD процесс измеряет качество и делает выпуск изменений менее хаотичным Типичные ошибки: 1. Путает CI и CD 2. Считает pipeline просто красивым интерфейсом вокруг ручных шагов 3. Игнорирует проблему flaky tests Рекомендации для повторения: 1. Повторить CI/CD базовые понятия 2. Разобрать пользу автоматизации build/test 3. Посмотреть стратегии борьбы с flaky tests",
+      "source_title": "Карточка вопроса do_junior_cicd_basics_001",
+      "source_url": "local://question_cards/devops_junior/do_junior_cicd_basics_001.json",
+      "version": "kb-2026.04-full-ru-v1"
     },
     {
-      "chunk_id": "kb_devops_docker_1",
+      "chunk_id": "kb_do_junior_cicd_basics_002",
       "specialization": "devops",
       "topics": [
-        "containers"
+        "cicd_basics"
       ],
       "tags": [
-        "docker",
-        "image",
-        "container",
-        "runtime"
+        "cicd_basics",
+        "devops",
+        "do_junior_cicd_basics_002",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "junior",
+        "so_cicd_collective"
       ],
-      "content": "Docker image — это неизменяемый шаблон с файловой системой и метаданными. Контейнер — запущенный процесс на основе образа с writable layer и runtime-состоянием. Один и тот же образ можно использовать для множества контейнеров.",
-      "source_title": "Docker basics",
-      "source_url": "https://example.local/kb/docker-basics",
-      "version": "kb-2026.03-demo"
+      "content": "Тема: CI/CD basics. Вопрос: Зачем автоматизировать сборку и тесты в pipeline? Ключевые пункты хорошего ответа: 1. CI — это регулярная интеграция изменений с автоматической проверкой, CD — автоматизированная доставка или развёртывание 2. Pipeline помогает раньше находить ошибки и делать поставку изменений предсказуемой 3. Ручные шаги ухудшают повторяемость и повышают риск человеческой ошибки 4. Flaky tests подрывают доверие к pipeline и требуют отдельной работы 5. Хороший CI/CD процесс измеряет качество и делает выпуск изменений менее хаотичным Типичные ошибки: 1. Путает CI и CD 2. Считает pipeline просто красивым интерфейсом вокруг ручных шагов 3. Игнорирует проблему flaky tests Рекомендации для повторения: 1. Повторить CI/CD базовые понятия 2. Разобрать пользу автоматизации build/test 3. Посмотреть стратегии борьбы с flaky tests",
+      "source_title": "Карточка вопроса do_junior_cicd_basics_002",
+      "source_url": "local://question_cards/devops_junior/do_junior_cicd_basics_002.json",
+      "version": "kb-2026.04-full-ru-v1"
     },
     {
-      "chunk_id": "kb_frontend_react_1",
+      "chunk_id": "kb_do_junior_cicd_basics_003",
+      "specialization": "devops",
+      "topics": [
+        "cicd_basics"
+      ],
+      "tags": [
+        "cicd_basics",
+        "devops",
+        "do_junior_cicd_basics_003",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "junior",
+        "so_cicd_collective"
+      ],
+      "content": "Тема: CI/CD basics. Вопрос: Почему pipeline должен быть воспроизводимым, а не зависеть от ручных действий? Ключевые пункты хорошего ответа: 1. CI — это регулярная интеграция изменений с автоматической проверкой, CD — автоматизированная доставка или развёртывание 2. Pipeline помогает раньше находить ошибки и делать поставку изменений предсказуемой 3. Ручные шаги ухудшают повторяемость и повышают риск человеческой ошибки 4. Flaky tests подрывают доверие к pipeline и требуют отдельной работы 5. Хороший CI/CD процесс измеряет качество и делает выпуск изменений менее хаотичным Типичные ошибки: 1. Путает CI и CD 2. Считает pipeline просто красивым интерфейсом вокруг ручных шагов 3. Игнорирует проблему flaky tests Рекомендации для повторения: 1. Повторить CI/CD базовые понятия 2. Разобрать пользу автоматизации build/test 3. Посмотреть стратегии борьбы с flaky tests",
+      "source_title": "Карточка вопроса do_junior_cicd_basics_003",
+      "source_url": "local://question_cards/devops_junior/do_junior_cicd_basics_003.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_do_junior_cicd_basics_004",
+      "specialization": "devops",
+      "topics": [
+        "cicd_basics"
+      ],
+      "tags": [
+        "cicd_basics",
+        "devops",
+        "do_junior_cicd_basics_004",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "junior",
+        "so_cicd_collective"
+      ],
+      "content": "Тема: CI/CD basics. Вопрос: Что делать, если тесты в pipeline нестабильны и иногда падают без причины? Ключевые пункты хорошего ответа: 1. CI — это регулярная интеграция изменений с автоматической проверкой, CD — автоматизированная доставка или развёртывание 2. Pipeline помогает раньше находить ошибки и делать поставку изменений предсказуемой 3. Ручные шаги ухудшают повторяемость и повышают риск человеческой ошибки 4. Flaky tests подрывают доверие к pipeline и требуют отдельной работы 5. Хороший CI/CD процесс измеряет качество и делает выпуск изменений менее хаотичным Типичные ошибки: 1. Путает CI и CD 2. Считает pipeline просто красивым интерфейсом вокруг ручных шагов 3. Игнорирует проблему flaky tests Рекомендации для повторения: 1. Повторить CI/CD базовые понятия 2. Разобрать пользу автоматизации build/test 3. Посмотреть стратегии борьбы с flaky tests",
+      "source_title": "Карточка вопроса do_junior_cicd_basics_004",
+      "source_url": "local://question_cards/devops_junior/do_junior_cicd_basics_004.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_do_junior_docker_basics_001",
+      "specialization": "devops",
+      "topics": [
+        "docker_basics"
+      ],
+      "tags": [
+        "devops",
+        "do_junior_docker_basics_001",
+        "docker_basics",
+        "habr_devops_path_2026",
+        "junior",
+        "so_cicd_collective",
+        "so_devops_tag"
+      ],
+      "content": "Тема: Docker basics. Вопрос: Зачем используют контейнеры и чем они полезны разработке и эксплуатации? Ключевые пункты хорошего ответа: 1. Контейнеры дают воспроизводимое окружение для запуска приложения 2. Образ — это шаблон, контейнер — его запущенный экземпляр 3. Данные внутри контейнера могут потеряться при пересоздании, поэтому для важных данных используют volume или внешнее хранилище 4. Multi-stage build помогает уменьшать размер финального образа и отделять build dependencies от runtime 5. Контейнеризация решает часть проблем окружения, но не отменяет вопросы сети, секретов и хранения данных Типичные ошибки: 1. Путает образ и контейнер 2. Считает контейнер полноценной виртуальной машиной без оговорок 3. Не видит проблемы эфемерного хранения данных Рекомендации для повторения: 1. Повторить container lifecycle 2. Разобрать image vs container 3. Посмотреть volumes и multi-stage builds",
+      "source_title": "Карточка вопроса do_junior_docker_basics_001",
+      "source_url": "local://question_cards/devops_junior/do_junior_docker_basics_001.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_do_junior_docker_basics_002",
+      "specialization": "devops",
+      "topics": [
+        "docker_basics"
+      ],
+      "tags": [
+        "devops",
+        "do_junior_docker_basics_002",
+        "docker_basics",
+        "habr_devops_path_2026",
+        "junior",
+        "so_cicd_collective",
+        "so_devops_tag"
+      ],
+      "content": "Тема: Docker basics. Вопрос: Чем образ отличается от контейнера? Ключевые пункты хорошего ответа: 1. Контейнеры дают воспроизводимое окружение для запуска приложения 2. Образ — это шаблон, контейнер — его запущенный экземпляр 3. Данные внутри контейнера могут потеряться при пересоздании, поэтому для важных данных используют volume или внешнее хранилище 4. Multi-stage build помогает уменьшать размер финального образа и отделять build dependencies от runtime 5. Контейнеризация решает часть проблем окружения, но не отменяет вопросы сети, секретов и хранения данных Типичные ошибки: 1. Путает образ и контейнер 2. Считает контейнер полноценной виртуальной машиной без оговорок 3. Не видит проблемы эфемерного хранения данных Рекомендации для повторения: 1. Повторить container lifecycle 2. Разобрать image vs container 3. Посмотреть volumes и multi-stage builds",
+      "source_title": "Карточка вопроса do_junior_docker_basics_002",
+      "source_url": "local://question_cards/devops_junior/do_junior_docker_basics_002.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_do_junior_docker_basics_003",
+      "specialization": "devops",
+      "topics": [
+        "docker_basics"
+      ],
+      "tags": [
+        "devops",
+        "do_junior_docker_basics_003",
+        "docker_basics",
+        "habr_devops_path_2026",
+        "junior",
+        "so_cicd_collective",
+        "so_devops_tag"
+      ],
+      "content": "Тема: Docker basics. Вопрос: Почему не стоит хранить данные только внутри контейнера без внешнего volume? Ключевые пункты хорошего ответа: 1. Контейнеры дают воспроизводимое окружение для запуска приложения 2. Образ — это шаблон, контейнер — его запущенный экземпляр 3. Данные внутри контейнера могут потеряться при пересоздании, поэтому для важных данных используют volume или внешнее хранилище 4. Multi-stage build помогает уменьшать размер финального образа и отделять build dependencies от runtime 5. Контейнеризация решает часть проблем окружения, но не отменяет вопросы сети, секретов и хранения данных Типичные ошибки: 1. Путает образ и контейнер 2. Считает контейнер полноценной виртуальной машиной без оговорок 3. Не видит проблемы эфемерного хранения данных Рекомендации для повторения: 1. Повторить container lifecycle 2. Разобрать image vs container 3. Посмотреть volumes и multi-stage builds",
+      "source_title": "Карточка вопроса do_junior_docker_basics_003",
+      "source_url": "local://question_cards/devops_junior/do_junior_docker_basics_003.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_do_junior_docker_basics_004",
+      "specialization": "devops",
+      "topics": [
+        "docker_basics"
+      ],
+      "tags": [
+        "devops",
+        "do_junior_docker_basics_004",
+        "docker_basics",
+        "habr_devops_path_2026",
+        "junior",
+        "so_cicd_collective",
+        "so_devops_tag"
+      ],
+      "content": "Тема: Docker basics. Вопрос: Зачем multi-stage build может быть полезен даже в простом проекте? Ключевые пункты хорошего ответа: 1. Контейнеры дают воспроизводимое окружение для запуска приложения 2. Образ — это шаблон, контейнер — его запущенный экземпляр 3. Данные внутри контейнера могут потеряться при пересоздании, поэтому для важных данных используют volume или внешнее хранилище 4. Multi-stage build помогает уменьшать размер финального образа и отделять build dependencies от runtime 5. Контейнеризация решает часть проблем окружения, но не отменяет вопросы сети, секретов и хранения данных Типичные ошибки: 1. Путает образ и контейнер 2. Считает контейнер полноценной виртуальной машиной без оговорок 3. Не видит проблемы эфемерного хранения данных Рекомендации для повторения: 1. Повторить container lifecycle 2. Разобрать image vs container 3. Посмотреть volumes и multi-stage builds",
+      "source_title": "Карточка вопроса do_junior_docker_basics_004",
+      "source_url": "local://question_cards/devops_junior/do_junior_docker_basics_004.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_do_junior_git_iac_001",
+      "specialization": "devops",
+      "topics": [
+        "git_iac"
+      ],
+      "tags": [
+        "devops",
+        "do_junior_git_iac_001",
+        "git_iac",
+        "habr_devops_senior",
+        "junior",
+        "so_cicd_collective",
+        "so_devops_tag"
+      ],
+      "content": "Тема: Git и базовая автоматизация. Вопрос: Почему инфраструктурные изменения полезно хранить в Git? Ключевые пункты хорошего ответа: 1. Git даёт историю изменений, review и возможность отката 2. Code review снижает риск ошибок и делает знания команды общими 3. IaC описывает инфраструктуру в коде или декларативных конфигурациях 4. Ручные изменения без фиксации приводят к drift и неповторяемому состоянию 5. Автоматизация и version control важны не только для приложения, но и для инфраструктуры Типичные ошибки: 1. Считает Git полезным только для application code 2. Не видит проблем в ручной настройке серверов без истории 3. Путает IaC с любым shell-скриптом без понимания идеи декларативности и повторяемости Рекомендации для повторения: 1. Повторить основы IaC 2. Разобрать review и drift 3. Посмотреть why infra changes belong in Git",
+      "source_title": "Карточка вопроса do_junior_git_iac_001",
+      "source_url": "local://question_cards/devops_junior/do_junior_git_iac_001.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_do_junior_git_iac_002",
+      "specialization": "devops",
+      "topics": [
+        "git_iac"
+      ],
+      "tags": [
+        "devops",
+        "do_junior_git_iac_002",
+        "git_iac",
+        "habr_devops_senior",
+        "junior",
+        "so_cicd_collective",
+        "so_devops_tag"
+      ],
+      "content": "Тема: Git и базовая автоматизация. Вопрос: Что даёт pull request или code review для инфраструктурных конфигураций? Ключевые пункты хорошего ответа: 1. Git даёт историю изменений, review и возможность отката 2. Code review снижает риск ошибок и делает знания команды общими 3. IaC описывает инфраструктуру в коде или декларативных конфигурациях 4. Ручные изменения без фиксации приводят к drift и неповторяемому состоянию 5. Автоматизация и version control важны не только для приложения, но и для инфраструктуры Типичные ошибки: 1. Считает Git полезным только для application code 2. Не видит проблем в ручной настройке серверов без истории 3. Путает IaC с любым shell-скриптом без понимания идеи декларативности и повторяемости Рекомендации для повторения: 1. Повторить основы IaC 2. Разобрать review и drift 3. Посмотреть why infra changes belong in Git",
+      "source_title": "Карточка вопроса do_junior_git_iac_002",
+      "source_url": "local://question_cards/devops_junior/do_junior_git_iac_002.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_do_junior_git_iac_003",
+      "specialization": "devops",
+      "topics": [
+        "git_iac"
+      ],
+      "tags": [
+        "devops",
+        "do_junior_git_iac_003",
+        "git_iac",
+        "habr_devops_senior",
+        "junior",
+        "so_cicd_collective",
+        "so_devops_tag"
+      ],
+      "content": "Тема: Git и базовая автоматизация. Вопрос: Что такое IaC в простом объяснении? Ключевые пункты хорошего ответа: 1. Git даёт историю изменений, review и возможность отката 2. Code review снижает риск ошибок и делает знания команды общими 3. IaC описывает инфраструктуру в коде или декларативных конфигурациях 4. Ручные изменения без фиксации приводят к drift и неповторяемому состоянию 5. Автоматизация и version control важны не только для приложения, но и для инфраструктуры Типичные ошибки: 1. Считает Git полезным только для application code 2. Не видит проблем в ручной настройке серверов без истории 3. Путает IaC с любым shell-скриптом без понимания идеи декларативности и повторяемости Рекомендации для повторения: 1. Повторить основы IaC 2. Разобрать review и drift 3. Посмотреть why infra changes belong in Git",
+      "source_title": "Карточка вопроса do_junior_git_iac_003",
+      "source_url": "local://question_cards/devops_junior/do_junior_git_iac_003.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_do_junior_git_iac_004",
+      "specialization": "devops",
+      "topics": [
+        "git_iac"
+      ],
+      "tags": [
+        "devops",
+        "do_junior_git_iac_004",
+        "git_iac",
+        "habr_devops_senior",
+        "junior",
+        "so_cicd_collective",
+        "so_devops_tag"
+      ],
+      "content": "Тема: Git и базовая автоматизация. Вопрос: Почему ручные изменения на сервере без фиксации в коде опасны? Ключевые пункты хорошего ответа: 1. Git даёт историю изменений, review и возможность отката 2. Code review снижает риск ошибок и делает знания команды общими 3. IaC описывает инфраструктуру в коде или декларативных конфигурациях 4. Ручные изменения без фиксации приводят к drift и неповторяемому состоянию 5. Автоматизация и version control важны не только для приложения, но и для инфраструктуры Типичные ошибки: 1. Считает Git полезным только для application code 2. Не видит проблем в ручной настройке серверов без истории 3. Путает IaC с любым shell-скриптом без понимания идеи декларативности и повторяемости Рекомендации для повторения: 1. Повторить основы IaC 2. Разобрать review и drift 3. Посмотреть why infra changes belong in Git",
+      "source_title": "Карточка вопроса do_junior_git_iac_004",
+      "source_url": "local://question_cards/devops_junior/do_junior_git_iac_004.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_do_junior_linux_basics_001",
+      "specialization": "devops",
+      "topics": [
+        "linux_basics"
+      ],
+      "tags": [
+        "devops",
+        "do_junior_linux_basics_001",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "junior",
+        "linux_basics",
+        "so_devops_tag"
+      ],
+      "content": "Тема: Linux basics. Вопрос: Почему DevOps-инженеру важно понимать базовые команды и файловую систему Linux? Ключевые пункты хорошего ответа: 1. Большая часть серверной инфраструктуры работает на Linux или похожих системах 2. Процесс — это выполняемая программа, сервис — управляемая единица работы системы 3. Логи помогают понять причину отказа запуска, конфигурационные ошибки и missing dependencies 4. Права доступа и владелец определяют, кто может читать, писать и исполнять файл 5. DevOps-инженеру важно уверенно ориентироваться в базовых операционных понятиях Типичные ошибки: 1. Не понимает, зачем Linux нужен DevOps-инженеру 2. Путает процесс и сервис 3. Игнорирует права доступа как источник эксплуатационных проблем Рекомендации для повторения: 1. Повторить основы Linux 2. Разобрать process/service/logs 3. Посмотреть ownership и file permissions",
+      "source_title": "Карточка вопроса do_junior_linux_basics_001",
+      "source_url": "local://question_cards/devops_junior/do_junior_linux_basics_001.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_do_junior_linux_basics_002",
+      "specialization": "devops",
+      "topics": [
+        "linux_basics"
+      ],
+      "tags": [
+        "devops",
+        "do_junior_linux_basics_002",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "junior",
+        "linux_basics",
+        "so_devops_tag"
+      ],
+      "content": "Тема: Linux basics. Вопрос: Чем процесс отличается от сервиса на базовом уровне? Ключевые пункты хорошего ответа: 1. Большая часть серверной инфраструктуры работает на Linux или похожих системах 2. Процесс — это выполняемая программа, сервис — управляемая единица работы системы 3. Логи помогают понять причину отказа запуска, конфигурационные ошибки и missing dependencies 4. Права доступа и владелец определяют, кто может читать, писать и исполнять файл 5. DevOps-инженеру важно уверенно ориентироваться в базовых операционных понятиях Типичные ошибки: 1. Не понимает, зачем Linux нужен DevOps-инженеру 2. Путает процесс и сервис 3. Игнорирует права доступа как источник эксплуатационных проблем Рекомендации для повторения: 1. Повторить основы Linux 2. Разобрать process/service/logs 3. Посмотреть ownership и file permissions",
+      "source_title": "Карточка вопроса do_junior_linux_basics_002",
+      "source_url": "local://question_cards/devops_junior/do_junior_linux_basics_002.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_do_junior_linux_basics_003",
+      "specialization": "devops",
+      "topics": [
+        "linux_basics"
+      ],
+      "tags": [
+        "devops",
+        "do_junior_linux_basics_003",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "junior",
+        "linux_basics",
+        "so_devops_tag"
+      ],
+      "content": "Тема: Linux basics. Вопрос: Что обычно смотрят в логах, когда сервис не стартует? Ключевые пункты хорошего ответа: 1. Большая часть серверной инфраструктуры работает на Linux или похожих системах 2. Процесс — это выполняемая программа, сервис — управляемая единица работы системы 3. Логи помогают понять причину отказа запуска, конфигурационные ошибки и missing dependencies 4. Права доступа и владелец определяют, кто может читать, писать и исполнять файл 5. DevOps-инженеру важно уверенно ориентироваться в базовых операционных понятиях Типичные ошибки: 1. Не понимает, зачем Linux нужен DevOps-инженеру 2. Путает процесс и сервис 3. Игнорирует права доступа как источник эксплуатационных проблем Рекомендации для повторения: 1. Повторить основы Linux 2. Разобрать process/service/logs 3. Посмотреть ownership и file permissions",
+      "source_title": "Карточка вопроса do_junior_linux_basics_003",
+      "source_url": "local://question_cards/devops_junior/do_junior_linux_basics_003.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_do_junior_linux_basics_004",
+      "specialization": "devops",
+      "topics": [
+        "linux_basics"
+      ],
+      "tags": [
+        "devops",
+        "do_junior_linux_basics_004",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "junior",
+        "linux_basics",
+        "so_devops_tag"
+      ],
+      "content": "Тема: Linux basics. Вопрос: Почему права доступа и владелец файла важны в Linux? Ключевые пункты хорошего ответа: 1. Большая часть серверной инфраструктуры работает на Linux или похожих системах 2. Процесс — это выполняемая программа, сервис — управляемая единица работы системы 3. Логи помогают понять причину отказа запуска, конфигурационные ошибки и missing dependencies 4. Права доступа и владелец определяют, кто может читать, писать и исполнять файл 5. DevOps-инженеру важно уверенно ориентироваться в базовых операционных понятиях Типичные ошибки: 1. Не понимает, зачем Linux нужен DevOps-инженеру 2. Путает процесс и сервис 3. Игнорирует права доступа как источник эксплуатационных проблем Рекомендации для повторения: 1. Повторить основы Linux 2. Разобрать process/service/logs 3. Посмотреть ownership и file permissions",
+      "source_title": "Карточка вопроса do_junior_linux_basics_004",
+      "source_url": "local://question_cards/devops_junior/do_junior_linux_basics_004.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_do_junior_network_logs_001",
+      "specialization": "devops",
+      "topics": [
+        "network_logs"
+      ],
+      "tags": [
+        "devops",
+        "do_junior_network_logs_001",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "junior",
+        "network_logs",
+        "so_devops_tag"
+      ],
+      "content": "Тема: Сети, логи и мониторинг. Вопрос: Что такое порт и зачем его понимать при запуске сервиса? Ключевые пункты хорошего ответа: 1. Порт помогает адресовать конкретный сетевой сервис на узле 2. Недоступность извне может быть связана с bind address, firewall, ingress или сетевой конфигурацией 3. Логи и метрики помогают видеть состояние системы и быстрее искать причину проблем 4. Latency важна так же, как и error rate, потому что деградация не всегда проявляется только ошибками 5. Даже небольшой сервис выигрывает от базовой наблюдаемости и сетевой диагностики Типичные ошибки: 1. Путает порт и IP или не понимает bind address 2. Считает, что логов всегда достаточно 3. Смотрит только на ошибки и игнорирует latency Рекомендации для повторения: 1. Повторить основы сети и портов 2. Разобрать logs vs metrics 3. Посмотреть bind address, firewall и latency monitoring",
+      "source_title": "Карточка вопроса do_junior_network_logs_001",
+      "source_url": "local://question_cards/devops_junior/do_junior_network_logs_001.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_do_junior_network_logs_002",
+      "specialization": "devops",
+      "topics": [
+        "network_logs"
+      ],
+      "tags": [
+        "devops",
+        "do_junior_network_logs_002",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "junior",
+        "network_logs",
+        "so_devops_tag"
+      ],
+      "content": "Тема: Сети, логи и мониторинг. Вопрос: Почему сервис может быть доступен локально, но недоступен извне? Ключевые пункты хорошего ответа: 1. Порт помогает адресовать конкретный сетевой сервис на узле 2. Недоступность извне может быть связана с bind address, firewall, ingress или сетевой конфигурацией 3. Логи и метрики помогают видеть состояние системы и быстрее искать причину проблем 4. Latency важна так же, как и error rate, потому что деградация не всегда проявляется только ошибками 5. Даже небольшой сервис выигрывает от базовой наблюдаемости и сетевой диагностики Типичные ошибки: 1. Путает порт и IP или не понимает bind address 2. Считает, что логов всегда достаточно 3. Смотрит только на ошибки и игнорирует latency Рекомендации для повторения: 1. Повторить основы сети и портов 2. Разобрать logs vs metrics 3. Посмотреть bind address, firewall и latency monitoring",
+      "source_title": "Карточка вопроса do_junior_network_logs_002",
+      "source_url": "local://question_cards/devops_junior/do_junior_network_logs_002.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_do_junior_network_logs_003",
+      "specialization": "devops",
+      "topics": [
+        "network_logs"
+      ],
+      "tags": [
+        "devops",
+        "do_junior_network_logs_003",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "junior",
+        "network_logs",
+        "so_devops_tag"
+      ],
+      "content": "Тема: Сети, логи и мониторинг. Вопрос: Зачем собирать метрики и логи даже в небольшом сервисе? Ключевые пункты хорошего ответа: 1. Порт помогает адресовать конкретный сетевой сервис на узле 2. Недоступность извне может быть связана с bind address, firewall, ingress или сетевой конфигурацией 3. Логи и метрики помогают видеть состояние системы и быстрее искать причину проблем 4. Latency важна так же, как и error rate, потому что деградация не всегда проявляется только ошибками 5. Даже небольшой сервис выигрывает от базовой наблюдаемости и сетевой диагностики Типичные ошибки: 1. Путает порт и IP или не понимает bind address 2. Считает, что логов всегда достаточно 3. Смотрит только на ошибки и игнорирует latency Рекомендации для повторения: 1. Повторить основы сети и портов 2. Разобрать logs vs metrics 3. Посмотреть bind address, firewall и latency monitoring",
+      "source_title": "Карточка вопроса do_junior_network_logs_003",
+      "source_url": "local://question_cards/devops_junior/do_junior_network_logs_003.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_do_junior_network_logs_004",
+      "specialization": "devops",
+      "topics": [
+        "network_logs"
+      ],
+      "tags": [
+        "devops",
+        "do_junior_network_logs_004",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "junior",
+        "network_logs",
+        "so_devops_tag"
+      ],
+      "content": "Тема: Сети, логи и мониторинг. Вопрос: Почему важно смотреть не только на ошибки, но и на latency? Ключевые пункты хорошего ответа: 1. Порт помогает адресовать конкретный сетевой сервис на узле 2. Недоступность извне может быть связана с bind address, firewall, ingress или сетевой конфигурацией 3. Логи и метрики помогают видеть состояние системы и быстрее искать причину проблем 4. Latency важна так же, как и error rate, потому что деградация не всегда проявляется только ошибками 5. Даже небольшой сервис выигрывает от базовой наблюдаемости и сетевой диагностики Типичные ошибки: 1. Путает порт и IP или не понимает bind address 2. Считает, что логов всегда достаточно 3. Смотрит только на ошибки и игнорирует latency Рекомендации для повторения: 1. Повторить основы сети и портов 2. Разобрать logs vs metrics 3. Посмотреть bind address, firewall и latency monitoring",
+      "source_title": "Карточка вопроса do_junior_network_logs_004",
+      "source_url": "local://question_cards/devops_junior/do_junior_network_logs_004.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_do_middle_cicd_design_001",
+      "specialization": "devops",
+      "topics": [
+        "cicd_design"
+      ],
+      "tags": [
+        "cicd_design",
+        "devops",
+        "do_middle_cicd_design_001",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "middle",
+        "so_cicd_collective"
+      ],
+      "content": "Тема: Проектирование CI/CD и безопасность. Вопрос: Как бы вы разделили pipeline на стадии и почему? Ключевые пункты хорошего ответа: 1. Pipeline обычно разделяют на build, test, package, security checks и deploy stages 2. Секреты должны храниться в специализированных системах или защищённых переменных, а не в коде или образе 3. Слишком медленный pipeline ухудшает цикл разработки, но отсутствие проверок повышает риск инцидентов 4. Продвижение одного и того же артефакта по окружениям повышает повторяемость и доверие к релизу 5. Хороший CI/CD балансирует скорость, безопасность и качество Типичные ошибки: 1. Хранит секреты в репозитории или в image layers 2. Не видит проблемы в ручных и неповторяемых сборках 3. Сводит pipeline к одной кнопке deploy без quality gates Рекомендации для повторения: 1. Повторить pipeline stages 2. Разобрать secret management 3. Посмотреть artifact promotion и quality gates",
+      "source_title": "Карточка вопроса do_middle_cicd_design_001",
+      "source_url": "local://question_cards/devops_middle/do_middle_cicd_design_001.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_do_middle_cicd_design_002",
+      "specialization": "devops",
+      "topics": [
+        "cicd_design"
+      ],
+      "tags": [
+        "cicd_design",
+        "devops",
+        "do_middle_cicd_design_002",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "middle",
+        "so_cicd_collective"
+      ],
+      "content": "Тема: Проектирование CI/CD и безопасность. Вопрос: Почему секреты нельзя просто зашивать в репозиторий или Docker image? Ключевые пункты хорошего ответа: 1. Pipeline обычно разделяют на build, test, package, security checks и deploy stages 2. Секреты должны храниться в специализированных системах или защищённых переменных, а не в коде или образе 3. Слишком медленный pipeline ухудшает цикл разработки, но отсутствие проверок повышает риск инцидентов 4. Продвижение одного и того же артефакта по окружениям повышает повторяемость и доверие к релизу 5. Хороший CI/CD балансирует скорость, безопасность и качество Типичные ошибки: 1. Хранит секреты в репозитории или в image layers 2. Не видит проблемы в ручных и неповторяемых сборках 3. Сводит pipeline к одной кнопке deploy без quality gates Рекомендации для повторения: 1. Повторить pipeline stages 2. Разобрать secret management 3. Посмотреть artifact promotion и quality gates",
+      "source_title": "Карточка вопроса do_middle_cicd_design_002",
+      "source_url": "local://question_cards/devops_middle/do_middle_cicd_design_002.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_do_middle_cicd_design_003",
+      "specialization": "devops",
+      "topics": [
+        "cicd_design"
+      ],
+      "tags": [
+        "cicd_design",
+        "devops",
+        "do_middle_cicd_design_003",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "middle",
+        "so_cicd_collective"
+      ],
+      "content": "Тема: Проектирование CI/CD и безопасность. Вопрос: Зачем pipeline должен быть быстрым, но не за счёт отказа от важных проверок? Ключевые пункты хорошего ответа: 1. Pipeline обычно разделяют на build, test, package, security checks и deploy stages 2. Секреты должны храниться в специализированных системах или защищённых переменных, а не в коде или образе 3. Слишком медленный pipeline ухудшает цикл разработки, но отсутствие проверок повышает риск инцидентов 4. Продвижение одного и того же артефакта по окружениям повышает повторяемость и доверие к релизу 5. Хороший CI/CD балансирует скорость, безопасность и качество Типичные ошибки: 1. Хранит секреты в репозитории или в image layers 2. Не видит проблемы в ручных и неповторяемых сборках 3. Сводит pipeline к одной кнопке deploy без quality gates Рекомендации для повторения: 1. Повторить pipeline stages 2. Разобрать secret management 3. Посмотреть artifact promotion и quality gates",
+      "source_title": "Карточка вопроса do_middle_cicd_design_003",
+      "source_url": "local://question_cards/devops_middle/do_middle_cicd_design_003.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_do_middle_cicd_design_004",
+      "specialization": "devops",
+      "topics": [
+        "cicd_design"
+      ],
+      "tags": [
+        "cicd_design",
+        "devops",
+        "do_middle_cicd_design_004",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "middle",
+        "so_cicd_collective"
+      ],
+      "content": "Тема: Проектирование CI/CD и безопасность. Вопрос: Что даёт артефактный подход, когда один и тот же build продвигается по окружениям? Ключевые пункты хорошего ответа: 1. Pipeline обычно разделяют на build, test, package, security checks и deploy stages 2. Секреты должны храниться в специализированных системах или защищённых переменных, а не в коде или образе 3. Слишком медленный pipeline ухудшает цикл разработки, но отсутствие проверок повышает риск инцидентов 4. Продвижение одного и того же артефакта по окружениям повышает повторяемость и доверие к релизу 5. Хороший CI/CD балансирует скорость, безопасность и качество Типичные ошибки: 1. Хранит секреты в репозитории или в image layers 2. Не видит проблемы в ручных и неповторяемых сборках 3. Сводит pipeline к одной кнопке deploy без quality gates Рекомендации для повторения: 1. Повторить pipeline stages 2. Разобрать secret management 3. Посмотреть artifact promotion и quality gates",
+      "source_title": "Карточка вопроса do_middle_cicd_design_004",
+      "source_url": "local://question_cards/devops_middle/do_middle_cicd_design_004.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_do_middle_deployments_001",
+      "specialization": "devops",
+      "topics": [
+        "deployments"
+      ],
+      "tags": [
+        "deployments",
+        "devops",
+        "do_middle_deployments_001",
+        "habr_devops_senior",
+        "middle",
+        "so_cicd_collective",
+        "so_devops_tag"
+      ],
+      "content": "Тема: Стратегии деплоя. Вопрос: Чем rolling update отличается от blue-green deployment? Ключевые пункты хорошего ответа: 1. Rolling update постепенно заменяет экземпляры, blue-green держит две версии окружения и переключает трафик 2. Canary помогает безопасно проверить новую версию на части трафика 3. Rollback должен быть технически и организационно готов до релиза 4. Во время rollout важно смотреть error rate, latency, saturation и бизнес-метрики 5. Стратегия деплоя выбирается под риск, стоимость отката и критичность сервиса Типичные ошибки: 1. Путает стратегии деплоя между собой 2. Считает rollback второстепенной задачей 3. Не связывает rollout с наблюдаемыми метриками Рекомендации для повторения: 1. Повторить deployment strategies 2. Разобрать canary и blue-green 3. Посмотреть rollout metrics и rollback planning",
+      "source_title": "Карточка вопроса do_middle_deployments_001",
+      "source_url": "local://question_cards/devops_middle/do_middle_deployments_001.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_do_middle_deployments_002",
+      "specialization": "devops",
+      "topics": [
+        "deployments"
+      ],
+      "tags": [
+        "deployments",
+        "devops",
+        "do_middle_deployments_002",
+        "habr_devops_senior",
+        "middle",
+        "so_cicd_collective",
+        "so_devops_tag"
+      ],
+      "content": "Тема: Стратегии деплоя. Вопрос: Когда canary deployment особенно полезен? Ключевые пункты хорошего ответа: 1. Rolling update постепенно заменяет экземпляры, blue-green держит две версии окружения и переключает трафик 2. Canary помогает безопасно проверить новую версию на части трафика 3. Rollback должен быть технически и организационно готов до релиза 4. Во время rollout важно смотреть error rate, latency, saturation и бизнес-метрики 5. Стратегия деплоя выбирается под риск, стоимость отката и критичность сервиса Типичные ошибки: 1. Путает стратегии деплоя между собой 2. Считает rollback второстепенной задачей 3. Не связывает rollout с наблюдаемыми метриками Рекомендации для повторения: 1. Повторить deployment strategies 2. Разобрать canary и blue-green 3. Посмотреть rollout metrics и rollback planning",
+      "source_title": "Карточка вопроса do_middle_deployments_002",
+      "source_url": "local://question_cards/devops_middle/do_middle_deployments_002.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_do_middle_deployments_003",
+      "specialization": "devops",
+      "topics": [
+        "deployments"
+      ],
+      "tags": [
+        "deployments",
+        "devops",
+        "do_middle_deployments_003",
+        "habr_devops_senior",
+        "middle",
+        "so_cicd_collective",
+        "so_devops_tag"
+      ],
+      "content": "Тема: Стратегии деплоя. Вопрос: Почему rollback должен быть продуман заранее, а не после инцидента? Ключевые пункты хорошего ответа: 1. Rolling update постепенно заменяет экземпляры, blue-green держит две версии окружения и переключает трафик 2. Canary помогает безопасно проверить новую версию на части трафика 3. Rollback должен быть технически и организационно готов до релиза 4. Во время rollout важно смотреть error rate, latency, saturation и бизнес-метрики 5. Стратегия деплоя выбирается под риск, стоимость отката и критичность сервиса Типичные ошибки: 1. Путает стратегии деплоя между собой 2. Считает rollback второстепенной задачей 3. Не связывает rollout с наблюдаемыми метриками Рекомендации для повторения: 1. Повторить deployment strategies 2. Разобрать canary и blue-green 3. Посмотреть rollout metrics и rollback planning",
+      "source_title": "Карточка вопроса do_middle_deployments_003",
+      "source_url": "local://question_cards/devops_middle/do_middle_deployments_003.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_do_middle_deployments_004",
+      "specialization": "devops",
+      "topics": [
+        "deployments"
+      ],
+      "tags": [
+        "deployments",
+        "devops",
+        "do_middle_deployments_004",
+        "habr_devops_senior",
+        "middle",
+        "so_cicd_collective",
+        "so_devops_tag"
+      ],
+      "content": "Тема: Стратегии деплоя. Вопрос: Какие метрики вы бы смотрели во время rollout новой версии? Ключевые пункты хорошего ответа: 1. Rolling update постепенно заменяет экземпляры, blue-green держит две версии окружения и переключает трафик 2. Canary помогает безопасно проверить новую версию на части трафика 3. Rollback должен быть технически и организационно готов до релиза 4. Во время rollout важно смотреть error rate, latency, saturation и бизнес-метрики 5. Стратегия деплоя выбирается под риск, стоимость отката и критичность сервиса Типичные ошибки: 1. Путает стратегии деплоя между собой 2. Считает rollback второстепенной задачей 3. Не связывает rollout с наблюдаемыми метриками Рекомендации для повторения: 1. Повторить deployment strategies 2. Разобрать canary и blue-green 3. Посмотреть rollout metrics и rollback planning",
+      "source_title": "Карточка вопроса do_middle_deployments_004",
+      "source_url": "local://question_cards/devops_middle/do_middle_deployments_004.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_do_middle_kubernetes_001",
+      "specialization": "devops",
+      "topics": [
+        "kubernetes"
+      ],
+      "tags": [
+        "devops",
+        "do_middle_kubernetes_001",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "kubernetes",
+        "middle",
+        "so_devops_tag"
+      ],
+      "content": "Тема: Kubernetes workloads. Вопрос: Зачем Kubernetes вообще нужен по сравнению с ручным запуском контейнеров? Ключевые пункты хорошего ответа: 1. Kubernetes управляет размещением, перезапуском, масштабированием и декларативным состоянием контейнеров 2. Deployment подходит для stateless workloads, StatefulSet — когда важны стабильные идентификаторы и состояние 3. Readiness probe не даёт слать трафик в ещё не готовый pod 4. Requests и limits влияют на планирование и защиту от resource contention 5. Оркестрация требует понимать и приложение, и операционные ограничения кластера Типичные ошибки: 1. Не различает Deployment и StatefulSet 2. Путает readiness и liveness 3. Недооценивает влияние resource requests/limits Рекомендации для повторения: 1. Повторить основные сущности Kubernetes 2. Разобрать probes и rollout 3. Посмотреть requests/limits и scheduling",
+      "source_title": "Карточка вопроса do_middle_kubernetes_001",
+      "source_url": "local://question_cards/devops_middle/do_middle_kubernetes_001.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_do_middle_kubernetes_002",
+      "specialization": "devops",
+      "topics": [
+        "kubernetes"
+      ],
+      "tags": [
+        "devops",
+        "do_middle_kubernetes_002",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "kubernetes",
+        "middle",
+        "so_devops_tag"
+      ],
+      "content": "Тема: Kubernetes workloads. Вопрос: Чем Deployment отличается от StatefulSet на базовом архитектурном уровне? Ключевые пункты хорошего ответа: 1. Kubernetes управляет размещением, перезапуском, масштабированием и декларативным состоянием контейнеров 2. Deployment подходит для stateless workloads, StatefulSet — когда важны стабильные идентификаторы и состояние 3. Readiness probe не даёт слать трафик в ещё не готовый pod 4. Requests и limits влияют на планирование и защиту от resource contention 5. Оркестрация требует понимать и приложение, и операционные ограничения кластера Типичные ошибки: 1. Не различает Deployment и StatefulSet 2. Путает readiness и liveness 3. Недооценивает влияние resource requests/limits Рекомендации для повторения: 1. Повторить основные сущности Kubernetes 2. Разобрать probes и rollout 3. Посмотреть requests/limits и scheduling",
+      "source_title": "Карточка вопроса do_middle_kubernetes_002",
+      "source_url": "local://question_cards/devops_middle/do_middle_kubernetes_002.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_do_middle_kubernetes_003",
+      "specialization": "devops",
+      "topics": [
+        "kubernetes"
+      ],
+      "tags": [
+        "devops",
+        "do_middle_kubernetes_003",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "kubernetes",
+        "middle",
+        "so_devops_tag"
+      ],
+      "content": "Тема: Kubernetes workloads. Вопрос: Что делает readiness probe и почему без неё rollout может быть проблемным? Ключевые пункты хорошего ответа: 1. Kubernetes управляет размещением, перезапуском, масштабированием и декларативным состоянием контейнеров 2. Deployment подходит для stateless workloads, StatefulSet — когда важны стабильные идентификаторы и состояние 3. Readiness probe не даёт слать трафик в ещё не готовый pod 4. Requests и limits влияют на планирование и защиту от resource contention 5. Оркестрация требует понимать и приложение, и операционные ограничения кластера Типичные ошибки: 1. Не различает Deployment и StatefulSet 2. Путает readiness и liveness 3. Недооценивает влияние resource requests/limits Рекомендации для повторения: 1. Повторить основные сущности Kubernetes 2. Разобрать probes и rollout 3. Посмотреть requests/limits и scheduling",
+      "source_title": "Карточка вопроса do_middle_kubernetes_003",
+      "source_url": "local://question_cards/devops_middle/do_middle_kubernetes_003.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_do_middle_kubernetes_004",
+      "specialization": "devops",
+      "topics": [
+        "kubernetes"
+      ],
+      "tags": [
+        "devops",
+        "do_middle_kubernetes_004",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "kubernetes",
+        "middle",
+        "so_devops_tag"
+      ],
+      "content": "Тема: Kubernetes workloads. Вопрос: Почему ресурсы CPU/memory и limits/requests важны для кластера? Ключевые пункты хорошего ответа: 1. Kubernetes управляет размещением, перезапуском, масштабированием и декларативным состоянием контейнеров 2. Deployment подходит для stateless workloads, StatefulSet — когда важны стабильные идентификаторы и состояние 3. Readiness probe не даёт слать трафик в ещё не готовый pod 4. Requests и limits влияют на планирование и защиту от resource contention 5. Оркестрация требует понимать и приложение, и операционные ограничения кластера Типичные ошибки: 1. Не различает Deployment и StatefulSet 2. Путает readiness и liveness 3. Недооценивает влияние resource requests/limits Рекомендации для повторения: 1. Повторить основные сущности Kubernetes 2. Разобрать probes и rollout 3. Посмотреть requests/limits и scheduling",
+      "source_title": "Карточка вопроса do_middle_kubernetes_004",
+      "source_url": "local://question_cards/devops_middle/do_middle_kubernetes_004.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_do_middle_observability_reliability_001",
+      "specialization": "devops",
+      "topics": [
+        "observability_reliability"
+      ],
+      "tags": [
+        "devops",
+        "do_middle_observability_reliability_001",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "middle",
+        "observability_reliability",
+        "so_devops_tag"
+      ],
+      "content": "Тема: Observability и reliability. Вопрос: Что такое SLI, SLO и error budget простыми словами? Ключевые пункты хорошего ответа: 1. SLI — измеримая метрика качества, SLO — целевое значение, error budget — допустимый запас отклонения 2. Uptime не отражает latency, partial failures и degraded user experience 3. Observability помогает быстрее локализовать причину проблемы через метрики, логи и трассировки 4. Graceful degradation сохраняет базовую функциональность при частичном отказе зависимостей 5. Надёжность — это не только жив ли процесс, но и насколько сервис полезен для пользователя Типичные ошибки: 1. Не различает SLI и SLO 2. Считает uptime единственной метрикой качества сервиса 3. Не видит практической пользы graceful degradation Рекомендации для повторения: 1. Повторить SLI/SLO/error budget 2. Разобрать user-perceived reliability 3. Посмотреть graceful degradation patterns",
+      "source_title": "Карточка вопроса do_middle_observability_reliability_001",
+      "source_url": "local://question_cards/devops_middle/do_middle_observability_reliability_001.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_do_middle_observability_reliability_002",
+      "specialization": "devops",
+      "topics": [
+        "observability_reliability"
+      ],
+      "tags": [
+        "devops",
+        "do_middle_observability_reliability_002",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "middle",
+        "observability_reliability",
+        "so_devops_tag"
+      ],
+      "content": "Тема: Observability и reliability. Вопрос: Почему высокий uptime сам по себе ещё не гарантирует хороший пользовательский опыт? Ключевые пункты хорошего ответа: 1. SLI — измеримая метрика качества, SLO — целевое значение, error budget — допустимый запас отклонения 2. Uptime не отражает latency, partial failures и degraded user experience 3. Observability помогает быстрее локализовать причину проблемы через метрики, логи и трассировки 4. Graceful degradation сохраняет базовую функциональность при частичном отказе зависимостей 5. Надёжность — это не только жив ли процесс, но и насколько сервис полезен для пользователя Типичные ошибки: 1. Не различает SLI и SLO 2. Считает uptime единственной метрикой качества сервиса 3. Не видит практической пользы graceful degradation Рекомендации для повторения: 1. Повторить SLI/SLO/error budget 2. Разобрать user-perceived reliability 3. Посмотреть graceful degradation patterns",
+      "source_title": "Карточка вопроса do_middle_observability_reliability_002",
+      "source_url": "local://question_cards/devops_middle/do_middle_observability_reliability_002.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_do_middle_observability_reliability_003",
+      "specialization": "devops",
+      "topics": [
+        "observability_reliability"
+      ],
+      "tags": [
+        "devops",
+        "do_middle_observability_reliability_003",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "middle",
+        "observability_reliability",
+        "so_devops_tag"
+      ],
+      "content": "Тема: Observability и reliability. Вопрос: Как observability помогает при инциденте в распределённой системе? Ключевые пункты хорошего ответа: 1. SLI — измеримая метрика качества, SLO — целевое значение, error budget — допустимый запас отклонения 2. Uptime не отражает latency, partial failures и degraded user experience 3. Observability помогает быстрее локализовать причину проблемы через метрики, логи и трассировки 4. Graceful degradation сохраняет базовую функциональность при частичном отказе зависимостей 5. Надёжность — это не только жив ли процесс, но и насколько сервис полезен для пользователя Типичные ошибки: 1. Не различает SLI и SLO 2. Считает uptime единственной метрикой качества сервиса 3. Не видит практической пользы graceful degradation Рекомендации для повторения: 1. Повторить SLI/SLO/error budget 2. Разобрать user-perceived reliability 3. Посмотреть graceful degradation patterns",
+      "source_title": "Карточка вопроса do_middle_observability_reliability_003",
+      "source_url": "local://question_cards/devops_middle/do_middle_observability_reliability_003.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_do_middle_observability_reliability_004",
+      "specialization": "devops",
+      "topics": [
+        "observability_reliability"
+      ],
+      "tags": [
+        "devops",
+        "do_middle_observability_reliability_004",
+        "habr_devops_path_2026",
+        "habr_devops_senior",
+        "middle",
+        "observability_reliability",
+        "so_devops_tag"
+      ],
+      "content": "Тема: Observability и reliability. Вопрос: Почему graceful degradation полезен, даже если сервис не может быть полностью доступен? Ключевые пункты хорошего ответа: 1. SLI — измеримая метрика качества, SLO — целевое значение, error budget — допустимый запас отклонения 2. Uptime не отражает latency, partial failures и degraded user experience 3. Observability помогает быстрее локализовать причину проблемы через метрики, логи и трассировки 4. Graceful degradation сохраняет базовую функциональность при частичном отказе зависимостей 5. Надёжность — это не только жив ли процесс, но и насколько сервис полезен для пользователя Типичные ошибки: 1. Не различает SLI и SLO 2. Считает uptime единственной метрикой качества сервиса 3. Не видит практической пользы graceful degradation Рекомендации для повторения: 1. Повторить SLI/SLO/error budget 2. Разобрать user-perceived reliability 3. Посмотреть graceful degradation patterns",
+      "source_title": "Карточка вопроса do_middle_observability_reliability_004",
+      "source_url": "local://question_cards/devops_middle/do_middle_observability_reliability_004.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_do_middle_terraform_iac_001",
+      "specialization": "devops",
+      "topics": [
+        "terraform_iac"
+      ],
+      "tags": [
+        "devops",
+        "do_middle_terraform_iac_001",
+        "habr_devops_senior",
+        "middle",
+        "so_cicd_collective",
+        "so_devops_tag",
+        "terraform_iac"
+      ],
+      "content": "Тема: Terraform и IaC. Вопрос: Зачем нужен Terraform или похожий IaC-инструмент, если можно настроить всё руками? Ключевые пункты хорошего ответа: 1. IaC даёт повторяемость, review, историю изменений и автоматизацию инфраструктуры 2. Terraform state хранит текущее соответствие между описанием и реальными ресурсами 3. Потеря или рассинхронизация state создаёт риск некорректных изменений 4. Drift делает инфраструктуру непредсказуемой и усложняет поддержку 5. Разделение окружений уменьшает риск случайных изменений в production Типичные ошибки: 1. Не понимает роль state 2. Считает ручную настройку равнозначной IaC 3. Игнорирует drift и разделение окружений Рекомендации для повторения: 1. Повторить IaC principles 2. Разобрать Terraform state и drift 3. Посмотреть environment separation и change safety",
+      "source_title": "Карточка вопроса do_middle_terraform_iac_001",
+      "source_url": "local://question_cards/devops_middle/do_middle_terraform_iac_001.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_do_middle_terraform_iac_002",
+      "specialization": "devops",
+      "topics": [
+        "terraform_iac"
+      ],
+      "tags": [
+        "devops",
+        "do_middle_terraform_iac_002",
+        "habr_devops_senior",
+        "middle",
+        "so_cicd_collective",
+        "so_devops_tag",
+        "terraform_iac"
+      ],
+      "content": "Тема: Terraform и IaC. Вопрос: Что такое state в Terraform и почему с ним нужно быть аккуратным? Ключевые пункты хорошего ответа: 1. IaC даёт повторяемость, review, историю изменений и автоматизацию инфраструктуры 2. Terraform state хранит текущее соответствие между описанием и реальными ресурсами 3. Потеря или рассинхронизация state создаёт риск некорректных изменений 4. Drift делает инфраструктуру непредсказуемой и усложняет поддержку 5. Разделение окружений уменьшает риск случайных изменений в production Типичные ошибки: 1. Не понимает роль state 2. Считает ручную настройку равнозначной IaC 3. Игнорирует drift и разделение окружений Рекомендации для повторения: 1. Повторить IaC principles 2. Разобрать Terraform state и drift 3. Посмотреть environment separation и change safety",
+      "source_title": "Карточка вопроса do_middle_terraform_iac_002",
+      "source_url": "local://question_cards/devops_middle/do_middle_terraform_iac_002.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_do_middle_terraform_iac_003",
+      "specialization": "devops",
+      "topics": [
+        "terraform_iac"
+      ],
+      "tags": [
+        "devops",
+        "do_middle_terraform_iac_003",
+        "habr_devops_senior",
+        "middle",
+        "so_cicd_collective",
+        "so_devops_tag",
+        "terraform_iac"
+      ],
+      "content": "Тема: Terraform и IaC. Вопрос: Почему drift между кодом и реальной инфраструктурой опасен? Ключевые пункты хорошего ответа: 1. IaC даёт повторяемость, review, историю изменений и автоматизацию инфраструктуры 2. Terraform state хранит текущее соответствие между описанием и реальными ресурсами 3. Потеря или рассинхронизация state создаёт риск некорректных изменений 4. Drift делает инфраструктуру непредсказуемой и усложняет поддержку 5. Разделение окружений уменьшает риск случайных изменений в production Типичные ошибки: 1. Не понимает роль state 2. Считает ручную настройку равнозначной IaC 3. Игнорирует drift и разделение окружений Рекомендации для повторения: 1. Повторить IaC principles 2. Разобрать Terraform state и drift 3. Посмотреть environment separation и change safety",
+      "source_title": "Карточка вопроса do_middle_terraform_iac_003",
+      "source_url": "local://question_cards/devops_middle/do_middle_terraform_iac_003.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_do_middle_terraform_iac_004",
+      "specialization": "devops",
+      "topics": [
+        "terraform_iac"
+      ],
+      "tags": [
+        "devops",
+        "do_middle_terraform_iac_004",
+        "habr_devops_senior",
+        "middle",
+        "so_cicd_collective",
+        "so_devops_tag",
+        "terraform_iac"
+      ],
+      "content": "Тема: Terraform и IaC. Вопрос: Зачем разделять окружения и конфигурации для dev, stage и prod? Ключевые пункты хорошего ответа: 1. IaC даёт повторяемость, review, историю изменений и автоматизацию инфраструктуры 2. Terraform state хранит текущее соответствие между описанием и реальными ресурсами 3. Потеря или рассинхронизация state создаёт риск некорректных изменений 4. Drift делает инфраструктуру непредсказуемой и усложняет поддержку 5. Разделение окружений уменьшает риск случайных изменений в production Типичные ошибки: 1. Не понимает роль state 2. Считает ручную настройку равнозначной IaC 3. Игнорирует drift и разделение окружений Рекомендации для повторения: 1. Повторить IaC principles 2. Разобрать Terraform state и drift 3. Посмотреть environment separation и change safety",
+      "source_title": "Карточка вопроса do_middle_terraform_iac_004",
+      "source_url": "local://question_cards/devops_middle/do_middle_terraform_iac_004.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_fe_junior_browser_dom_001",
+      "specialization": "frontend",
+      "topics": [
+        "browser_dom"
+      ],
+      "tags": [
+        "browser_dom",
+        "fe_junior_browser_dom_001",
+        "frontend",
+        "habr_frontend_js_1",
+        "habr_frontend_questions",
+        "junior",
+        "so_frontend_interview"
+      ],
+      "content": "Тема: Браузер и DOM. Вопрос: Что такое DOM? Ключевые пункты хорошего ответа: 1. DOM — это объектное представление HTML-документа в памяти браузера 2. События могут всплывать от дочернего элемента к родителям, что важно для delegation 3. Частые DOM-изменения могут вызывать reflow и repaint 4. localStorage доступен из JavaScript и не отправляется автоматически на сервер, в отличие от cookie 5. Работа с браузером требует понимания и API, и performance, и storage-механизмов Типичные ошибки: 1. Не понимает связь JavaScript и DOM 2. Не знает про bubbling и delegation 3. Считает localStorage и cookie одинаковыми Рекомендации для повторения: 1. Повторить DOM tree и browser APIs 2. Разобрать event bubbling и delegation 3. Посмотреть reflow/repaint и browser storage",
+      "source_title": "Карточка вопроса fe_junior_browser_dom_001",
+      "source_url": "local://question_cards/frontend_junior/fe_junior_browser_dom_001.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_fe_junior_browser_dom_002",
+      "specialization": "frontend",
+      "topics": [
+        "browser_dom"
+      ],
+      "tags": [
+        "browser_dom",
+        "fe_junior_browser_dom_002",
+        "frontend",
+        "habr_frontend_js_1",
+        "habr_frontend_questions",
+        "junior",
+        "so_frontend_interview"
+      ],
+      "content": "Тема: Браузер и DOM. Вопрос: Что такое всплытие события и зачем это знать? Ключевые пункты хорошего ответа: 1. DOM — это объектное представление HTML-документа в памяти браузера 2. События могут всплывать от дочернего элемента к родителям, что важно для delegation 3. Частые DOM-изменения могут вызывать reflow и repaint 4. localStorage доступен из JavaScript и не отправляется автоматически на сервер, в отличие от cookie 5. Работа с браузером требует понимания и API, и performance, и storage-механизмов Типичные ошибки: 1. Не понимает связь JavaScript и DOM 2. Не знает про bubbling и delegation 3. Считает localStorage и cookie одинаковыми Рекомендации для повторения: 1. Повторить DOM tree и browser APIs 2. Разобрать event bubbling и delegation 3. Посмотреть reflow/repaint и browser storage",
+      "source_title": "Карточка вопроса fe_junior_browser_dom_002",
+      "source_url": "local://question_cards/frontend_junior/fe_junior_browser_dom_002.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_fe_junior_browser_dom_003",
+      "specialization": "frontend",
+      "topics": [
+        "browser_dom"
+      ],
+      "tags": [
+        "browser_dom",
+        "fe_junior_browser_dom_003",
+        "frontend",
+        "habr_frontend_js_1",
+        "habr_frontend_questions",
+        "junior",
+        "so_frontend_interview"
+      ],
+      "content": "Тема: Браузер и DOM. Вопрос: Почему частые прямые изменения DOM могут быть дорогими по производительности? Ключевые пункты хорошего ответа: 1. DOM — это объектное представление HTML-документа в памяти браузера 2. События могут всплывать от дочернего элемента к родителям, что важно для delegation 3. Частые DOM-изменения могут вызывать reflow и repaint 4. localStorage доступен из JavaScript и не отправляется автоматически на сервер, в отличие от cookie 5. Работа с браузером требует понимания и API, и performance, и storage-механизмов Типичные ошибки: 1. Не понимает связь JavaScript и DOM 2. Не знает про bubbling и delegation 3. Считает localStorage и cookie одинаковыми Рекомендации для повторения: 1. Повторить DOM tree и browser APIs 2. Разобрать event bubbling и delegation 3. Посмотреть reflow/repaint и browser storage",
+      "source_title": "Карточка вопроса fe_junior_browser_dom_003",
+      "source_url": "local://question_cards/frontend_junior/fe_junior_browser_dom_003.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_fe_junior_browser_dom_004",
+      "specialization": "frontend",
+      "topics": [
+        "browser_dom"
+      ],
+      "tags": [
+        "browser_dom",
+        "fe_junior_browser_dom_004",
+        "frontend",
+        "habr_frontend_js_1",
+        "habr_frontend_questions",
+        "junior",
+        "so_frontend_interview"
+      ],
+      "content": "Тема: Браузер и DOM. Вопрос: Что делает localStorage и чем он отличается от cookie на базовом уровне? Ключевые пункты хорошего ответа: 1. DOM — это объектное представление HTML-документа в памяти браузера 2. События могут всплывать от дочернего элемента к родителям, что важно для delegation 3. Частые DOM-изменения могут вызывать reflow и repaint 4. localStorage доступен из JavaScript и не отправляется автоматически на сервер, в отличие от cookie 5. Работа с браузером требует понимания и API, и performance, и storage-механизмов Типичные ошибки: 1. Не понимает связь JavaScript и DOM 2. Не знает про bubbling и delegation 3. Считает localStorage и cookie одинаковыми Рекомендации для повторения: 1. Повторить DOM tree и browser APIs 2. Разобрать event bubbling и delegation 3. Посмотреть reflow/repaint и browser storage",
+      "source_title": "Карточка вопроса fe_junior_browser_dom_004",
+      "source_url": "local://question_cards/frontend_junior/fe_junior_browser_dom_004.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_fe_junior_html_css_001",
+      "specialization": "frontend",
+      "topics": [
+        "html_css"
+      ],
+      "tags": [
+        "fe_junior_html_css_001",
+        "frontend",
+        "habr_frontend_js_1",
+        "habr_frontend_questions",
+        "html_css",
+        "junior",
+        "so_frontend_interview"
+      ],
+      "content": "Тема: HTML и CSS. Вопрос: Чем display: none отличается от visibility: hidden? Ключевые пункты хорошего ответа: 1. display: none убирает элемент из потока, visibility: hidden скрывает его, но место обычно остаётся 2. Семантическая вёрстка использует теги по смыслу контента и помогает accessibility и SEO 3. Flexbox лучше подходит для одномерного layout, grid — для двумерных сеток 4. Адаптивность достигается через media queries, flexible units и responsive layout 5. Выбор CSS-инструмента зависит от структуры интерфейса и ожидаемого поведения Типичные ошибки: 1. Считает свойства display и visibility одинаковыми 2. Сводит семантику только к SEO или классам 3. Не различает flex и grid Рекомендации для повторения: 1. Повторить базовые CSS layout-механизмы 2. Посмотреть semantic HTML 3. Потренироваться с responsive layout и media queries",
+      "source_title": "Карточка вопроса fe_junior_html_css_001",
+      "source_url": "local://question_cards/frontend_junior/fe_junior_html_css_001.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_fe_junior_html_css_002",
+      "specialization": "frontend",
+      "topics": [
+        "html_css"
+      ],
+      "tags": [
+        "fe_junior_html_css_002",
+        "frontend",
+        "habr_frontend_js_1",
+        "habr_frontend_questions",
+        "html_css",
+        "junior",
+        "so_frontend_interview"
+      ],
+      "content": "Тема: HTML и CSS. Вопрос: Что такое семантическая вёрстка и зачем она нужна? Ключевые пункты хорошего ответа: 1. display: none убирает элемент из потока, visibility: hidden скрывает его, но место обычно остаётся 2. Семантическая вёрстка использует теги по смыслу контента и помогает accessibility и SEO 3. Flexbox лучше подходит для одномерного layout, grid — для двумерных сеток 4. Адаптивность достигается через media queries, flexible units и responsive layout 5. Выбор CSS-инструмента зависит от структуры интерфейса и ожидаемого поведения Типичные ошибки: 1. Считает свойства display и visibility одинаковыми 2. Сводит семантику только к SEO или классам 3. Не различает flex и grid Рекомендации для повторения: 1. Повторить базовые CSS layout-механизмы 2. Посмотреть semantic HTML 3. Потренироваться с responsive layout и media queries",
+      "source_title": "Карточка вопроса fe_junior_html_css_002",
+      "source_url": "local://question_cards/frontend_junior/fe_junior_html_css_002.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_fe_junior_html_css_003",
+      "specialization": "frontend",
+      "topics": [
+        "html_css"
+      ],
+      "tags": [
+        "fe_junior_html_css_003",
+        "frontend",
+        "habr_frontend_js_1",
+        "habr_frontend_questions",
+        "html_css",
+        "junior",
+        "so_frontend_interview"
+      ],
+      "content": "Тема: HTML и CSS. Вопрос: В чём разница между flex и grid на базовом уровне? Ключевые пункты хорошего ответа: 1. display: none убирает элемент из потока, visibility: hidden скрывает его, но место обычно остаётся 2. Семантическая вёрстка использует теги по смыслу контента и помогает accessibility и SEO 3. Flexbox лучше подходит для одномерного layout, grid — для двумерных сеток 4. Адаптивность достигается через media queries, flexible units и responsive layout 5. Выбор CSS-инструмента зависит от структуры интерфейса и ожидаемого поведения Типичные ошибки: 1. Считает свойства display и visibility одинаковыми 2. Сводит семантику только к SEO или классам 3. Не различает flex и grid Рекомендации для повторения: 1. Повторить базовые CSS layout-механизмы 2. Посмотреть semantic HTML 3. Потренироваться с responsive layout и media queries",
+      "source_title": "Карточка вопроса fe_junior_html_css_003",
+      "source_url": "local://question_cards/frontend_junior/fe_junior_html_css_003.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_fe_junior_html_css_004",
+      "specialization": "frontend",
+      "topics": [
+        "html_css"
+      ],
+      "tags": [
+        "fe_junior_html_css_004",
+        "frontend",
+        "habr_frontend_js_1",
+        "habr_frontend_questions",
+        "html_css",
+        "junior",
+        "so_frontend_interview"
+      ],
+      "content": "Тема: HTML и CSS. Вопрос: Почему адаптивная вёрстка важна и какие есть базовые инструменты для неё? Ключевые пункты хорошего ответа: 1. display: none убирает элемент из потока, visibility: hidden скрывает его, но место обычно остаётся 2. Семантическая вёрстка использует теги по смыслу контента и помогает accessibility и SEO 3. Flexbox лучше подходит для одномерного layout, grid — для двумерных сеток 4. Адаптивность достигается через media queries, flexible units и responsive layout 5. Выбор CSS-инструмента зависит от структуры интерфейса и ожидаемого поведения Типичные ошибки: 1. Считает свойства display и visibility одинаковыми 2. Сводит семантику только к SEO или классам 3. Не различает flex и grid Рекомендации для повторения: 1. Повторить базовые CSS layout-механизмы 2. Посмотреть semantic HTML 3. Потренироваться с responsive layout и media queries",
+      "source_title": "Карточка вопроса fe_junior_html_css_004",
+      "source_url": "local://question_cards/frontend_junior/fe_junior_html_css_004.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_fe_junior_javascript_core_001",
+      "specialization": "frontend",
+      "topics": [
+        "javascript_core"
+      ],
+      "tags": [
+        "fe_junior_javascript_core_001",
+        "frontend",
+        "habr_frontend_js_1",
+        "habr_frontend_js_2",
+        "javascript_core",
+        "junior",
+        "so_frontend_interview"
+      ],
+      "content": "Тема: JavaScript core. Вопрос: Что такое замыкание в JavaScript простыми словами? Ключевые пункты хорошего ответа: 1. Замыкание — это функция с доступом к внешнему lexical scope 2. Event loop выполняет задачи по мере освобождения call stack и взаимодействует с очередями задач 3. let и const имеют блочную область видимости, var — функциональную 4. === сравнивает без неявного приведения типов, == может делать type coercion 5. Понимание scope и порядка выполнения важно для предсказуемого поведения кода Типичные ошибки: 1. Путает closure с callback 2. Считает, что JavaScript просто выполняет всё параллельно 3. Не различает strict equality и нестрогое сравнение Рекомендации для повторения: 1. Повторить lexical scope и closures 2. Разобрать event loop на примерах 3. Посмотреть block scope и equality operators",
+      "source_title": "Карточка вопроса fe_junior_javascript_core_001",
+      "source_url": "local://question_cards/frontend_junior/fe_junior_javascript_core_001.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_fe_junior_javascript_core_002",
+      "specialization": "frontend",
+      "topics": [
+        "javascript_core"
+      ],
+      "tags": [
+        "fe_junior_javascript_core_002",
+        "frontend",
+        "habr_frontend_js_1",
+        "habr_frontend_js_2",
+        "javascript_core",
+        "junior",
+        "so_frontend_interview"
+      ],
+      "content": "Тема: JavaScript core. Вопрос: Как работает event loop на базовом уровне? Ключевые пункты хорошего ответа: 1. Замыкание — это функция с доступом к внешнему lexical scope 2. Event loop выполняет задачи по мере освобождения call stack и взаимодействует с очередями задач 3. let и const имеют блочную область видимости, var — функциональную 4. === сравнивает без неявного приведения типов, == может делать type coercion 5. Понимание scope и порядка выполнения важно для предсказуемого поведения кода Типичные ошибки: 1. Путает closure с callback 2. Считает, что JavaScript просто выполняет всё параллельно 3. Не различает strict equality и нестрогое сравнение Рекомендации для повторения: 1. Повторить lexical scope и closures 2. Разобрать event loop на примерах 3. Посмотреть block scope и equality operators",
+      "source_title": "Карточка вопроса fe_junior_javascript_core_002",
+      "source_url": "local://question_cards/frontend_junior/fe_junior_javascript_core_002.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_fe_junior_javascript_core_003",
+      "specialization": "frontend",
+      "topics": [
+        "javascript_core"
+      ],
+      "tags": [
+        "fe_junior_javascript_core_003",
+        "frontend",
+        "habr_frontend_js_1",
+        "habr_frontend_js_2",
+        "javascript_core",
+        "junior",
+        "so_frontend_interview"
+      ],
+      "content": "Тема: JavaScript core. Вопрос: Чем let и const отличаются от var? Ключевые пункты хорошего ответа: 1. Замыкание — это функция с доступом к внешнему lexical scope 2. Event loop выполняет задачи по мере освобождения call stack и взаимодействует с очередями задач 3. let и const имеют блочную область видимости, var — функциональную 4. === сравнивает без неявного приведения типов, == может делать type coercion 5. Понимание scope и порядка выполнения важно для предсказуемого поведения кода Типичные ошибки: 1. Путает closure с callback 2. Считает, что JavaScript просто выполняет всё параллельно 3. Не различает strict equality и нестрогое сравнение Рекомендации для повторения: 1. Повторить lexical scope и closures 2. Разобрать event loop на примерах 3. Посмотреть block scope и equality operators",
+      "source_title": "Карточка вопроса fe_junior_javascript_core_003",
+      "source_url": "local://question_cards/frontend_junior/fe_junior_javascript_core_003.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_fe_junior_javascript_core_004",
+      "specialization": "frontend",
+      "topics": [
+        "javascript_core"
+      ],
+      "tags": [
+        "fe_junior_javascript_core_004",
+        "frontend",
+        "habr_frontend_js_1",
+        "habr_frontend_js_2",
+        "javascript_core",
+        "junior",
+        "so_frontend_interview"
+      ],
+      "content": "Тема: JavaScript core. Вопрос: Чем == отличается от ===? Ключевые пункты хорошего ответа: 1. Замыкание — это функция с доступом к внешнему lexical scope 2. Event loop выполняет задачи по мере освобождения call stack и взаимодействует с очередями задач 3. let и const имеют блочную область видимости, var — функциональную 4. === сравнивает без неявного приведения типов, == может делать type coercion 5. Понимание scope и порядка выполнения важно для предсказуемого поведения кода Типичные ошибки: 1. Путает closure с callback 2. Считает, что JavaScript просто выполняет всё параллельно 3. Не различает strict equality и нестрогое сравнение Рекомендации для повторения: 1. Повторить lexical scope и closures 2. Разобрать event loop на примерах 3. Посмотреть block scope и equality operators",
+      "source_title": "Карточка вопроса fe_junior_javascript_core_004",
+      "source_url": "local://question_cards/frontend_junior/fe_junior_javascript_core_004.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_fe_junior_react_basics_001",
       "specialization": "frontend",
       "topics": [
         "react_basics"
       ],
       "tags": [
-        "react",
-        "virtual-dom",
-        "reconciliation"
+        "fe_junior_react_basics_001",
+        "frontend",
+        "habr_frontend_js_2",
+        "habr_frontend_react_junior",
+        "junior",
+        "react_basics",
+        "so_frontend_interview"
       ],
-      "content": "Virtual DOM — это представление дерева интерфейса в памяти. React сравнивает предыдущее и новое дерево и обновляет реальный DOM только там, где это действительно нужно. Выигрыш зависит не только от Virtual DOM, но и от структуры компонентов и частоты render.",
-      "source_title": "React rendering notes",
-      "source_url": "https://example.local/kb/react-rendering",
-      "version": "kb-2026.03-demo"
+      "content": "Тема: React basics. Вопрос: Что такое state в React и чем он отличается от props? Ключевые пункты хорошего ответа: 1. Props приходят в компонент извне, state описывает внутреннее изменяемое состояние 2. useEffect используют для side effects после рендера и работы с внешним миром 3. Key помогает React корректно сопоставлять элементы списка между рендерами 4. Controlled component хранит значение поля в state и обновляет его через onChange 5. Важно понимать one-way data flow и причины повторного рендера Типичные ошибки: 1. Путает props и state 2. Считает useEffect инструментом для любой логики без distinction side effects 3. Не понимает роль stable key в reconciliation Рекомендации для повторения: 1. Повторить props, state и rerender 2. Разобрать useEffect и dependency array 3. Посмотреть reconciliation и controlled inputs",
+      "source_title": "Карточка вопроса fe_junior_react_basics_001",
+      "source_url": "local://question_cards/frontend_junior/fe_junior_react_basics_001.json",
+      "version": "kb-2026.04-full-ru-v1"
     },
     {
-      "chunk_id": "kb_frontend_state_1",
+      "chunk_id": "kb_fe_junior_react_basics_002",
       "specialization": "frontend",
       "topics": [
-        "frontend_architecture"
+        "react_basics"
       ],
       "tags": [
-        "state",
-        "context",
-        "architecture",
-        "react"
+        "fe_junior_react_basics_002",
+        "frontend",
+        "habr_frontend_js_2",
+        "habr_frontend_react_junior",
+        "junior",
+        "react_basics",
+        "so_frontend_interview"
       ],
-      "content": "Local state подходит для состояния, живущего внутри компонента. Context полезен для shared dependencies, но может вызывать лишние перерисовки при частых изменениях. Сторонние state manager или server-state библиотеки оправданы, когда важны кэширование, предсказуемость и масштабируемость архитектуры.",
-      "source_title": "Frontend state management guide",
-      "source_url": "https://example.local/kb/frontend-state",
-      "version": "kb-2026.03-demo"
+      "content": "Тема: React basics. Вопрос: Зачем нужен useEffect? Ключевые пункты хорошего ответа: 1. Props приходят в компонент извне, state описывает внутреннее изменяемое состояние 2. useEffect используют для side effects после рендера и работы с внешним миром 3. Key помогает React корректно сопоставлять элементы списка между рендерами 4. Controlled component хранит значение поля в state и обновляет его через onChange 5. Важно понимать one-way data flow и причины повторного рендера Типичные ошибки: 1. Путает props и state 2. Считает useEffect инструментом для любой логики без distinction side effects 3. Не понимает роль stable key в reconciliation Рекомендации для повторения: 1. Повторить props, state и rerender 2. Разобрать useEffect и dependency array 3. Посмотреть reconciliation и controlled inputs",
+      "source_title": "Карточка вопроса fe_junior_react_basics_002",
+      "source_url": "local://question_cards/frontend_junior/fe_junior_react_basics_002.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_fe_junior_react_basics_003",
+      "specialization": "frontend",
+      "topics": [
+        "react_basics"
+      ],
+      "tags": [
+        "fe_junior_react_basics_003",
+        "frontend",
+        "habr_frontend_js_2",
+        "habr_frontend_react_junior",
+        "junior",
+        "react_basics",
+        "so_frontend_interview"
+      ],
+      "content": "Тема: React basics. Вопрос: Почему key важен при рендере списков? Ключевые пункты хорошего ответа: 1. Props приходят в компонент извне, state описывает внутреннее изменяемое состояние 2. useEffect используют для side effects после рендера и работы с внешним миром 3. Key помогает React корректно сопоставлять элементы списка между рендерами 4. Controlled component хранит значение поля в state и обновляет его через onChange 5. Важно понимать one-way data flow и причины повторного рендера Типичные ошибки: 1. Путает props и state 2. Считает useEffect инструментом для любой логики без distinction side effects 3. Не понимает роль stable key в reconciliation Рекомендации для повторения: 1. Повторить props, state и rerender 2. Разобрать useEffect и dependency array 3. Посмотреть reconciliation и controlled inputs",
+      "source_title": "Карточка вопроса fe_junior_react_basics_003",
+      "source_url": "local://question_cards/frontend_junior/fe_junior_react_basics_003.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_fe_junior_react_basics_004",
+      "specialization": "frontend",
+      "topics": [
+        "react_basics"
+      ],
+      "tags": [
+        "fe_junior_react_basics_004",
+        "frontend",
+        "habr_frontend_js_2",
+        "habr_frontend_react_junior",
+        "junior",
+        "react_basics",
+        "so_frontend_interview"
+      ],
+      "content": "Тема: React basics. Вопрос: Что такое controlled component на примере input? Ключевые пункты хорошего ответа: 1. Props приходят в компонент извне, state описывает внутреннее изменяемое состояние 2. useEffect используют для side effects после рендера и работы с внешним миром 3. Key помогает React корректно сопоставлять элементы списка между рендерами 4. Controlled component хранит значение поля в state и обновляет его через onChange 5. Важно понимать one-way data flow и причины повторного рендера Типичные ошибки: 1. Путает props и state 2. Считает useEffect инструментом для любой логики без distinction side effects 3. Не понимает роль stable key в reconciliation Рекомендации для повторения: 1. Повторить props, state и rerender 2. Разобрать useEffect и dependency array 3. Посмотреть reconciliation и controlled inputs",
+      "source_title": "Карточка вопроса fe_junior_react_basics_004",
+      "source_url": "local://question_cards/frontend_junior/fe_junior_react_basics_004.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_fe_junior_typescript_security_001",
+      "specialization": "frontend",
+      "topics": [
+        "typescript_security"
+      ],
+      "tags": [
+        "fe_junior_typescript_security_001",
+        "frontend",
+        "habr_frontend_js_2",
+        "junior",
+        "ru_so_frontend_interview",
+        "so_frontend_interview",
+        "typescript_security"
+      ],
+      "content": "Тема: TypeScript и базовая безопасность клиента. Вопрос: Зачем вообще используют TypeScript в frontend-проектах? Ключевые пункты хорошего ответа: 1. TypeScript добавляет статическую типизацию поверх JavaScript и помогает ловить часть ошибок раньше 2. Union type позволяет описывать несколько допустимых вариантов значения 3. CORS — это браузерный механизм контроля междоменных запросов поверх same-origin policy 4. XSS позволяет выполнить чужой JavaScript в контексте страницы и украсть данные или токены 5. На frontend важно понимать и типы, и браузерные механизмы безопасности Типичные ошибки: 1. Сводит TypeScript к другому синтаксису без пользы типизации 2. Считает CORS видом шифрования или общей защитой сервера от всего 3. Не видит риск выполнения чужого кода при XSS Рекомендации для повторения: 1. Повторить базовые типы TypeScript 2. Разобрать same-origin policy и CORS 3. Посмотреть XSS и safe rendering",
+      "source_title": "Карточка вопроса fe_junior_typescript_security_001",
+      "source_url": "local://question_cards/frontend_junior/fe_junior_typescript_security_001.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_fe_junior_typescript_security_002",
+      "specialization": "frontend",
+      "topics": [
+        "typescript_security"
+      ],
+      "tags": [
+        "fe_junior_typescript_security_002",
+        "frontend",
+        "habr_frontend_js_2",
+        "junior",
+        "ru_so_frontend_interview",
+        "so_frontend_interview",
+        "typescript_security"
+      ],
+      "content": "Тема: TypeScript и базовая безопасность клиента. Вопрос: Что такое union type и зачем он нужен? Ключевые пункты хорошего ответа: 1. TypeScript добавляет статическую типизацию поверх JavaScript и помогает ловить часть ошибок раньше 2. Union type позволяет описывать несколько допустимых вариантов значения 3. CORS — это браузерный механизм контроля междоменных запросов поверх same-origin policy 4. XSS позволяет выполнить чужой JavaScript в контексте страницы и украсть данные или токены 5. На frontend важно понимать и типы, и браузерные механизмы безопасности Типичные ошибки: 1. Сводит TypeScript к другому синтаксису без пользы типизации 2. Считает CORS видом шифрования или общей защитой сервера от всего 3. Не видит риск выполнения чужого кода при XSS Рекомендации для повторения: 1. Повторить базовые типы TypeScript 2. Разобрать same-origin policy и CORS 3. Посмотреть XSS и safe rendering",
+      "source_title": "Карточка вопроса fe_junior_typescript_security_002",
+      "source_url": "local://question_cards/frontend_junior/fe_junior_typescript_security_002.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_fe_junior_typescript_security_003",
+      "specialization": "frontend",
+      "topics": [
+        "typescript_security"
+      ],
+      "tags": [
+        "fe_junior_typescript_security_003",
+        "frontend",
+        "habr_frontend_js_2",
+        "junior",
+        "ru_so_frontend_interview",
+        "so_frontend_interview",
+        "typescript_security"
+      ],
+      "content": "Тема: TypeScript и базовая безопасность клиента. Вопрос: Что такое CORS простыми словами? Ключевые пункты хорошего ответа: 1. TypeScript добавляет статическую типизацию поверх JavaScript и помогает ловить часть ошибок раньше 2. Union type позволяет описывать несколько допустимых вариантов значения 3. CORS — это браузерный механизм контроля междоменных запросов поверх same-origin policy 4. XSS позволяет выполнить чужой JavaScript в контексте страницы и украсть данные или токены 5. На frontend важно понимать и типы, и браузерные механизмы безопасности Типичные ошибки: 1. Сводит TypeScript к другому синтаксису без пользы типизации 2. Считает CORS видом шифрования или общей защитой сервера от всего 3. Не видит риск выполнения чужого кода при XSS Рекомендации для повторения: 1. Повторить базовые типы TypeScript 2. Разобрать same-origin policy и CORS 3. Посмотреть XSS и safe rendering",
+      "source_title": "Карточка вопроса fe_junior_typescript_security_003",
+      "source_url": "local://question_cards/frontend_junior/fe_junior_typescript_security_003.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_fe_junior_typescript_security_004",
+      "specialization": "frontend",
+      "topics": [
+        "typescript_security"
+      ],
+      "tags": [
+        "fe_junior_typescript_security_004",
+        "frontend",
+        "habr_frontend_js_2",
+        "junior",
+        "ru_so_frontend_interview",
+        "so_frontend_interview",
+        "typescript_security"
+      ],
+      "content": "Тема: TypeScript и базовая безопасность клиента. Вопрос: Чем XSS опасен для frontend-приложения? Ключевые пункты хорошего ответа: 1. TypeScript добавляет статическую типизацию поверх JavaScript и помогает ловить часть ошибок раньше 2. Union type позволяет описывать несколько допустимых вариантов значения 3. CORS — это браузерный механизм контроля междоменных запросов поверх same-origin policy 4. XSS позволяет выполнить чужой JavaScript в контексте страницы и украсть данные или токены 5. На frontend важно понимать и типы, и браузерные механизмы безопасности Типичные ошибки: 1. Сводит TypeScript к другому синтаксису без пользы типизации 2. Считает CORS видом шифрования или общей защитой сервера от всего 3. Не видит риск выполнения чужого кода при XSS Рекомендации для повторения: 1. Повторить базовые типы TypeScript 2. Разобрать same-origin policy и CORS 3. Посмотреть XSS и safe rendering",
+      "source_title": "Карточка вопроса fe_junior_typescript_security_004",
+      "source_url": "local://question_cards/frontend_junior/fe_junior_typescript_security_004.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_fe_middle_browser_security_001",
+      "specialization": "frontend",
+      "topics": [
+        "browser_security"
+      ],
+      "tags": [
+        "browser_security",
+        "fe_middle_browser_security_001",
+        "frontend",
+        "habr_frontend_js_1",
+        "middle",
+        "ru_so_frontend_interview",
+        "so_frontend_interview"
+      ],
+      "content": "Тема: Безопасность frontend. Вопрос: Чем XSS и CSRF отличаются друг от друга? Ключевые пункты хорошего ответа: 1. XSS — внедрение и выполнение чужого JavaScript, CSRF — навязывание действия доверенному клиенту 2. dangerouslySetInnerHTML может привести к исполнению непроверенного HTML или JS 3. CSP ограничивает источники скриптов и снижает последствия части XSS-сценариев 4. Проверка прав должна происходить и на сервере, а не только в client-side routing 5. Безопасность frontend требует сочетания safe rendering, политики браузера и server-side checks Типичные ошибки: 1. Путает XSS и CSRF 2. Считает dangerouslySetInnerHTML безопасным без санитизации 3. Полагается только на клиентскую защиту маршрутов Рекомендации для повторения: 1. Повторить XSS и CSRF 2. Разобрать sanitization и CSP 3. Посмотреть почему authz должна проверяться на сервере",
+      "source_title": "Карточка вопроса fe_middle_browser_security_001",
+      "source_url": "local://question_cards/frontend_middle/fe_middle_browser_security_001.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_fe_middle_browser_security_002",
+      "specialization": "frontend",
+      "topics": [
+        "browser_security"
+      ],
+      "tags": [
+        "browser_security",
+        "fe_middle_browser_security_002",
+        "frontend",
+        "habr_frontend_js_1",
+        "middle",
+        "ru_so_frontend_interview",
+        "so_frontend_interview"
+      ],
+      "content": "Тема: Безопасность frontend. Вопрос: Почему dangerouslySetInnerHTML требует особой осторожности? Ключевые пункты хорошего ответа: 1. XSS — внедрение и выполнение чужого JavaScript, CSRF — навязывание действия доверенному клиенту 2. dangerouslySetInnerHTML может привести к исполнению непроверенного HTML или JS 3. CSP ограничивает источники скриптов и снижает последствия части XSS-сценариев 4. Проверка прав должна происходить и на сервере, а не только в client-side routing 5. Безопасность frontend требует сочетания safe rendering, политики браузера и server-side checks Типичные ошибки: 1. Путает XSS и CSRF 2. Считает dangerouslySetInnerHTML безопасным без санитизации 3. Полагается только на клиентскую защиту маршрутов Рекомендации для повторения: 1. Повторить XSS и CSRF 2. Разобрать sanitization и CSP 3. Посмотреть почему authz должна проверяться на сервере",
+      "source_title": "Карточка вопроса fe_middle_browser_security_002",
+      "source_url": "local://question_cards/frontend_middle/fe_middle_browser_security_002.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_fe_middle_browser_security_003",
+      "specialization": "frontend",
+      "topics": [
+        "browser_security"
+      ],
+      "tags": [
+        "browser_security",
+        "fe_middle_browser_security_003",
+        "frontend",
+        "habr_frontend_js_1",
+        "middle",
+        "ru_so_frontend_interview",
+        "so_frontend_interview"
+      ],
+      "content": "Тема: Безопасность frontend. Вопрос: Как Content Security Policy помогает снижать риск XSS? Ключевые пункты хорошего ответа: 1. XSS — внедрение и выполнение чужого JavaScript, CSRF — навязывание действия доверенному клиенту 2. dangerouslySetInnerHTML может привести к исполнению непроверенного HTML или JS 3. CSP ограничивает источники скриптов и снижает последствия части XSS-сценариев 4. Проверка прав должна происходить и на сервере, а не только в client-side routing 5. Безопасность frontend требует сочетания safe rendering, политики браузера и server-side checks Типичные ошибки: 1. Путает XSS и CSRF 2. Считает dangerouslySetInnerHTML безопасным без санитизации 3. Полагается только на клиентскую защиту маршрутов Рекомендации для повторения: 1. Повторить XSS и CSRF 2. Разобрать sanitization и CSP 3. Посмотреть почему authz должна проверяться на сервере",
+      "source_title": "Карточка вопроса fe_middle_browser_security_003",
+      "source_url": "local://question_cards/frontend_middle/fe_middle_browser_security_003.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_fe_middle_browser_security_004",
+      "specialization": "frontend",
+      "topics": [
+        "browser_security"
+      ],
+      "tags": [
+        "browser_security",
+        "fe_middle_browser_security_004",
+        "frontend",
+        "habr_frontend_js_1",
+        "middle",
+        "ru_so_frontend_interview",
+        "so_frontend_interview"
+      ],
+      "content": "Тема: Безопасность frontend. Вопрос: Почему авторизацию на клиенте нельзя считать полноценной защитой доступа к данным? Ключевые пункты хорошего ответа: 1. XSS — внедрение и выполнение чужого JavaScript, CSRF — навязывание действия доверенному клиенту 2. dangerouslySetInnerHTML может привести к исполнению непроверенного HTML или JS 3. CSP ограничивает источники скриптов и снижает последствия части XSS-сценариев 4. Проверка прав должна происходить и на сервере, а не только в client-side routing 5. Безопасность frontend требует сочетания safe rendering, политики браузера и server-side checks Типичные ошибки: 1. Путает XSS и CSRF 2. Считает dangerouslySetInnerHTML безопасным без санитизации 3. Полагается только на клиентскую защиту маршрутов Рекомендации для повторения: 1. Повторить XSS и CSRF 2. Разобрать sanitization и CSP 3. Посмотреть почему authz должна проверяться на сервере",
+      "source_title": "Карточка вопроса fe_middle_browser_security_004",
+      "source_url": "local://question_cards/frontend_middle/fe_middle_browser_security_004.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_fe_middle_react_architecture_001",
+      "specialization": "frontend",
+      "topics": [
+        "react_architecture"
+      ],
+      "tags": [
+        "fe_middle_react_architecture_001",
+        "frontend",
+        "habr_frontend_js_2",
+        "habr_frontend_react_junior",
+        "middle",
+        "react_architecture",
+        "so_frontend_interview"
+      ],
+      "content": "Тема: Архитектура React-приложения. Вопрос: Как понять, когда компонент стоит разбивать на более мелкие части? Ключевые пункты хорошего ответа: 1. Компоненты стоит разбивать по ответственности и удобству сопровождения 2. Поднятие state полезно для общего источника истины, но может приводить к prop drilling и лишним рендерам 3. Разделение UI и бизнес-логики улучшает переиспользование и тестируемость 4. Разные уровни приложения обычно отделяют generic UI от feature-specific logic 5. Архитектура фронтенда должна учитывать масштаб команды и развитие проекта Типичные ошибки: 1. Считает, что чем больше компонент, тем проще поддержка 2. Всегда поднимает state максимально вверх без оценки последствий 3. Не видит пользы в разделении generic UI и feature-логики Рекомендации для повторения: 1. Повторить component decomposition 2. Разобрать state ownership и prop drilling 3. Посмотреть архитектурные слои frontend-приложения",
+      "source_title": "Карточка вопроса fe_middle_react_architecture_001",
+      "source_url": "local://question_cards/frontend_middle/fe_middle_react_architecture_001.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_fe_middle_react_architecture_002",
+      "specialization": "frontend",
+      "topics": [
+        "react_architecture"
+      ],
+      "tags": [
+        "fe_middle_react_architecture_002",
+        "frontend",
+        "habr_frontend_js_2",
+        "habr_frontend_react_junior",
+        "middle",
+        "react_architecture",
+        "so_frontend_interview"
+      ],
+      "content": "Тема: Архитектура React-приложения. Вопрос: Почему lifting state up бывает полезен, а когда он превращается в проблему? Ключевые пункты хорошего ответа: 1. Компоненты стоит разбивать по ответственности и удобству сопровождения 2. Поднятие state полезно для общего источника истины, но может приводить к prop drilling и лишним рендерам 3. Разделение UI и бизнес-логики улучшает переиспользование и тестируемость 4. Разные уровни приложения обычно отделяют generic UI от feature-specific logic 5. Архитектура фронтенда должна учитывать масштаб команды и развитие проекта Типичные ошибки: 1. Считает, что чем больше компонент, тем проще поддержка 2. Всегда поднимает state максимально вверх без оценки последствий 3. Не видит пользы в разделении generic UI и feature-логики Рекомендации для повторения: 1. Повторить component decomposition 2. Разобрать state ownership и prop drilling 3. Посмотреть архитектурные слои frontend-приложения",
+      "source_title": "Карточка вопроса fe_middle_react_architecture_002",
+      "source_url": "local://question_cards/frontend_middle/fe_middle_react_architecture_002.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_fe_middle_react_architecture_003",
+      "specialization": "frontend",
+      "topics": [
+        "react_architecture"
+      ],
+      "tags": [
+        "fe_middle_react_architecture_003",
+        "frontend",
+        "habr_frontend_js_2",
+        "habr_frontend_react_junior",
+        "middle",
+        "react_architecture",
+        "so_frontend_interview"
+      ],
+      "content": "Тема: Архитектура React-приложения. Вопрос: Зачем разделять UI и бизнес-логику в приложении? Ключевые пункты хорошего ответа: 1. Компоненты стоит разбивать по ответственности и удобству сопровождения 2. Поднятие state полезно для общего источника истины, но может приводить к prop drilling и лишним рендерам 3. Разделение UI и бизнес-логики улучшает переиспользование и тестируемость 4. Разные уровни приложения обычно отделяют generic UI от feature-specific logic 5. Архитектура фронтенда должна учитывать масштаб команды и развитие проекта Типичные ошибки: 1. Считает, что чем больше компонент, тем проще поддержка 2. Всегда поднимает state максимально вверх без оценки последствий 3. Не видит пользы в разделении generic UI и feature-логики Рекомендации для повторения: 1. Повторить component decomposition 2. Разобрать state ownership и prop drilling 3. Посмотреть архитектурные слои frontend-приложения",
+      "source_title": "Карточка вопроса fe_middle_react_architecture_003",
+      "source_url": "local://question_cards/frontend_middle/fe_middle_react_architecture_003.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_fe_middle_react_architecture_004",
+      "specialization": "frontend",
+      "topics": [
+        "react_architecture"
+      ],
+      "tags": [
+        "fe_middle_react_architecture_004",
+        "frontend",
+        "habr_frontend_js_2",
+        "habr_frontend_react_junior",
+        "middle",
+        "react_architecture",
+        "so_frontend_interview"
+      ],
+      "content": "Тема: Архитектура React-приложения. Вопрос: Почему generic UI-компоненты и feature-слой обычно разводят по разным уровням? Ключевые пункты хорошего ответа: 1. Компоненты стоит разбивать по ответственности и удобству сопровождения 2. Поднятие state полезно для общего источника истины, но может приводить к prop drilling и лишним рендерам 3. Разделение UI и бизнес-логики улучшает переиспользование и тестируемость 4. Разные уровни приложения обычно отделяют generic UI от feature-specific logic 5. Архитектура фронтенда должна учитывать масштаб команды и развитие проекта Типичные ошибки: 1. Считает, что чем больше компонент, тем проще поддержка 2. Всегда поднимает state максимально вверх без оценки последствий 3. Не видит пользы в разделении generic UI и feature-логики Рекомендации для повторения: 1. Повторить component decomposition 2. Разобрать state ownership и prop drilling 3. Посмотреть архитектурные слои frontend-приложения",
+      "source_title": "Карточка вопроса fe_middle_react_architecture_004",
+      "source_url": "local://question_cards/frontend_middle/fe_middle_react_architecture_004.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_fe_middle_rendering_perf_001",
+      "specialization": "frontend",
+      "topics": [
+        "rendering_perf"
+      ],
+      "tags": [
+        "fe_middle_rendering_perf_001",
+        "frontend",
+        "habr_frontend_js_1",
+        "habr_frontend_questions",
+        "middle",
+        "rendering_perf",
+        "so_frontend_interview"
+      ],
+      "content": "Тема: Рендеринг и производительность. Вопрос: Почему лишние ререндеры могут быть проблемой не всегда, но иногда очень важны? Ключевые пункты хорошего ответа: 1. Не каждый ререндер критичен, но на больших деревьях или тяжёлых вычислениях он может быть дорогим 2. Memoization полезна, когда реально сокращает дорогие вычисления или rerender cost 3. Code splitting уменьшает initial bundle и ускоряет первую загрузку 4. Производительность нужно подтверждать метриками и профилированием 5. Оптимизация без измерений может сделать код сложнее без реальной пользы Типичные ошибки: 1. Считает любой ререндер ошибкой 2. Использует memoization везде без причины 3. Пытается оптимизировать без профилирования и данных Рекомендации для повторения: 1. Повторить основы React performance 2. Разобрать memo/useMemo/useCallback на практических кейсах 3. Посмотреть bundle size и профилирование",
+      "source_title": "Карточка вопроса fe_middle_rendering_perf_001",
+      "source_url": "local://question_cards/frontend_middle/fe_middle_rendering_perf_001.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_fe_middle_rendering_perf_002",
+      "specialization": "frontend",
+      "topics": [
+        "rendering_perf"
+      ],
+      "tags": [
+        "fe_middle_rendering_perf_002",
+        "frontend",
+        "habr_frontend_js_1",
+        "habr_frontend_questions",
+        "middle",
+        "rendering_perf",
+        "so_frontend_interview"
+      ],
+      "content": "Тема: Рендеринг и производительность. Вопрос: Когда memoization в React полезна, а когда только усложняет код? Ключевые пункты хорошего ответа: 1. Не каждый ререндер критичен, но на больших деревьях или тяжёлых вычислениях он может быть дорогим 2. Memoization полезна, когда реально сокращает дорогие вычисления или rerender cost 3. Code splitting уменьшает initial bundle и ускоряет первую загрузку 4. Производительность нужно подтверждать метриками и профилированием 5. Оптимизация без измерений может сделать код сложнее без реальной пользы Типичные ошибки: 1. Считает любой ререндер ошибкой 2. Использует memoization везде без причины 3. Пытается оптимизировать без профилирования и данных Рекомендации для повторения: 1. Повторить основы React performance 2. Разобрать memo/useMemo/useCallback на практических кейсах 3. Посмотреть bundle size и профилирование",
+      "source_title": "Карточка вопроса fe_middle_rendering_perf_002",
+      "source_url": "local://question_cards/frontend_middle/fe_middle_rendering_perf_002.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_fe_middle_rendering_perf_003",
+      "specialization": "frontend",
+      "topics": [
+        "rendering_perf"
+      ],
+      "tags": [
+        "fe_middle_rendering_perf_003",
+        "frontend",
+        "habr_frontend_js_1",
+        "habr_frontend_questions",
+        "middle",
+        "rendering_perf",
+        "so_frontend_interview"
+      ],
+      "content": "Тема: Рендеринг и производительность. Вопрос: Что такое code splitting и зачем он нужен? Ключевые пункты хорошего ответа: 1. Не каждый ререндер критичен, но на больших деревьях или тяжёлых вычислениях он может быть дорогим 2. Memoization полезна, когда реально сокращает дорогие вычисления или rerender cost 3. Code splitting уменьшает initial bundle и ускоряет первую загрузку 4. Производительность нужно подтверждать метриками и профилированием 5. Оптимизация без измерений может сделать код сложнее без реальной пользы Типичные ошибки: 1. Считает любой ререндер ошибкой 2. Использует memoization везде без причины 3. Пытается оптимизировать без профилирования и данных Рекомендации для повторения: 1. Повторить основы React performance 2. Разобрать memo/useMemo/useCallback на практических кейсах 3. Посмотреть bundle size и профилирование",
+      "source_title": "Карточка вопроса fe_middle_rendering_perf_003",
+      "source_url": "local://question_cards/frontend_middle/fe_middle_rendering_perf_003.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_fe_middle_rendering_perf_004",
+      "specialization": "frontend",
+      "topics": [
+        "rendering_perf"
+      ],
+      "tags": [
+        "fe_middle_rendering_perf_004",
+        "frontend",
+        "habr_frontend_js_1",
+        "habr_frontend_questions",
+        "middle",
+        "rendering_perf",
+        "so_frontend_interview"
+      ],
+      "content": "Тема: Рендеринг и производительность. Вопрос: Почему производительность нужно измерять, а не угадывать? Ключевые пункты хорошего ответа: 1. Не каждый ререндер критичен, но на больших деревьях или тяжёлых вычислениях он может быть дорогим 2. Memoization полезна, когда реально сокращает дорогие вычисления или rerender cost 3. Code splitting уменьшает initial bundle и ускоряет первую загрузку 4. Производительность нужно подтверждать метриками и профилированием 5. Оптимизация без измерений может сделать код сложнее без реальной пользы Типичные ошибки: 1. Считает любой ререндер ошибкой 2. Использует memoization везде без причины 3. Пытается оптимизировать без профилирования и данных Рекомендации для повторения: 1. Повторить основы React performance 2. Разобрать memo/useMemo/useCallback на практических кейсах 3. Посмотреть bundle size и профилирование",
+      "source_title": "Карточка вопроса fe_middle_rendering_perf_004",
+      "source_url": "local://question_cards/frontend_middle/fe_middle_rendering_perf_004.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_fe_middle_ssr_hydration_001",
+      "specialization": "frontend",
+      "topics": [
+        "ssr_hydration"
+      ],
+      "tags": [
+        "fe_middle_ssr_hydration_001",
+        "frontend",
+        "habr_frontend_js_2",
+        "habr_frontend_questions",
+        "middle",
+        "so_frontend_interview",
+        "ssr_hydration"
+      ],
+      "content": "Тема: SSR, CSR и hydration. Вопрос: Чем CSR отличается от SSR на высоком уровне? Ключевые пункты хорошего ответа: 1. CSR рендерит приложение в основном на клиенте, SSR — частично или полностью на сервере 2. SSR может улучшать time-to-content и SEO в некоторых сценариях 3. Hydration связывает серверный HTML с клиентским приложением и требует совпадения разметки 4. Несовпадение серверного и клиентского вывода приводит к hydration errors 5. Нет универсально лучшей стратегии: выбор зависит от UX, SEO, infra и продукта Типичные ошибки: 1. Считает SSR всегда лучше CSR 2. Не понимает идею hydration 3. Игнорирует продуктовый контекст выбора стратегии Рекомендации для повторения: 1. Повторить SSR vs CSR 2. Разобрать hydration mismatch 3. Посмотреть trade-offs разных rendering strategies",
+      "source_title": "Карточка вопроса fe_middle_ssr_hydration_001",
+      "source_url": "local://question_cards/frontend_middle/fe_middle_ssr_hydration_001.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_fe_middle_ssr_hydration_002",
+      "specialization": "frontend",
+      "topics": [
+        "ssr_hydration"
+      ],
+      "tags": [
+        "fe_middle_ssr_hydration_002",
+        "frontend",
+        "habr_frontend_js_2",
+        "habr_frontend_questions",
+        "middle",
+        "so_frontend_interview",
+        "ssr_hydration"
+      ],
+      "content": "Тема: SSR, CSR и hydration. Вопрос: Зачем может быть полезен SSR или pre-rendering? Ключевые пункты хорошего ответа: 1. CSR рендерит приложение в основном на клиенте, SSR — частично или полностью на сервере 2. SSR может улучшать time-to-content и SEO в некоторых сценариях 3. Hydration связывает серверный HTML с клиентским приложением и требует совпадения разметки 4. Несовпадение серверного и клиентского вывода приводит к hydration errors 5. Нет универсально лучшей стратегии: выбор зависит от UX, SEO, infra и продукта Типичные ошибки: 1. Считает SSR всегда лучше CSR 2. Не понимает идею hydration 3. Игнорирует продуктовый контекст выбора стратегии Рекомендации для повторения: 1. Повторить SSR vs CSR 2. Разобрать hydration mismatch 3. Посмотреть trade-offs разных rendering strategies",
+      "source_title": "Карточка вопроса fe_middle_ssr_hydration_002",
+      "source_url": "local://question_cards/frontend_middle/fe_middle_ssr_hydration_002.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_fe_middle_ssr_hydration_003",
+      "specialization": "frontend",
+      "topics": [
+        "ssr_hydration"
+      ],
+      "tags": [
+        "fe_middle_ssr_hydration_003",
+        "frontend",
+        "habr_frontend_js_2",
+        "habr_frontend_questions",
+        "middle",
+        "so_frontend_interview",
+        "ssr_hydration"
+      ],
+      "content": "Тема: SSR, CSR и hydration. Вопрос: Что такое hydration и почему из-за неё бывают ошибки? Ключевые пункты хорошего ответа: 1. CSR рендерит приложение в основном на клиенте, SSR — частично или полностью на сервере 2. SSR может улучшать time-to-content и SEO в некоторых сценариях 3. Hydration связывает серверный HTML с клиентским приложением и требует совпадения разметки 4. Несовпадение серверного и клиентского вывода приводит к hydration errors 5. Нет универсально лучшей стратегии: выбор зависит от UX, SEO, infra и продукта Типичные ошибки: 1. Считает SSR всегда лучше CSR 2. Не понимает идею hydration 3. Игнорирует продуктовый контекст выбора стратегии Рекомендации для повторения: 1. Повторить SSR vs CSR 2. Разобрать hydration mismatch 3. Посмотреть trade-offs разных rendering strategies",
+      "source_title": "Карточка вопроса fe_middle_ssr_hydration_003",
+      "source_url": "local://question_cards/frontend_middle/fe_middle_ssr_hydration_003.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_fe_middle_ssr_hydration_004",
+      "specialization": "frontend",
+      "topics": [
+        "ssr_hydration"
+      ],
+      "tags": [
+        "fe_middle_ssr_hydration_004",
+        "frontend",
+        "habr_frontend_js_2",
+        "habr_frontend_questions",
+        "middle",
+        "so_frontend_interview",
+        "ssr_hydration"
+      ],
+      "content": "Тема: SSR, CSR и hydration. Вопрос: Почему выбор SSR или CSR зависит от контекста продукта? Ключевые пункты хорошего ответа: 1. CSR рендерит приложение в основном на клиенте, SSR — частично или полностью на сервере 2. SSR может улучшать time-to-content и SEO в некоторых сценариях 3. Hydration связывает серверный HTML с клиентским приложением и требует совпадения разметки 4. Несовпадение серверного и клиентского вывода приводит к hydration errors 5. Нет универсально лучшей стратегии: выбор зависит от UX, SEO, infra и продукта Типичные ошибки: 1. Считает SSR всегда лучше CSR 2. Не понимает идею hydration 3. Игнорирует продуктовый контекст выбора стратегии Рекомендации для повторения: 1. Повторить SSR vs CSR 2. Разобрать hydration mismatch 3. Посмотреть trade-offs разных rendering strategies",
+      "source_title": "Карточка вопроса fe_middle_ssr_hydration_004",
+      "source_url": "local://question_cards/frontend_middle/fe_middle_ssr_hydration_004.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_fe_middle_state_management_001",
+      "specialization": "frontend",
+      "topics": [
+        "state_management"
+      ],
+      "tags": [
+        "fe_middle_state_management_001",
+        "frontend",
+        "habr_frontend_js_2",
+        "habr_frontend_questions",
+        "middle",
+        "so_frontend_interview",
+        "state_management"
+      ],
+      "content": "Тема: Управление состоянием. Вопрос: Когда локального состояния компонента достаточно, а когда нужен общий store? Ключевые пункты хорошего ответа: 1. Локальное состояние подходит для изолированного UI-поведения, глобальный store — для разделяемых данных и координации 2. Дублирование состояния приводит к расхождению и ошибкам синхронизации 3. Derived state лучше вычислять из источника истины, а не хранить отдельной копией 4. Server state живёт на сервере и требует синхронизации, client state описывает локальное поведение интерфейса 5. Выбор state management подхода должен исходить из сложности и границ данных Типичные ошибки: 1. Тащит всё состояние в глобальный store без необходимости 2. Не видит проблемы в дублирующемся state 3. Путает server state с локальным UI-state Рекомендации для повторения: 1. Повторить state ownership 2. Разобрать source of truth и derived state 3. Посмотреть подходы к client/server state management",
+      "source_title": "Карточка вопроса fe_middle_state_management_001",
+      "source_url": "local://question_cards/frontend_middle/fe_middle_state_management_001.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_fe_middle_state_management_002",
+      "specialization": "frontend",
+      "topics": [
+        "state_management"
+      ],
+      "tags": [
+        "fe_middle_state_management_002",
+        "frontend",
+        "habr_frontend_js_2",
+        "habr_frontend_questions",
+        "middle",
+        "so_frontend_interview",
+        "state_management"
+      ],
+      "content": "Тема: Управление состоянием. Вопрос: В чём риск дублирования одного и того же состояния в нескольких местах? Ключевые пункты хорошего ответа: 1. Локальное состояние подходит для изолированного UI-поведения, глобальный store — для разделяемых данных и координации 2. Дублирование состояния приводит к расхождению и ошибкам синхронизации 3. Derived state лучше вычислять из источника истины, а не хранить отдельной копией 4. Server state живёт на сервере и требует синхронизации, client state описывает локальное поведение интерфейса 5. Выбор state management подхода должен исходить из сложности и границ данных Типичные ошибки: 1. Тащит всё состояние в глобальный store без необходимости 2. Не видит проблемы в дублирующемся state 3. Путает server state с локальным UI-state Рекомендации для повторения: 1. Повторить state ownership 2. Разобрать source of truth и derived state 3. Посмотреть подходы к client/server state management",
+      "source_title": "Карточка вопроса fe_middle_state_management_002",
+      "source_url": "local://question_cards/frontend_middle/fe_middle_state_management_002.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_fe_middle_state_management_003",
+      "specialization": "frontend",
+      "topics": [
+        "state_management"
+      ],
+      "tags": [
+        "fe_middle_state_management_003",
+        "frontend",
+        "habr_frontend_js_2",
+        "habr_frontend_questions",
+        "middle",
+        "so_frontend_interview",
+        "state_management"
+      ],
+      "content": "Тема: Управление состоянием. Вопрос: Почему derived state лучше не хранить отдельно без необходимости? Ключевые пункты хорошего ответа: 1. Локальное состояние подходит для изолированного UI-поведения, глобальный store — для разделяемых данных и координации 2. Дублирование состояния приводит к расхождению и ошибкам синхронизации 3. Derived state лучше вычислять из источника истины, а не хранить отдельной копией 4. Server state живёт на сервере и требует синхронизации, client state описывает локальное поведение интерфейса 5. Выбор state management подхода должен исходить из сложности и границ данных Типичные ошибки: 1. Тащит всё состояние в глобальный store без необходимости 2. Не видит проблемы в дублирующемся state 3. Путает server state с локальным UI-state Рекомендации для повторения: 1. Повторить state ownership 2. Разобрать source of truth и derived state 3. Посмотреть подходы к client/server state management",
+      "source_title": "Карточка вопроса fe_middle_state_management_003",
+      "source_url": "local://question_cards/frontend_middle/fe_middle_state_management_003.json",
+      "version": "kb-2026.04-full-ru-v1"
+    },
+    {
+      "chunk_id": "kb_fe_middle_state_management_004",
+      "specialization": "frontend",
+      "topics": [
+        "state_management"
+      ],
+      "tags": [
+        "fe_middle_state_management_004",
+        "frontend",
+        "habr_frontend_js_2",
+        "habr_frontend_questions",
+        "middle",
+        "so_frontend_interview",
+        "state_management"
+      ],
+      "content": "Тема: Управление состоянием. Вопрос: Как бы вы объяснили разницу между server state и client state? Ключевые пункты хорошего ответа: 1. Локальное состояние подходит для изолированного UI-поведения, глобальный store — для разделяемых данных и координации 2. Дублирование состояния приводит к расхождению и ошибкам синхронизации 3. Derived state лучше вычислять из источника истины, а не хранить отдельной копией 4. Server state живёт на сервере и требует синхронизации, client state описывает локальное поведение интерфейса 5. Выбор state management подхода должен исходить из сложности и границ данных Типичные ошибки: 1. Тащит всё состояние в глобальный store без необходимости 2. Не видит проблемы в дублирующемся state 3. Путает server state с локальным UI-state Рекомендации для повторения: 1. Повторить state ownership 2. Разобрать source of truth и derived state 3. Посмотреть подходы к client/server state management",
+      "source_title": "Карточка вопроса fe_middle_state_management_004",
+      "source_url": "local://question_cards/frontend_middle/fe_middle_state_management_004.json",
+      "version": "kb-2026.04-full-ru-v1"
     }
   ]
 }

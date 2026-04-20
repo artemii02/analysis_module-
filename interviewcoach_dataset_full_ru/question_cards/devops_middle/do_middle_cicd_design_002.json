@@ -1,0 +1,48 @@
+{
+  "question_id": "do_middle_cicd_design_002",
+  "question_text": "Почему секреты нельзя просто зашивать в репозиторий или Docker image?",
+  "specialization": "devops",
+  "grade": "middle",
+  "topic": "cicd_design",
+  "topic_name": "Проектирование CI/CD и безопасность",
+  "rubric": {
+    "criteria": [
+      "correctness",
+      "completeness",
+      "clarity",
+      "practicality",
+      "terminology"
+    ],
+    "weights": {
+      "correctness": 0.35,
+      "completeness": 0.25,
+      "clarity": 0.15,
+      "practicality": 0.15,
+      "terminology": 0.1
+    }
+  },
+  "keypoints": [
+    "Pipeline обычно разделяют на build, test, package, security checks и deploy stages",
+    "Секреты должны храниться в специализированных системах или защищённых переменных, а не в коде или образе",
+    "Слишком медленный pipeline ухудшает цикл разработки, но отсутствие проверок повышает риск инцидентов",
+    "Продвижение одного и того же артефакта по окружениям повышает повторяемость и доверие к релизу",
+    "Хороший CI/CD балансирует скорость, безопасность и качество"
+  ],
+  "canonical_mistakes": [
+    "Хранит секреты в репозитории или в image layers",
+    "Не видит проблемы в ручных и неповторяемых сборках",
+    "Сводит pipeline к одной кнопке deploy без quality gates"
+  ],
+  "recommendation_hints": [
+    "Повторить pipeline stages",
+    "Разобрать secret management",
+    "Посмотреть artifact promotion и quality gates"
+  ],
+  "source_refs": [
+    "so_cicd_collective",
+    "habr_devops_senior",
+    "habr_devops_path_2026"
+  ],
+  "source_type": "open_source_paraphrased_topic_bank",
+  "language": "ru"
+}

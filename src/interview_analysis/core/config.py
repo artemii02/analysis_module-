@@ -7,6 +7,7 @@ from pathlib import Path
 
 
 PACKAGE_DIR = Path(__file__).resolve().parents[1]
+ROOT_DIR = PACKAGE_DIR.parents[1]
 
 
 @dataclass(frozen=True, slots=True)
@@ -19,6 +20,11 @@ class Settings:
     database_url: str
     ollama_url: str
     ollama_model: str
+    hf_base_model: str
+    hf_adapter_path: Path | None
+    hf_device: str
+    hf_load_in_4bit: bool
+    hf_max_new_tokens: int
     request_timeout_seconds: int
     knowledge_limit: int
     hard_timeout_seconds: int
@@ -45,6 +51,11 @@ def get_settings() -> Settings:
         ),
         ollama_url=os.getenv("ANALYSIS_OLLAMA_URL", "http://localhost:11434/api/generate"),
         ollama_model=os.getenv("ANALYSIS_OLLAMA_MODEL", "qwen2.5:3b"),
+        hf_base_model=os.getenv("ANALYSIS_HF_BASE_MODEL", "Qwen/Qwen2.5-3B-Instruct"),
+        hf_adapter_path=_optional_path(os.getenv("ANALYSIS_HF_ADAPTER_PATH", "training/artifacts/qwen2.5-3b-interview-full-ru-qlora-v1")),
+        hf_device=os.getenv("ANALYSIS_HF_DEVICE", "auto").strip().lower(),
+        hf_load_in_4bit=_env_bool("ANALYSIS_HF_LOAD_IN_4BIT", True),
+        hf_max_new_tokens=int(os.getenv("ANALYSIS_HF_MAX_NEW_TOKENS", "900")),
         request_timeout_seconds=int(os.getenv("ANALYSIS_REQUEST_TIMEOUT_SECONDS", "300")),
         knowledge_limit=int(os.getenv("ANALYSIS_KNOWLEDGE_LIMIT", "1")),
         hard_timeout_seconds=int(os.getenv("ANALYSIS_HARD_TIMEOUT_SECONDS", "30")),
@@ -56,3 +67,19 @@ def get_settings() -> Settings:
         demo_cases_path=PACKAGE_DIR / "demo" / "demo_cases.json",
         demo_template_path=PACKAGE_DIR / "demo" / "demo.html",
     )
+
+
+def _env_bool(name: str, default: bool) -> bool:
+    value = os.getenv(name)
+    if value is None:
+        return default
+    return value.strip().lower() in {"1", "true", "yes", "y", "on"}
+
+
+def _optional_path(value: str | None) -> Path | None:
+    if value is None or not value.strip():
+        return None
+    path = Path(value.strip())
+    if path.is_absolute():
+        return path
+    return ROOT_DIR / path

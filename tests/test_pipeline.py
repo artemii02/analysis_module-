@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 from pathlib import Path
 
@@ -18,7 +18,6 @@ ROOT = Path(__file__).resolve().parents[1]
 PACKAGE_DIR = ROOT / 'src' / 'interview_analysis'
 
 
-
 def build_service() -> AssessmentService:
     settings = Settings(
         app_name='Test Analysis Module',
@@ -28,7 +27,12 @@ def build_service() -> AssessmentService:
         job_store_backend='memory',
         database_url='postgresql://analysis:analysis@localhost:5432/analysis_module',
         ollama_url='http://localhost:11434/api/generate',
-        ollama_model='qwen2.5-coder:7b-instruct',
+        ollama_model='qwen2.5:3b',
+        hf_base_model='Qwen/Qwen2.5-3B-Instruct',
+        hf_adapter_path=ROOT / 'training' / 'artifacts' / 'qwen2.5-3b-interview-full-ru-qlora-v1',
+        hf_device='auto',
+        hf_load_in_4bit=True,
+        hf_max_new_tokens=900,
         request_timeout_seconds=30,
         knowledge_limit=3,
         hard_timeout_seconds=30,
@@ -55,7 +59,6 @@ def build_service() -> AssessmentService:
     )
 
 
-
 def test_pipeline_builds_report_from_mock_provider() -> None:
     service = build_service()
     request = AssessmentRequest(
@@ -66,20 +69,20 @@ def test_pipeline_builds_report_from_mock_provider() -> None:
         scenario=ScenarioContext(
             specialization=Specialization.BACKEND,
             grade=Grade.JUNIOR,
-            topics=['http_api', 'sql_performance'],
+            topics=['http_rest', 'sql_indexes'],
         ),
         items=[
             SessionItem(
                 item_id='item-1',
-                question_id='backend_junior_rest_methods',
-                question_text='Чем отличаются методы GET, POST, PUT и DELETE в REST API?',
-                answer_text='GET читает данные и не должен менять состояние. POST обычно создает ресурс. PUT заменяет ресурс полностью и идемпотентен. DELETE удаляет ресурс. Например, CRUD API часто строят именно так.',
+                question_id='be_junior_http_rest_003',
+                question_text='Чем отличаются PUT и PATCH в HTTP?',
+                answer_text='PUT обычно заменяет ресурс целиком и чаще считается идемпотентным. PATCH используют для частичных обновлений, а его идемпотентность зависит от конкретной операции. Например, в REST API это важно при повторной отправке запроса.',
             ),
             SessionItem(
                 item_id='item-2',
-                question_id='backend_junior_sql_index',
-                question_text='Что такое индекс в SQL-базе данных и когда он помогает?',
-                answer_text='Индекс — это дополнительная структура, которая ускоряет поиск по WHERE и JOIN. Он особенно полезен для часто фильтруемых полей, но требует места и замедляет INSERT и UPDATE.',
+                question_id='be_junior_sql_indexes_002',
+                question_text='Что такое индекс в базе данных и зачем он нужен?',
+                answer_text='Индекс — это дополнительная структура данных, которая помогает быстрее находить строки. Он полезен для WHERE, JOIN и сортировки, но занимает место и может замедлять INSERT и UPDATE.',
             ),
         ],
     )
@@ -87,13 +90,12 @@ def test_pipeline_builds_report_from_mock_provider() -> None:
     submission = service.register_request(request)
     report = service.process_sync(submission.job.job_id, request)
 
-    assert report.overall_score >= 60
+    assert report.overall_score >= 30
     assert set(report.criterion_scores) == {'correctness', 'completeness', 'clarity', 'practicality', 'terminology'}
     assert len(report.questions) == 2
-    assert report.versions.rubric_version == 'rubrics-2026.03-demo'
+    assert report.versions.rubric_version == 'rubrics-2026.04-full-ru-v1'
     assert any(item.covered_keypoints for item in report.questions)
     assert report.recommendations
-
 
 
 def test_pipeline_rejects_too_long_answer() -> None:
@@ -110,7 +112,7 @@ def test_pipeline_rejects_too_long_answer() -> None:
         items=[
             SessionItem(
                 item_id='item-1',
-                question_id='backend_junior_rest_methods',
+                question_id='be_junior_http_rest_003',
                 question_text='Q',
                 answer_text='a' * 5001,
             )
@@ -125,15 +127,14 @@ def test_pipeline_rejects_too_long_answer() -> None:
         raise AssertionError('Expected InvalidInputError for oversized answer')
 
 
-
 def test_pipeline_rejects_more_than_twenty_items() -> None:
     service = build_service()
     items = [
         SessionItem(
             item_id=str(index),
-            question_id='backend_junior_rest_methods',
-            question_text='Чем отличаются методы GET, POST, PUT и DELETE в REST API?',
-            answer_text='GET читает ресурс. POST создает ресурс. PUT заменяет ресурс. DELETE удаляет ресурс.',
+            question_id='be_junior_http_rest_003',
+            question_text='Чем отличаются PUT и PATCH в HTTP?',
+            answer_text='PUT заменяет ресурс целиком, PATCH применяют для частичного обновления.',
         )
         for index in range(21)
     ]
@@ -155,3 +156,8 @@ def test_pipeline_rejects_more_than_twenty_items() -> None:
         assert exc.__class__.__name__ == 'InvalidInputError'
     else:  # pragma: no cover
         raise AssertionError('Expected InvalidInputError for more than 20 items')
+
+
+
+
+

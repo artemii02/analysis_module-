@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 from dataclasses import dataclass
 from time import perf_counter
@@ -67,7 +67,7 @@ class AssessmentService:
             return job.report
         if job.status == JobStatus.ERROR:
             raise IntegrationError(
-                job.error_message or "?? ??????? ???????????? ?????.",
+                job.error_message or "Не удалось сформировать отчёт.",
                 code=job.error_code or "INTERNAL_ERROR",
             )
         raise ReportNotReadyError(job_id)
@@ -95,7 +95,7 @@ class AssessmentService:
         except Exception as exc:
             self.job_store.mark_error(job_id, "INTERNAL_ERROR", str(exc))
             self.metrics.record_failure(_duration_ms(started))
-            raise IntegrationError("?????????? ?????? ??? ???????????? ??????.") from exc
+            raise IntegrationError("Внутренняя ошибка при формировании отчёта.") from exc
 
         self.job_store.mark_ready(job_id, report)
         self.metrics.record_success(_duration_ms(started))
@@ -103,23 +103,23 @@ class AssessmentService:
 
     def _validate_request(self, request) -> None:
         if not request.request_id or not request.session_id or not request.client_id:
-            raise InvalidInputError("???? request_id, session_id ? client_id ???????????.")
+            raise InvalidInputError("Поля request_id, session_id и client_id обязательны.")
         if not request.items:
-            raise InvalidInputError("????? ???????? ???? ?? ???? ?????? ? ???????.")
+            raise InvalidInputError("Сессия должна содержать хотя бы один вопрос с ответом.")
         if len(request.items) > self.settings.max_session_items:
             raise InvalidInputError(
-                "????????? ?????????? ?????????? ???????? ? ????? ??????.",
+                "Превышено максимальное количество вопросов в одной сессии.",
                 details={"max_session_items": self.settings.max_session_items},
             )
         for item in request.items:
             if not item.answer_text.strip():
                 raise InvalidInputError(
-                    "????? ?????? ?? ?????? ???? ??????.",
+                    "Текст ответа не должен быть пустым.",
                     details={"item_id": item.item_id, "question_id": item.question_id},
                 )
             if len(item.answer_text) > self.settings.max_answer_length:
                 raise InvalidInputError(
-                    "????? ????????? ??????????? ?????????? ?????.",
+                    "Текст ответа превышает допустимую длину.",
                     details={
                         "item_id": item.item_id,
                         "question_id": item.question_id,

@@ -1,0 +1,48 @@
+{
+  "question_id": "be_middle_observability_002",
+  "question_text": "Что такое circuit breaker и какую проблему он решает?",
+  "specialization": "backend",
+  "grade": "middle",
+  "topic": "observability",
+  "topic_name": "Наблюдаемость и устойчивость",
+  "rubric": {
+    "criteria": [
+      "correctness",
+      "completeness",
+      "clarity",
+      "practicality",
+      "terminology"
+    ],
+    "weights": {
+      "correctness": 0.35,
+      "completeness": 0.25,
+      "clarity": 0.15,
+      "practicality": 0.15,
+      "terminology": 0.1
+    }
+  },
+  "keypoints": [
+    "Метрики дают агрегированную картину, логи — детали событий, трассировки — путь запроса",
+    "Circuit breaker защищает систему от усиления сбоев при проблемной зависимости",
+    "Абсолютная доступность нереалистична из-за отказов, работ и зависимости от внешних систем",
+    "Healthcheck нужен для orchestration, liveness проверяет жив ли процесс, readiness — готов ли принимать трафик",
+    "Устойчивость строится через SLO/SLA, graceful degradation и контроль зависимостей"
+  ],
+  "canonical_mistakes": [
+    "Считает, что логов всегда достаточно без метрик и трассировок",
+    "Путает circuit breaker с балансировщиком или firewall",
+    "Не различает liveness и readiness"
+  ],
+  "recommendation_hints": [
+    "Повторить observability pillars",
+    "Разобрать circuit breaker и graceful degradation",
+    "Посмотреть SLO/SLA и health probes"
+  ],
+  "source_refs": [
+    "habr_devops_path_2026",
+    "habr_devops_senior",
+    "so_devops_tag"
+  ],
+  "source_type": "open_source_paraphrased_topic_bank",
+  "language": "ru"
+}

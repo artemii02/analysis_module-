@@ -1,0 +1,43 @@
+{
+  "question_id": "be_junior_sql_004",
+  "question_text": "Когда индекс может перестать быть полезным для запроса?",
+  "specialization": "backend",
+  "grade": "junior",
+  "topic": "sql_indexes",
+  "rubric": {
+    "criteria": [
+      "correctness",
+      "completeness",
+      "clarity",
+      "practicality",
+      "terminology"
+    ],
+    "weights": {
+      "correctness": 0.35,
+      "completeness": 0.25,
+      "clarity": 0.15,
+      "practicality": 0.15,
+      "terminology": 0.1
+    }
+  },
+  "keypoints": [
+    "Индекс может быть неэффективен, если запрос недостаточно селективный.",
+    "Оптимизатор может выбрать full scan на маленьких таблицах.",
+    "Функции или преобразования над индексированными колонками могут мешать использованию индекса.",
+    "В composite index может быть важен неправильный порядок колонок.",
+    "Реальная полезность зависит от формы запроса и распределения данных."
+  ],
+  "canonical_mistakes": [
+    "Утверждает, что индекс всегда используется, если он существует.",
+    "Игнорирует селективность и поведение query optimizer.",
+    "Не упоминает функции или порядок колонок в composite index.",
+    "Считает индексы гарантированным ускорением запроса."
+  ],
+  "recommendation_hints": [
+    "Повторить query plans и селективность.",
+    "Изучить composite indexes и порядок колонок.",
+    "Потренироваться читать вывод EXPLAIN."
+  ],
+  "language": "ru",
+  "dataset_stage": "v1_backend_junior_ru"
+}

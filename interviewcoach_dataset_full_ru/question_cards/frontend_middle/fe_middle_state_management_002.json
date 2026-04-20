@@ -1,0 +1,48 @@
+{
+  "question_id": "fe_middle_state_management_002",
+  "question_text": "В чём риск дублирования одного и того же состояния в нескольких местах?",
+  "specialization": "frontend",
+  "grade": "middle",
+  "topic": "state_management",
+  "topic_name": "Управление состоянием",
+  "rubric": {
+    "criteria": [
+      "correctness",
+      "completeness",
+      "clarity",
+      "practicality",
+      "terminology"
+    ],
+    "weights": {
+      "correctness": 0.35,
+      "completeness": 0.25,
+      "clarity": 0.15,
+      "practicality": 0.15,
+      "terminology": 0.1
+    }
+  },
+  "keypoints": [
+    "Локальное состояние подходит для изолированного UI-поведения, глобальный store — для разделяемых данных и координации",
+    "Дублирование состояния приводит к расхождению и ошибкам синхронизации",
+    "Derived state лучше вычислять из источника истины, а не хранить отдельной копией",
+    "Server state живёт на сервере и требует синхронизации, client state описывает локальное поведение интерфейса",
+    "Выбор state management подхода должен исходить из сложности и границ данных"
+  ],
+  "canonical_mistakes": [
+    "Тащит всё состояние в глобальный store без необходимости",
+    "Не видит проблемы в дублирующемся state",
+    "Путает server state с локальным UI-state"
+  ],
+  "recommendation_hints": [
+    "Повторить state ownership",
+    "Разобрать source of truth и derived state",
+    "Посмотреть подходы к client/server state management"
+  ],
+  "source_refs": [
+    "habr_frontend_js_2",
+    "habr_frontend_questions",
+    "so_frontend_interview"
+  ],
+  "source_type": "open_source_paraphrased_topic_bank",
+  "language": "ru"
+}

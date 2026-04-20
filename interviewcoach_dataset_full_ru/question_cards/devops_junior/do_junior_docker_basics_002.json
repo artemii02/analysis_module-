@@ -1,0 +1,48 @@
+{
+  "question_id": "do_junior_docker_basics_002",
+  "question_text": "Чем образ отличается от контейнера?",
+  "specialization": "devops",
+  "grade": "junior",
+  "topic": "docker_basics",
+  "topic_name": "Docker basics",
+  "rubric": {
+    "criteria": [
+      "correctness",
+      "completeness",
+      "clarity",
+      "practicality",
+      "terminology"
+    ],
+    "weights": {
+      "correctness": 0.35,
+      "completeness": 0.25,
+      "clarity": 0.15,
+      "practicality": 0.15,
+      "terminology": 0.1
+    }
+  },
+  "keypoints": [
+    "Контейнеры дают воспроизводимое окружение для запуска приложения",
+    "Образ — это шаблон, контейнер — его запущенный экземпляр",
+    "Данные внутри контейнера могут потеряться при пересоздании, поэтому для важных данных используют volume или внешнее хранилище",
+    "Multi-stage build помогает уменьшать размер финального образа и отделять build dependencies от runtime",
+    "Контейнеризация решает часть проблем окружения, но не отменяет вопросы сети, секретов и хранения данных"
+  ],
+  "canonical_mistakes": [
+    "Путает образ и контейнер",
+    "Считает контейнер полноценной виртуальной машиной без оговорок",
+    "Не видит проблемы эфемерного хранения данных"
+  ],
+  "recommendation_hints": [
+    "Повторить container lifecycle",
+    "Разобрать image vs container",
+    "Посмотреть volumes и multi-stage builds"
+  ],
+  "source_refs": [
+    "habr_devops_path_2026",
+    "so_devops_tag",
+    "so_cicd_collective"
+  ],
+  "source_type": "open_source_paraphrased_topic_bank",
+  "language": "ru"
+}

@@ -1,0 +1,48 @@
+{
+  "question_id": "fe_junior_javascript_core_003",
+  "question_text": "Чем let и const отличаются от var?",
+  "specialization": "frontend",
+  "grade": "junior",
+  "topic": "javascript_core",
+  "topic_name": "JavaScript core",
+  "rubric": {
+    "criteria": [
+      "correctness",
+      "completeness",
+      "clarity",
+      "practicality",
+      "terminology"
+    ],
+    "weights": {
+      "correctness": 0.35,
+      "completeness": 0.25,
+      "clarity": 0.15,
+      "practicality": 0.15,
+      "terminology": 0.1
+    }
+  },
+  "keypoints": [
+    "Замыкание — это функция с доступом к внешнему lexical scope",
+    "Event loop выполняет задачи по мере освобождения call stack и взаимодействует с очередями задач",
+    "let и const имеют блочную область видимости, var — функциональную",
+    "=== сравнивает без неявного приведения типов, == может делать type coercion",
+    "Понимание scope и порядка выполнения важно для предсказуемого поведения кода"
+  ],
+  "canonical_mistakes": [
+    "Путает closure с callback",
+    "Считает, что JavaScript просто выполняет всё параллельно",
+    "Не различает strict equality и нестрогое сравнение"
+  ],
+  "recommendation_hints": [
+    "Повторить lexical scope и closures",
+    "Разобрать event loop на примерах",
+    "Посмотреть block scope и equality operators"
+  ],
+  "source_refs": [
+    "habr_frontend_js_1",
+    "habr_frontend_js_2",
+    "so_frontend_interview"
+  ],
+  "source_type": "open_source_paraphrased_topic_bank",
+  "language": "ru"
+}

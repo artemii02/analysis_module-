@@ -1,0 +1,48 @@
+{
+  "question_id": "do_middle_terraform_iac_002",
+  "question_text": "Что такое state в Terraform и почему с ним нужно быть аккуратным?",
+  "specialization": "devops",
+  "grade": "middle",
+  "topic": "terraform_iac",
+  "topic_name": "Terraform и IaC",
+  "rubric": {
+    "criteria": [
+      "correctness",
+      "completeness",
+      "clarity",
+      "practicality",
+      "terminology"
+    ],
+    "weights": {
+      "correctness": 0.35,
+      "completeness": 0.25,
+      "clarity": 0.15,
+      "practicality": 0.15,
+      "terminology": 0.1
+    }
+  },
+  "keypoints": [
+    "IaC даёт повторяемость, review, историю изменений и автоматизацию инфраструктуры",
+    "Terraform state хранит текущее соответствие между описанием и реальными ресурсами",
+    "Потеря или рассинхронизация state создаёт риск некорректных изменений",
+    "Drift делает инфраструктуру непредсказуемой и усложняет поддержку",
+    "Разделение окружений уменьшает риск случайных изменений в production"
+  ],
+  "canonical_mistakes": [
+    "Не понимает роль state",
+    "Считает ручную настройку равнозначной IaC",
+    "Игнорирует drift и разделение окружений"
+  ],
+  "recommendation_hints": [
+    "Повторить IaC principles",
+    "Разобрать Terraform state и drift",
+    "Посмотреть environment separation и change safety"
+  ],
+  "source_refs": [
+    "habr_devops_senior",
+    "so_devops_tag",
+    "so_cicd_collective"
+  ],
+  "source_type": "open_source_paraphrased_topic_bank",
+  "language": "ru"
+}
