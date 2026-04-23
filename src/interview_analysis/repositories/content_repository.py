@@ -25,6 +25,29 @@ DEFAULT_CRITERIA = (
     ("practicality", 0.15, "Наличие практических примеров, ограничений и trade-offs."),
     ("terminology", 0.15, "Корректность и уместность технической терминологии."),
 )
+RUNTIME_TOPIC_STOPWORDS = {
+    "такое",
+    "какой",
+    "какая",
+    "какие",
+    "каково",
+    "чем",
+    "между",
+    "ними",
+    "объясни",
+    "объяснить",
+    "разница",
+    "различия",
+    "отличия",
+    "why",
+    "what",
+    "when",
+    "where",
+    "which",
+    "difference",
+    "between",
+    "about",
+}
 
 
 class JSONContentRepository:
@@ -251,7 +274,7 @@ def _infer_runtime_topic_code(question_text: str, scenario_topics: list[str], ta
         if candidate in normalized_question.replace("-", " "):
             return candidate
 
-    question_tokens = significant_tokens(question_text)
+    question_tokens = _runtime_topic_tokens(question_text)
     for topic_code, label in TOPIC_LABELS.items():
         label_tokens = set(significant_tokens(label))
         topic_tokens = set(significant_tokens(topic_code.replace("_", " ")))
@@ -265,7 +288,7 @@ def _infer_runtime_topic_code(question_text: str, scenario_topics: list[str], ta
 
 def _build_runtime_tags(question_text: str, scenario_topics: list[str], tags: list[str]) -> list[str]:
     result: list[str] = []
-    for value in [*tags, *scenario_topics, *significant_tokens(question_text)[:8]]:
+    for value in [*tags, *scenario_topics, *_runtime_topic_tokens(question_text)[:8]]:
         cleaned = value.strip() if isinstance(value, str) else ""
         if cleaned and cleaned not in result:
             result.append(cleaned)
@@ -308,3 +331,11 @@ def _build_runtime_recommendation_hints(question_text: str, topic_code: str) -> 
 
 def _normalize_topic_code(value: str) -> str:
     return "_".join(_normalize_question_text(value).split())
+
+
+def _runtime_topic_tokens(question_text: str) -> list[str]:
+    return [
+        token
+        for token in significant_tokens(question_text)
+        if token not in RUNTIME_TOPIC_STOPWORDS
+    ]

@@ -3,6 +3,7 @@ from __future__ import annotations
 import logging
 
 from interview_analysis.core.topic_catalog import topic_label
+from interview_analysis.exceptions import UnknownQuestionError
 from interview_analysis.models import AssessmentReport, QuestionAnalysisContext, QuestionFeedback
 from interview_analysis.repositories.content_repository import JSONContentRepository
 from interview_analysis.services.llm.base import BaseLLMProvider
@@ -29,23 +30,45 @@ class AnalysisPipeline:
 
     def analyze(self, request) -> AssessmentReport:
         contexts: list[QuestionAnalysisContext] = []
+        used_runtime_content = False
         for item in request.items:
-            question = self.repository.resolve_question(
-                item.question_id,
-                item.question_text,
-                request.scenario.specialization,
-                request.scenario.grade,
-            )
-            rubric = self.repository.get_rubric(
-                question.question_id,
-                request.scenario.specialization,
-                request.scenario.grade,
-            )
-            if question.question_id != item.question_id:
-                logger.info(
-                    'analysis.question_resolved external_question_id=%s internal_question_id=%s specialization=%s grade=%s',
+            try:
+                question = self.repository.resolve_question(
                     item.question_id,
+                    item.question_text,
+                    request.scenario.specialization,
+                    request.scenario.grade,
+                )
+                rubric = self.repository.get_rubric(
                     question.question_id,
+                    request.scenario.specialization,
+                    request.scenario.grade,
+                )
+                logger.info(
+                    'analysis.question_curated question_id=%s topic=%s specialization=%s grade=%s',
+                    item.question_id,
+                    question.topic,
+                    request.scenario.specialization.value,
+                    request.scenario.grade.value,
+                )
+            except UnknownQuestionError:
+                used_runtime_content = True
+                question = self.repository.build_runtime_question(
+                    item.question_id,
+                    item.question_text,
+                    request.scenario.specialization,
+                    request.scenario.grade,
+                    scenario_topics=request.scenario.topics,
+                    tags=item.tags,
+                )
+                rubric = self.repository.build_runtime_rubric(
+                    question,
+                    scenario_topics=request.scenario.topics,
+                )
+                logger.info(
+                    'analysis.question_runtime external_question_id=%s runtime_topic=%s specialization=%s grade=%s',
+                    item.question_id,
+                    question.topic,
                     request.scenario.specialization.value,
                     request.scenario.grade.value,
                 )
@@ -84,10 +107,18 @@ class AnalysisPipeline:
                 )
             )
 
-        versions = self.repository.build_version_info(
-            model_version=self.llm_provider.model_version,
-            prompt_version=self.llm_provider.prompt_version,
-        )
+        if used_runtime_content:
+            versions = self.repository.build_version_info(
+                model_version=self.llm_provider.model_version,
+                prompt_version=self.llm_provider.prompt_version,
+                rubric_version_override='runtime-rubric-v1',
+                questions_version_override='external-backend-v1',
+            )
+        else:
+            versions = self.repository.build_version_info(
+                model_version=self.llm_provider.model_version,
+                prompt_version=self.llm_provider.prompt_version,
+            )
         return self.report_builder.build(
             request_id=request.request_id,
             session_id=request.session_id,

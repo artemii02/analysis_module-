@@ -99,6 +99,7 @@ def test_pipeline_builds_report_from_mock_provider() -> None:
     assert set(report.criterion_scores) == {'correctness', 'completeness', 'clarity', 'practicality', 'terminology'}
     assert len(report.questions) == 2
     assert report.versions.rubric_version == 'rubrics-2026.04-full-ru-v1'
+    assert report.versions.questions_version == 'questions-2026.04-full-ru-v1'
     assert any(item.covered_keypoints for item in report.questions)
     assert report.recommendations
 
@@ -178,8 +179,8 @@ def test_pipeline_resolves_external_question_id_by_question_text() -> None:
             SessionItem(
                 item_id='item-1',
                 question_id='21000000-0000-0000-0000-000000000001',
-                question_text='В чём разница между PUT и PATCH?',
-                answer_text='PUT обычно заменяет ресурс целиком, а PATCH используют для частичного обновления.',
+                question_text='Что такое JVM, JRE и JDK и в чём между ними разница?',
+                answer_text='JVM выполняет Java-байткод, JRE включает JVM и библиотеки для запуска, а JDK содержит JRE и инструменты разработки.',
             )
         ],
     )
@@ -189,7 +190,9 @@ def test_pipeline_resolves_external_question_id_by_question_text() -> None:
 
     assert len(report.questions) == 1
     assert report.questions[0].question_id == '21000000-0000-0000-0000-000000000001'
-    assert report.questions[0].topic == 'HTTP и REST'
+    assert report.questions[0].topic == 'Jvm jre jdk'
+    assert report.versions.rubric_version == 'runtime-rubric-v1'
+    assert report.versions.questions_version == 'external-backend-v1'
 
 
 
