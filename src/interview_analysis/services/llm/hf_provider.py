@@ -287,6 +287,7 @@ class HFLLMProvider(BaseLLMProvider):
         tokenizer.padding_side = "left"
 
         runtime_device = self._resolve_runtime_device(torch)
+        use_auto_offload = self.device == "auto" and torch.cuda.is_available() and not self.load_in_4bit
         model_kwargs: dict[str, Any] = {"trust_remote_code": True}
         if self.load_in_4bit:
             try:
@@ -304,6 +305,9 @@ class HFLLMProvider(BaseLLMProvider):
             )
             model_kwargs["device_map"] = "auto"
             model_kwargs["dtype"] = torch.float16
+        elif use_auto_offload:
+            model_kwargs["dtype"] = torch.float16
+            model_kwargs["device_map"] = "auto"
         elif runtime_device.startswith("cuda"):
             model_kwargs["dtype"] = torch.float16
         else:
@@ -325,7 +329,16 @@ class HFLLMProvider(BaseLLMProvider):
                         "Для загрузки LoRA-адаптера нужна зависимость peft. Установи: pip install -e .[hf_runtime]",
                         code="MODEL_DEPENDENCIES_MISSING",
                     ) from exc
-                model = PeftModel.from_pretrained(model, self.adapter_path.as_posix())
+                adapter_kwargs: dict[str, Any] = {}
+                if "device_map" in model_kwargs:
+                    adapter_kwargs["torch_device"] = runtime_device
+                    if runtime_device.startswith("cuda"):
+                        adapter_kwargs["ephemeral_gpu_offload"] = True
+                model = PeftModel.from_pretrained(
+                    model,
+                    self.adapter_path.as_posix(),
+                    **adapter_kwargs,
+                )
             if "device_map" not in model_kwargs:
                 model = model.to(runtime_device)
             model.eval()

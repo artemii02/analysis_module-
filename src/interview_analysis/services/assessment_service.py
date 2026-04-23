@@ -1,6 +1,7 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from dataclasses import dataclass
+import logging
 from time import perf_counter
 
 from interview_analysis.core.config import Settings
@@ -20,6 +21,9 @@ from interview_analysis.services.metrics import MetricsRegistry
 class SubmissionResult:
     job: AssessmentJob
     created_new: bool
+
+
+logger = logging.getLogger(__name__)
 
 
 class AssessmentService:
@@ -44,11 +48,26 @@ class AssessmentService:
             session_id=request.session_id,
             fingerprint=fingerprint,
         )
+        logger.info(
+            'assessment.request.registered request_id=%s session_id=%s job_id=%s created_new=%s mode=%s items=%s',
+            request.request_id,
+            request.session_id,
+            job.job_id,
+            created_new,
+            request.mode.value,
+            len(request.items),
+        )
         return SubmissionResult(job=job, created_new=created_new)
 
     def process_sync(self, job_id: str, request) -> AssessmentReport:
         job = self.job_store.get(job_id)
         if job.status == JobStatus.READY and job.report is not None:
+            logger.info(
+                'assessment.request.cached job_id=%s request_id=%s status=%s',
+                job_id,
+                job.request_id,
+                job.status.value,
+            )
             return job.report
         return self._execute(job_id, request)
 
@@ -86,19 +105,52 @@ class AssessmentService:
     def _execute(self, job_id: str, request) -> AssessmentReport:
         started = perf_counter()
         self.job_store.mark_processing(job_id)
+        logger.info(
+            'assessment.execution.started job_id=%s request_id=%s specialization=%s grade=%s items=%s',
+            job_id,
+            request.request_id,
+            request.scenario.specialization.value,
+            request.scenario.grade.value,
+            len(request.items),
+        )
         try:
             report = self.pipeline.analyze(request)
         except AnalysisError as exc:
+            duration_ms = _duration_ms(started)
             self.job_store.mark_error(job_id, exc.code, exc.message)
-            self.metrics.record_failure(_duration_ms(started))
+            self.metrics.record_failure(duration_ms)
+            logger.warning(
+                'assessment.execution.failed job_id=%s request_id=%s code=%s message=%s duration_ms=%s',
+                job_id,
+                request.request_id,
+                exc.code,
+                exc.message,
+                duration_ms,
+            )
             raise
         except Exception as exc:
+            duration_ms = _duration_ms(started)
             self.job_store.mark_error(job_id, "INTERNAL_ERROR", str(exc))
-            self.metrics.record_failure(_duration_ms(started))
+            self.metrics.record_failure(duration_ms)
+            logger.exception(
+                'assessment.execution.crashed job_id=%s request_id=%s duration_ms=%s',
+                job_id,
+                request.request_id,
+                duration_ms,
+            )
             raise IntegrationError("Внутренняя ошибка при формировании отчёта.") from exc
 
+        duration_ms = _duration_ms(started)
         self.job_store.mark_ready(job_id, report)
-        self.metrics.record_success(_duration_ms(started))
+        self.metrics.record_success(duration_ms)
+        logger.info(
+            'assessment.execution.ready job_id=%s request_id=%s overall_score=%s questions=%s duration_ms=%s',
+            job_id,
+            request.request_id,
+            report.overall_score,
+            len(report.questions),
+            duration_ms,
+        )
         return report
 
     def _validate_request(self, request) -> None:

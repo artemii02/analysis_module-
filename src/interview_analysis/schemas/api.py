@@ -2,12 +2,25 @@ from __future__ import annotations
 
 from typing import Any, Literal
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, model_validator
 
+from interview_analysis.core.serialization import camel_to_snake, snake_to_camel
 from interview_analysis.models import AssessmentRequest, ExecutionMode, Grade, ScenarioContext, SessionItem, Specialization
 
 
-class ScenarioPayload(BaseModel):
+class CamelCaseCompatibleModel(BaseModel):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        alias_generator=snake_to_camel,
+    )
+
+    @model_validator(mode="before")
+    @classmethod
+    def normalize_camel_case_keys(cls, value: Any) -> Any:
+        return _normalize_keys(value)
+
+
+class ScenarioPayload(CamelCaseCompatibleModel):
     scenario_id: str | None = None
     specialization: Literal["backend", "frontend", "devops"]
     grade: Literal["junior", "middle"]
@@ -15,7 +28,7 @@ class ScenarioPayload(BaseModel):
     report_language: Literal["ru", "en"] = "ru"
 
 
-class SessionItemPayload(BaseModel):
+class SessionItemPayload(CamelCaseCompatibleModel):
     item_id: str = Field(min_length=1)
     question_id: str = Field(min_length=1)
     question_text: str = Field(min_length=1)
@@ -24,7 +37,7 @@ class SessionItemPayload(BaseModel):
     tags: list[str] = Field(default_factory=list)
 
 
-class AssessmentRequestPayload(BaseModel):
+class AssessmentRequestPayload(CamelCaseCompatibleModel):
     request_id: str = Field(min_length=1)
     session_id: str = Field(min_length=1)
     client_id: str = Field(min_length=1)
@@ -61,7 +74,7 @@ class AssessmentRequestPayload(BaseModel):
         )
 
 
-class RetrievedKnowledgeChunkPayload(BaseModel):
+class RetrievedKnowledgeChunkPayload(CamelCaseCompatibleModel):
     chunk_id: str
     source_title: str
     source_url: str
@@ -69,7 +82,7 @@ class RetrievedKnowledgeChunkPayload(BaseModel):
     score: float
 
 
-class QuestionFeedbackPayload(BaseModel):
+class QuestionFeedbackPayload(CamelCaseCompatibleModel):
     item_id: str
     question_id: str
     question_text: str
@@ -86,15 +99,19 @@ class QuestionFeedbackPayload(BaseModel):
     context_snippets: list[RetrievedKnowledgeChunkPayload]
 
 
-class TopicSummaryPayload(BaseModel):
+class TopicSummaryPayload(CamelCaseCompatibleModel):
     topic: str
     average_score: int
     strengths: list[str]
     gaps: list[str]
 
 
-class VersionInfoPayload(BaseModel):
-    model_config = ConfigDict(protected_namespaces=())
+class VersionInfoPayload(CamelCaseCompatibleModel):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        alias_generator=snake_to_camel,
+        protected_namespaces=(),
+    )
 
     model_version: str
     rubric_version: str
@@ -103,7 +120,7 @@ class VersionInfoPayload(BaseModel):
     prompt_version: str
 
 
-class AssessmentReportPayload(BaseModel):
+class AssessmentReportPayload(CamelCaseCompatibleModel):
     request_id: str
     session_id: str
     client_id: str
@@ -119,7 +136,7 @@ class AssessmentReportPayload(BaseModel):
     generated_at: str
 
 
-class JobPayload(BaseModel):
+class JobPayload(CamelCaseCompatibleModel):
     status: Literal["created", "processing", "ready", "error"]
     job_id: str
     request_id: str
@@ -130,13 +147,13 @@ class JobPayload(BaseModel):
     error_message: str | None = None
 
 
-class ReportResponsePayload(BaseModel):
+class ReportResponsePayload(CamelCaseCompatibleModel):
     status: Literal["ready"]
     job: JobPayload
     report: AssessmentReportPayload
 
 
-class QuestionBankItemPayload(BaseModel):
+class QuestionBankItemPayload(CamelCaseCompatibleModel):
     question_id: str
     specialization: str
     grade: str
@@ -147,7 +164,7 @@ class QuestionBankItemPayload(BaseModel):
     version: str
 
 
-class QuestionBankResponsePayload(BaseModel):
+class QuestionBankResponsePayload(CamelCaseCompatibleModel):
     status: Literal["ok"] = "ok"
     specialization: str
     grade: str
@@ -155,10 +172,25 @@ class QuestionBankResponsePayload(BaseModel):
     items: list[QuestionBankItemPayload]
 
 
-class HealthResponsePayload(BaseModel):
+class HealthResponsePayload(CamelCaseCompatibleModel):
     status: Literal["ok"]
     service: str
     llm_mode: str
     llm_model: str
     api_prefix: str
     job_store: dict[str, str]
+
+
+def _normalize_keys(value: Any) -> Any:
+    if isinstance(value, dict):
+        return {
+            _camel_to_snake(key): _normalize_keys(item)
+            for key, item in value.items()
+        }
+    if isinstance(value, list):
+        return [_normalize_keys(item) for item in value]
+    return value
+
+
+def _camel_to_snake(value: str) -> str:
+    return camel_to_snake(value)

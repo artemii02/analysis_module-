@@ -15,6 +15,7 @@ class Settings:
     app_name: str
     api_prefix: str
     api_key: str
+    log_level: str
     llm_mode: str
     job_store_backend: str
     database_url: str
@@ -47,6 +48,7 @@ def get_settings() -> Settings:
         app_name="Interview Coach Analysis Module",
         api_prefix="/assessment/v1",
         api_key=os.getenv("ANALYSIS_API_KEY", "demo-api-key"),
+        log_level=os.getenv("ANALYSIS_LOG_LEVEL", "INFO").strip().upper(),
         llm_mode=os.getenv("ANALYSIS_LLM_MODE", "mock").strip().lower(),
         job_store_backend=os.getenv("ANALYSIS_JOB_STORE_BACKEND", "memory").strip().lower(),
         database_url=os.getenv(

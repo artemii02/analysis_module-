@@ -36,6 +36,35 @@ def to_canonical_json(value: Any) -> str:
 
 
 
+def to_camel_case_keys(value: Any) -> Any:
+    if isinstance(value, dict):
+        return {
+            snake_to_camel(str(key)): to_camel_case_keys(item)
+            for key, item in value.items()
+        }
+    if isinstance(value, list):
+        return [to_camel_case_keys(item) for item in value]
+    return value
+
+
+def camel_to_snake(value: str) -> str:
+    if "_" in value:
+        return value
+    result: list[str] = []
+    for index, char in enumerate(value):
+        if char.isupper() and index > 0:
+            result.append("_")
+        result.append(char.lower())
+    return "".join(result)
+
+
+def snake_to_camel(value: str) -> str:
+    if "_" not in value:
+        return value
+    head, *tail = value.split("_")
+    return head + "".join(part.capitalize() for part in tail)
+
+
 def utcnow_iso() -> str:
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
 

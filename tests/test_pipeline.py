@@ -23,6 +23,7 @@ def build_service() -> AssessmentService:
         app_name='Test Analysis Module',
         api_prefix='/assessment/v1',
         api_key='demo-api-key',
+        log_level='INFO',
         llm_mode='mock',
         job_store_backend='memory',
         database_url='postgresql://analysis:analysis@localhost:5432/analysis_module',

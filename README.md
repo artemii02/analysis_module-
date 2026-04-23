@@ -121,7 +121,7 @@ pip install -e ".[dev,hf_runtime]"
 ```
 
 По умолчанию `start.bat` поднимает два сервиса: `analysis-module` и `postgres`. Контейнер `analysis-module` загружает базовую модель `Qwen/Qwen2.5-3B-Instruct` из Hugging Face и подключает адаптер `training/artifacts/qwen2.5-3b-interview-full-ru-qlora-v1`.
-В Docker по умолчанию включён `ANALYSIS_WARMUP_LLM_ON_START=true`, поэтому контейнер прогревает HF-модель на старте и становится готовым уже после инициализации runtime.
+В Docker по умолчанию `ANALYSIS_WARMUP_LLM_ON_START=false`, поэтому сервис поднимается сразу, а загрузка HF-модели выполняется при первом реальном запросе на анализ. Это заметно надёжнее для первого старта на новом сервере.
 
 Для запуска той же сборки на NVIDIA GPU через Docker Compose используй:
 
@@ -279,7 +279,7 @@ $env:ANALYSIS_HF_MAX_NEW_TOKENS="220"
 $env:ANALYSIS_HF_BATCH_SIZE="3"
 $env:ANALYSIS_HF_RETRY_MAX_NEW_TOKENS="320"
 $env:ANALYSIS_HF_REPAIR_MAX_NEW_TOKENS="220"
-$env:ANALYSIS_WARMUP_LLM_ON_START="true"
+$env:ANALYSIS_WARMUP_LLM_ON_START="false"
 $env:ANALYSIS_MAX_SESSION_ITEMS="20"
 $env:ANALYSIS_MAX_ANSWER_LENGTH="4000"
 $env:TORCH_PACKAGE="torch==2.7.1"

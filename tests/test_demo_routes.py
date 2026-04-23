@@ -51,7 +51,9 @@ def test_question_bank_endpoint_returns_backend_junior_questions() -> None:
     assert payload['grade'] == 'junior'
     assert payload['count'] == 10
     assert len(payload['items']) == 10
-    assert payload['items'][0]['topic_label']
+    assert payload['items'][0]['topicLabel']
+    assert 'questionId' in payload['items'][0]
+    assert 'question_id' not in payload['items'][0]
 
 
 def test_health_endpoint_exposes_llm_runtime() -> None:
@@ -61,5 +63,48 @@ def test_health_endpoint_exposes_llm_runtime() -> None:
     payload = response.json()
     assert response.status_code == 200
     assert payload['status'] == 'ok'
-    assert 'llm_mode' in payload
-    assert 'llm_model' in payload
+    assert 'llmMode' in payload
+    assert 'llmModel' in payload
+    assert 'jobStore' in payload
+
+
+def test_report_endpoint_accepts_camel_case_payload() -> None:
+    client = TestClient(app)
+    response = client.post(
+        '/assessment/v1/report',
+        headers=API_HEADERS,
+        json={
+            'requestId': 'req-camel-001',
+            'sessionId': 'session-camel-001',
+            'clientId': 'main-backend',
+            'mode': 'sync',
+            'scenario': {
+                'scenarioId': 'backend_junior_session',
+                'specialization': 'backend',
+                'grade': 'junior',
+                'topics': ['http_rest'],
+                'reportLanguage': 'ru',
+            },
+            'items': [
+                {
+                    'itemId': 'item-1',
+                    'questionId': 'be_junior_http_rest_003',
+                    'questionText': 'В чём разница между PUT и PATCH?',
+                    'answerText': 'хз',
+                    'askedAt': '2026-04-23T22:02:46.739301Z',
+                    'tags': [],
+                }
+            ],
+            'metadata': {'source': 'main-backend'},
+        },
+    )
+
+    payload = response.json()
+    assert response.status_code == 200
+    assert payload['status'] == 'ready'
+    assert payload['job']['requestId'] == 'req-camel-001'
+    assert payload['report']['requestId'] == 'req-camel-001'
+    assert payload['report']['questions'][0]['questionId'] == 'be_junior_http_rest_003'
+    assert 'overallScore' in payload['report']
+    assert 'criterionScores' in payload['report']
+    assert 'request_id' not in payload['report']
