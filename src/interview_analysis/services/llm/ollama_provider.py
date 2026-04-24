@@ -1,6 +1,7 @@
 ﻿from __future__ import annotations
 
 import json
+import logging
 from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
@@ -9,6 +10,9 @@ from interview_analysis.core.topic_catalog import topic_label
 from interview_analysis.exceptions import IntegrationError
 from interview_analysis.models import QuestionAnalysisContext, QuestionAssessment, RubricCriterion
 from interview_analysis.services.grounded_assessment import build_grounded_assessment, should_skip_llm
+
+
+logger = logging.getLogger(__name__)
 
 
 class OllamaLLMProvider:
@@ -20,12 +24,20 @@ class OllamaLLMProvider:
     batch_min_tokens = 700
     batch_tokens_per_item = 200
 
-    def __init__(self, url: str, model: str, prompt_path: Path, timeout_seconds: int) -> None:
+    def __init__(
+        self,
+        url: str,
+        model: str,
+        prompt_path: Path,
+        timeout_seconds: int,
+        fallback_to_grounded: bool = True,
+    ) -> None:
         self.url = url
         self.model = model
         self.model_version = model
         self.prompt_template = prompt_path.read_text(encoding="utf-8")
         self.timeout_seconds = timeout_seconds
+        self.fallback_to_grounded = fallback_to_grounded
 
     def assess(self, context: QuestionAnalysisContext) -> QuestionAssessment:
         prompt = _render_prompt(
@@ -58,12 +70,22 @@ class OllamaLLMProvider:
         grounded = build_grounded_assessment(context)
         if should_skip_llm(context):
             return grounded
-
-        schema = _single_assessment_schema()
-        content = self._generate_single(prompt, schema)
-        parsed = self._parse_or_repair(content, schema)
-        assessment = _build_assessment(parsed, context)
-        return assessment
+        try:
+            schema = _single_assessment_schema()
+            content = self._generate_single(prompt, schema)
+            parsed = self._parse_or_repair(content, schema)
+            assessment = _build_assessment(parsed, context)
+            return assessment
+        except IntegrationError as exc:
+            if not self._should_fallback(exc):
+                raise
+            logger.warning(
+                'ollama.assess.fallback_grounded item_id=%s question_id=%s code=%s',
+                context.session_item.item_id,
+                context.session_item.question_id,
+                exc.code,
+            )
+            return grounded
 
     def assess_batch(self, contexts: list[QuestionAnalysisContext]) -> list[QuestionAssessment]:
         if not contexts:
@@ -157,6 +179,16 @@ class OllamaLLMProvider:
             raise IntegrationError("Модель превысила время ожидания ответа.", code="MODEL_TIMEOUT") from exc
 
         return str(raw_payload.get("response", ""))
+
+    def _should_fallback(self, exc: IntegrationError) -> bool:
+        if not self.fallback_to_grounded:
+            return False
+        return exc.code in {
+            "INVALID_MODEL_OUTPUT",
+            "MODEL_TIMEOUT",
+            "MODEL_UNAVAILABLE",
+            "MODEL_HTTP_ERROR",
+        }
 
 
 def _batch_max_tokens(provider: OllamaLLMProvider, item_count: int) -> int:

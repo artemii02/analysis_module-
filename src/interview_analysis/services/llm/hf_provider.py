@@ -1,6 +1,7 @@
 ﻿from __future__ import annotations
 
 import json
+import logging
 from pathlib import Path
 from typing import Any
 
@@ -17,6 +18,9 @@ from interview_analysis.services.llm.ollama_provider import (
 )
 
 
+logger = logging.getLogger(__name__)
+
+
 SFT_SYSTEM_PROMPT = """
 Ты оцениваешь технический ответ кандидата на русском языке.
 Верни только валидный JSON без markdown, комментариев и текста вне JSON.
@@ -24,7 +28,7 @@ SFT_SYSTEM_PROMPT = """
 Поле оценок должно называться строго criterion_scores, не criteria_scores.
 criterion_scores должен содержать ключи correctness, completeness, clarity, practicality, terminology со значениями 0..100.
 Все текстовые поля должны быть на русском языке.
-Пиши очень компактно: summary в 1 коротком предложении, каждый список до 2 пунктов.
+Пиши очень компактно: summary в 1 коротком предложении до 12 слов, каждый список строго до 1 пункта.
 """.strip()
 
 
@@ -41,6 +45,8 @@ class HFLLMProvider(BaseLLMProvider):
         batch_size: int = 3,
         retry_max_new_tokens: int = 320,
         repair_max_new_tokens: int = 220,
+        fallback_to_grounded: bool = True,
+        disable_on_cpu: bool = False,
     ) -> None:
         self.base_model = base_model
         self.adapter_path = Path(adapter_path) if adapter_path else None
@@ -50,6 +56,8 @@ class HFLLMProvider(BaseLLMProvider):
         self.batch_size = max(1, batch_size)
         self.retry_max_new_tokens = max(max_new_tokens, retry_max_new_tokens)
         self.repair_max_new_tokens = repair_max_new_tokens
+        self.fallback_to_grounded = fallback_to_grounded
+        self.disable_on_cpu = disable_on_cpu
         self.model_version = self._build_model_version()
         self._tokenizer = None
         self._model = None
@@ -59,15 +67,39 @@ class HFLLMProvider(BaseLLMProvider):
         grounded = build_grounded_assessment(context)
         if should_skip_llm(context):
             return grounded
+        if self._should_bypass_llm():
+            logger.info(
+                'hf.assess.bypassed reason=cpu_only item_id=%s question_id=%s',
+                context.session_item.item_id,
+                context.session_item.question_id,
+            )
+            return grounded
 
-        schema = _single_assessment_schema()
-        prompt = self._build_chat_prompt(context)
-        parsed = self._generate_and_parse(prompt, schema)
-        return _build_assessment(_normalize_payload(parsed), context)
+        try:
+            schema = _single_assessment_schema()
+            prompt = self._build_chat_prompt(context)
+            parsed = self._generate_and_parse(prompt, schema)
+            return _build_assessment(_normalize_payload(parsed), context)
+        except IntegrationError as exc:
+            if not self._should_fallback(exc):
+                raise
+            logger.warning(
+                'hf.assess.fallback_grounded item_id=%s question_id=%s code=%s',
+                context.session_item.item_id,
+                context.session_item.question_id,
+                exc.code,
+            )
+            return grounded
 
     def assess_batch(self, contexts: list[QuestionAnalysisContext]) -> list[QuestionAssessment]:
         if not contexts:
             return []
+        if self._should_bypass_llm():
+            logger.info(
+                'hf.assess_batch.bypassed reason=cpu_only items=%s',
+                len(contexts),
+            )
+            return [build_grounded_assessment(context) for context in contexts]
 
         assessments: list[QuestionAssessment | None] = [None] * len(contexts)
         llm_contexts: list[tuple[int, QuestionAnalysisContext]] = []
@@ -96,6 +128,16 @@ class HFLLMProvider(BaseLLMProvider):
         except IntegrationError as exc:
             if exc.code != "INVALID_MODEL_OUTPUT":
                 raise
+            logger.warning('hf.generate.invalid_json_first_pass')
+
+        repair_prompt = self._build_repair_chat_prompt(content, schema)
+        repaired = self._generate(repair_prompt, self.repair_max_new_tokens)
+        try:
+            return _parse_llm_json(repaired)
+        except IntegrationError as exc:
+            if exc.code != "INVALID_MODEL_OUTPUT":
+                raise
+            logger.warning('hf.generate.invalid_json_repair_pass')
 
         content = self._generate(prompt, self.retry_max_new_tokens)
         try:
@@ -103,10 +145,8 @@ class HFLLMProvider(BaseLLMProvider):
         except IntegrationError as exc:
             if exc.code != "INVALID_MODEL_OUTPUT":
                 raise
-
-        repair_prompt = self._build_repair_chat_prompt(content, schema)
-        repaired = self._generate(repair_prompt, self.repair_max_new_tokens)
-        return _parse_llm_json(repaired)
+            logger.warning('hf.generate.invalid_json_retry_pass')
+            raise
 
     def _assess_chunk(
         self,
@@ -165,11 +205,11 @@ class HFLLMProvider(BaseLLMProvider):
                 criterion.name: criterion.weight
                 for criterion in context.rubric.criteria
             },
-            "expected_keypoints": context.rubric.keypoints[:4],
-            "recommendation_hints": context.rubric.recommendation_hints[:2],
+            "expected_keypoints": context.rubric.keypoints[:3],
+            "recommendation_hints": context.rubric.recommendation_hints[:1],
             "mistake_hints": [
                 pattern.message
-                for pattern in context.rubric.mistake_patterns[:2]
+                for pattern in context.rubric.mistake_patterns[:1]
             ],
             "context_snippets": [snippet.excerpt for snippet in context.retrieved_chunks[:1]],
             "required_json_keys": [
@@ -360,7 +400,8 @@ class HFLLMProvider(BaseLLMProvider):
     def _resolve_runtime_device(self, torch) -> str:
         if self.device != "auto":
             return self.device
-        if torch.cuda.is_available():
+        cuda = getattr(torch, "cuda", None)
+        if cuda is not None and callable(getattr(cuda, "is_available", None)) and cuda.is_available():
             return "cuda:0"
         return "cpu"
 
@@ -369,6 +410,29 @@ class HFLLMProvider(BaseLLMProvider):
             return next(model.parameters()).device
         except StopIteration:
             return "cpu"
+
+    def _should_bypass_llm(self) -> bool:
+        if not self.disable_on_cpu:
+            return False
+        try:
+            import torch
+        except ImportError:
+            return False
+        try:
+            return self._resolve_runtime_device(torch).startswith("cpu")
+        except AttributeError:
+            return False
+
+    def _should_fallback(self, exc: IntegrationError) -> bool:
+        if not self.fallback_to_grounded:
+            return False
+        return exc.code in {
+            "INVALID_MODEL_OUTPUT",
+            "MODEL_TIMEOUT",
+            "MODEL_RUNTIME_ERROR",
+            "MODEL_OUT_OF_MEMORY",
+            "MODEL_LOAD_FAILED",
+        }
 
 
 def _normalize_payload(parsed: dict[str, Any]) -> dict[str, Any]:

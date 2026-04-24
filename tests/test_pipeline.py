@@ -37,6 +37,8 @@ def build_service() -> AssessmentService:
         hf_batch_size=3,
         hf_retry_max_new_tokens=320,
         hf_repair_max_new_tokens=220,
+        llm_fallback_to_grounded=True,
+        disable_llm_on_cpu=True,
         warmup_llm_on_start=False,
         request_timeout_seconds=30,
         knowledge_limit=3,

@@ -13,6 +13,7 @@ from interview_analysis.models import (
     SessionItem,
     Specialization,
 )
+from interview_analysis.services.grounded_assessment import build_grounded_assessment
 from interview_analysis.services.llm.hf_provider import HFLLMProvider
 
 
@@ -104,6 +105,50 @@ def test_assess_batch_splits_when_batch_generation_fails() -> None:
         'prompt::item-1 split',
         'prompt::item-2 split',
     ]
+
+
+def test_assess_falls_back_to_grounded_on_invalid_output() -> None:
+    provider = HFLLMProvider(
+        base_model='Qwen/Qwen2.5-3B-Instruct',
+        adapter_path=None,
+        batch_size=1,
+        load_in_4bit=False,
+        fallback_to_grounded=True,
+        disable_on_cpu=False,
+    )
+    context = _build_context('item-1')
+    expected = build_grounded_assessment(context)
+
+    provider._build_chat_prompt = lambda context: f"prompt::{context.session_item.item_id}"
+    provider._build_repair_chat_prompt = lambda raw_content, schema: 'repair'
+    provider._generate = lambda prompt, max_new_tokens: '{"criterion_scores": {"correctness": 80}'
+
+    assessment = provider.assess(context)
+
+    assert assessment.summary == expected.summary
+    assert assessment.score == expected.score
+
+
+def test_assess_batch_bypasses_llm_on_cpu_when_enabled() -> None:
+    provider = HFLLMProvider(
+        base_model='Qwen/Qwen2.5-3B-Instruct',
+        adapter_path=None,
+        batch_size=2,
+        load_in_4bit=False,
+        fallback_to_grounded=True,
+        disable_on_cpu=True,
+        device='cpu',
+    )
+    contexts = [_build_context('item-1'), _build_context('item-2')]
+
+    def fail_generate_batch(prompts: list[str], max_new_tokens: int) -> list[str]:
+        raise AssertionError('LLM batch generation should be bypassed on CPU')
+
+    provider._generate_batch = fail_generate_batch
+    assessments = provider.assess_batch(contexts)
+
+    assert len(assessments) == 2
+    assert all(item.summary for item in assessments)
 
 
 def _build_context(item_id: str, answer_text: str | None = None) -> QuestionAnalysisContext:

@@ -15,6 +15,7 @@ from interview_analysis.models import (
     SessionItem,
     Specialization,
 )
+from interview_analysis.services.grounded_assessment import build_grounded_assessment
 from interview_analysis.services.llm.ollama_provider import OllamaLLMProvider, _render_prompt, _weighted_score
 
 
@@ -223,3 +224,21 @@ def _single_result(summary: str) -> str:
         },
         ensure_ascii=False,
     )
+
+
+def test_assess_falls_back_to_grounded_on_invalid_output() -> None:
+    provider = OllamaLLMProvider(
+        url='http://localhost:11434/api/generate',
+        model='qwen2.5:3b',
+        prompt_path=PROMPT_PATH,
+        timeout_seconds=1,
+        fallback_to_grounded=True,
+    )
+    context = _build_context('item-1')
+    expected = build_grounded_assessment(context)
+
+    provider._generate = lambda prompt, max_tokens, response_format='json': '{"criterion_scores": {"correctness": 80}'
+    assessment = provider.assess(context)
+
+    assert assessment.summary == expected.summary
+    assert assessment.score == expected.score

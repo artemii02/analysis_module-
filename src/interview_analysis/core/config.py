@@ -29,6 +29,8 @@ class Settings:
     hf_batch_size: int
     hf_retry_max_new_tokens: int
     hf_repair_max_new_tokens: int
+    llm_fallback_to_grounded: bool
+    disable_llm_on_cpu: bool
     warmup_llm_on_start: bool
     request_timeout_seconds: int
     knowledge_limit: int
@@ -65,6 +67,8 @@ def get_settings() -> Settings:
         hf_batch_size=int(os.getenv("ANALYSIS_HF_BATCH_SIZE", "3")),
         hf_retry_max_new_tokens=int(os.getenv("ANALYSIS_HF_RETRY_MAX_NEW_TOKENS", "320")),
         hf_repair_max_new_tokens=int(os.getenv("ANALYSIS_HF_REPAIR_MAX_NEW_TOKENS", "220")),
+        llm_fallback_to_grounded=_env_bool("ANALYSIS_LLM_FALLBACK_TO_GROUNDED", False),
+        disable_llm_on_cpu=_env_bool("ANALYSIS_DISABLE_LLM_ON_CPU", False),
         warmup_llm_on_start=_env_bool("ANALYSIS_WARMUP_LLM_ON_START", False),
         request_timeout_seconds=int(os.getenv("ANALYSIS_REQUEST_TIMEOUT_SECONDS", "300")),
         knowledge_limit=int(os.getenv("ANALYSIS_KNOWLEDGE_LIMIT", "1")),

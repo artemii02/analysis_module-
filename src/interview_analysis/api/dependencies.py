@@ -39,6 +39,7 @@ def _build_llm_provider(settings: Settings):
             model=settings.ollama_model,
             prompt_path=settings.prompt_path,
             timeout_seconds=settings.request_timeout_seconds,
+            fallback_to_grounded=settings.llm_fallback_to_grounded,
         )
     if settings.llm_mode == "hf":
         from interview_analysis.services.llm.hf_provider import HFLLMProvider
@@ -52,6 +53,8 @@ def _build_llm_provider(settings: Settings):
             batch_size=settings.hf_batch_size,
             retry_max_new_tokens=settings.hf_retry_max_new_tokens,
             repair_max_new_tokens=settings.hf_repair_max_new_tokens,
+            fallback_to_grounded=settings.llm_fallback_to_grounded,
+            disable_on_cpu=settings.disable_llm_on_cpu,
         )
     return MockLLMProvider()
 
